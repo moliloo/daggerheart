@@ -1,0 +1,98 @@
+.char-sheet-header {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: -37px;
+  background-image: url(../../assets/images/background/dark-header.svg);
+  align-items: center;
+}
+.char-sheet-header input[type=text] {
+  font-size: 32px;
+  height: 36px;
+  width: 320px;
+  text-align: center;
+}
+.char-sheet-header .profile {
+  width: 450px;
+  height: 300px;
+  object-fit: cover;
+}
+.char-sheet-header .stats-section {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  top: -20px;
+}
+.char-sheet-header .stats-section .stat-bar {
+  position: relative;
+  width: 100px;
+  height: 40px;
+}
+.char-sheet-header .stats-section .stat-bar .labels {
+  position: absolute;
+  display: flex;
+  padding: 0 6px;
+  font-size: 2rem;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+}
+.char-sheet-header .stats-section .stat-bar .labels input {
+  background: transparent;
+  font-size: 2rem;
+  width: 3rem;
+  text-align: center;
+}
+.char-sheet-header .stats-section .stat-bar .progress-bar {
+  appearance: none;
+  width: 100px;
+  height: 40px;
+  border: 1px solid #f3c267;
+  border-radius: 6px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+}
+.char-sheet-header .stats-section .stat-bar .progress-bar::-webkit-progress-bar {
+  border: none;
+  background: #18162e;
+  border-radius: 6px;
+}
+.char-sheet-header .stats-section .stat-bar .progress-bar::-webkit-progress-value {
+  background: linear-gradient(15deg, rgb(70, 20, 10) 0%, rgb(190, 0, 0) 42%, rgb(252, 176, 69) 100%);
+  border-radius: 5px;
+}
+.char-sheet-header .stats-section .stat-bar .progress-bar.stress-color::-webkit-progress-value {
+  background: linear-gradient(15deg, rgb(130, 59, 1) 0%, rgb(252, 142, 69) 65%, rgb(190, 0, 0) 100%);
+  border-radius: 5px;
+}
+.char-sheet-header .stats-section .stat-bar .progress-bar::-moz-progress-value, .char-sheet-header .stats-section .stat-bar .progress-bar::-moz-progress-bar {
+  border-radius: 5px;
+}
+.char-sheet-header .stats-section .stat-bar .progress-bar::-moz-progress-bar {
+  background: linear-gradient(15deg, rgb(70, 20, 10) 0%, rgb(190, 0, 0) 42%, rgb(252, 176, 69) 100%);
+}
+.char-sheet-header .stats-section .stat-bar .progress-bar.stress-color::-moz-progress-bar {
+  background: linear-gradient(15deg, rgb(130, 59, 1) 0%, rgb(252, 142, 69) 65%, rgb(190, 0, 0) 100%);
+  border-radius: 5px;
+}
+
+.application .window-header {
+  background: transparent;
+  border-bottom: none;
+  justify-content: end;
+}
+.application .window-header button.header-control {
+  background: #0e0d15;
+}
+
+.application:not(.minimized) .window-title,
+.application:not(.minimized) .window-icon {
+  display: none;
+}
+
+.application .window-content {
+  overflow: initial;
+  padding: 0;
+}
+
+/*# sourceMappingURL=daggerheart.css.map */

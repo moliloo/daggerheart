@@ -1,0 +1,104 @@
+.char-sheet-header {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -37px;
+    background-image: url(../../assets/images/background/dark-header.svg);
+    align-items: center;
+
+    input[type='text'] {
+        font-size: 32px;
+        height: 36px;
+        width: 320px;
+        text-align: center;
+    }
+
+    .profile {
+        width: 450px;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    .stats-section {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        top: -20px;
+        .stat-bar {
+            position: relative;
+            width: 100px;
+            height: 40px;
+            .labels {
+                position: absolute;
+                display: flex;
+                padding: 0 6px;
+                font-size: 2rem;
+                align-items: center;
+                width: 100px;
+                height: 40px;
+
+                input {
+                    background: transparent;
+                    font-size: 2rem;
+                    width: 3rem;
+                    text-align: center;
+                }
+            }
+            .progress-bar {
+                appearance: none;
+                width: 100px;
+                height: 40px;
+                border: 1px solid #f3c267;
+                border-radius: 6px;
+                box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+
+                &::-webkit-progress-bar {
+                    border: none;
+                    background: #18162e;
+                    border-radius: 6px;
+                }
+                &::-webkit-progress-value {
+                    background: linear-gradient(
+                        15deg,
+                        rgba(70, 20, 10, 1) 0%,
+                        rgba(190, 0, 0, 1) 42%,
+                        rgba(252, 176, 69, 1) 100%
+                    );
+                    border-radius: 5px;
+                }
+                &.stress-color::-webkit-progress-value {
+                    background: linear-gradient(
+                        15deg,
+                        rgba(130, 59, 1, 1) 0%,
+                        rgba(252, 142, 69, 1) 65%,
+                        rgba(190, 0, 0, 1) 100%
+                    );
+                    border-radius: 5px;
+                }
+                &::-moz-progress-value,
+                &::-moz-progress-bar {
+                    border-radius: 5px;
+                }
+
+                &::-moz-progress-bar {
+                    background: linear-gradient(
+                        15deg,
+                        rgba(70, 20, 10, 1) 0%,
+                        rgba(190, 0, 0, 1) 42%,
+                        rgba(252, 176, 69, 1) 100%
+                    );
+                }
+                &.stress-color::-moz-progress-bar {
+                    background: linear-gradient(
+                        15deg,
+                        rgba(130, 59, 1, 1) 0%,
+                        rgba(252, 142, 69, 1) 65%,
+                        rgba(190, 0, 0, 1) 100%
+                    );
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}

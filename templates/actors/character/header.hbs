@@ -1,0 +1,48 @@
+<header class='char-sheet-header'>
+    <img class='profile' src='{{source.img}}' data-action='editImage' data-edit='img' title='{{source.name}}' />
+    <div class='stats-section'>
+        <div class='stat-bar'>
+            <div class='labels'>
+                <input
+                    type='number'
+                    name='system.stats.hp.value'
+                    type='text'
+                    value='{{actor.system.stats.hp.value}}'
+                    max='{{actor.system.stats.hp.max}}'
+                    placeholder='00'
+                />
+                <p>{{actor.system.stats.hp.max}}</p>
+            </div>
+            <progress
+                class='progress-bar'
+                value='{{actor.system.stats.hp.value}}'
+                max='{{actor.system.stats.hp.max}}'
+            ></progress>
+        </div>
+        <div class='stat-bar'>
+            <div class='labels'>
+                <input
+                    type='number'
+                    name='system.stats.stress.value'
+                    type='text'
+                    value='{{actor.system.stats.stress.value}}'
+                    max='{{actor.system.stats.stress.max}}'
+                    placeholder='00'
+                />
+                <p>{{actor.system.stats.stress.max}}</p>
+            </div>
+            <progress
+                class='progress-bar stress-color'
+                value='{{actor.system.stats.stress.value}}'
+                max='{{actor.system.stats.stress.max}}'
+            ></progress>
+        </div>
+    </div>
+    <input
+        type='text'
+        name='name'
+        type='text'
+        value='{{source.name}}'
+        placeholder='Actor Name'
+    />
+</header>

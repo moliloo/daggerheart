@@ -1,0 +1,23 @@
+{
+    "id": "daggerheart",
+    "title": "Daggerheart",
+    "description": "",
+    "version": "0.1.0",
+    "compatibility": {
+        "verified": "12",
+        "minimum": "12"
+    },
+    "authors": [
+        {
+            "name": "molilo"
+        }
+    ],
+    "url": "https://github.com/moliloo/daggerheart",
+    "readme": "README.md",
+    "esmodules": ["modules/daggerheart.mjs"],
+    "styles": ["styles/css/daggerheart.css"],
+
+    "manifest": "",
+    "download": "",
+    "background": ""
+}

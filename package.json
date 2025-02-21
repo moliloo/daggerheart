@@ -1,0 +1,12 @@
+{
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"scss:watch": "sass --watch styles/scss/daggerheart.scss:styles/css/daggerheart.css",
+		"scss:build": "sass styles/scss/daggerheart.scss:styles/css/daggerheart.css"
+	},
+	"devDependencies": {
+		"@foundryvtt/foundryvtt-cli": "^1.0.4",
+		"prettier": "^3.5.1",
+		"scss": "^0.2.4"
+	}
+}
