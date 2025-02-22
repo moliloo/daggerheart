@@ -50,47 +50,61 @@
             </h4>
         </div>
     </div>
-    <h1 class="actor-name"><input type='text' name='name' type='text' value='{{source.name}}' placeholder='Actor Name' /></h1>
-    <div class='hope-section'>
-        <h4>HOPE</h4>
-        <span class='hope' data-action='hope' data-hope-value='1'>
-            {{#le actor.system.hope.value 0}}
-                <i class='fa-regular fa-circle'></i>
-            {{else}}
-                <i class='fa-solid fa-diamond'></i>
-            {{/le}}
-        </span>
-        <span class='hope' data-action='hope' data-hope-value='2'>
-            {{#le actor.system.hope.value 1}}
-                <i class='fa-regular fa-circle'></i>
-            {{else}}
-                <i class='fa-solid fa-diamond'></i>
-            {{/le}}
-        </span>
-        <span class='hope' data-action='hope' data-hope-value='3'>
-            {{#le actor.system.hope.value 2}}
-                <i class='fa-regular fa-circle'></i>
-            {{else}}
-                <i class='fa-solid fa-diamond'></i>
-            {{/le}}
-        </span><span class='hope' data-action='hope' data-hope-value='4'>
-            {{#le actor.system.hope.value 3}}
-                <i class='fa-regular fa-circle'></i>
-            {{else}}
-                <i class='fa-solid fa-diamond'></i>
-            {{/le}}
-        </span><span class='hope' data-action='hope' data-hope-value='5'>
-            {{#le actor.system.hope.value 4}}
-                <i class='fa-regular fa-circle'></i>
-            {{else}}
-                <i class='fa-solid fa-diamond'></i>
-            {{/le}}
-        </span><span class='hope' data-action='hope' data-hope-value='6'>
-            {{#le actor.system.hope.value 5}}
-                <i class='fa-regular fa-circle'></i>
-            {{else}}
-                <i class='fa-solid fa-diamond'></i>
-            {{/le}}
-        </span>
+    <h1 class='actor-name'><input type='text' name='name' value='{{source.name}}' placeholder='Actor Name' /></h1>
+    <div class='row'>
+        <div class='hope-section'>
+            <h4>HOPE</h4>
+            <span class='hope' data-action='hope' data-hope-value='1'>
+                {{#le actor.system.hope.value 0}}
+                    <i class='fa-regular fa-circle'></i>
+                {{else}}
+                    <i class='fa-solid fa-diamond'></i>
+                {{/le}}
+            </span>
+            <span class='hope' data-action='hope' data-hope-value='2'>
+                {{#le actor.system.hope.value 1}}
+                    <i class='fa-regular fa-circle'></i>
+                {{else}}
+                    <i class='fa-solid fa-diamond'></i>
+                {{/le}}
+            </span>
+            <span class='hope' data-action='hope' data-hope-value='3'>
+                {{#le actor.system.hope.value 2}}
+                    <i class='fa-regular fa-circle'></i>
+                {{else}}
+                    <i class='fa-solid fa-diamond'></i>
+                {{/le}}
+            </span><span class='hope' data-action='hope' data-hope-value='4'>
+                {{#le actor.system.hope.value 3}}
+                    <i class='fa-regular fa-circle'></i>
+                {{else}}
+                    <i class='fa-solid fa-diamond'></i>
+                {{/le}}
+            </span><span class='hope' data-action='hope' data-hope-value='5'>
+                {{#le actor.system.hope.value 4}}
+                    <i class='fa-regular fa-circle'></i>
+                {{else}}
+                    <i class='fa-solid fa-diamond'></i>
+                {{/le}}
+            </span><span class='hope' data-action='hope' data-hope-value='6'>
+                {{#le actor.system.hope.value 5}}
+                    <i class='fa-regular fa-circle'></i>
+                {{else}}
+                    <i class='fa-solid fa-diamond'></i>
+                {{/le}}
+            </span>
+        </div>
+        <div class='threshold-section'>
+            <h4>MAJOR</h4>
+            <h4>
+                <input
+                    type='number'
+                    name='system.damageThreshold.value'
+                    value='{{actor.system.damageThreshold.value}}'
+                    placeholder='00'
+                />
+            </h4>
+            <h4>SEVERE</h4>
+        </div>
     </div>
 </header>

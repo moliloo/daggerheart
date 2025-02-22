@@ -1,10 +1,12 @@
+@import '../utils/color.scss';
+
 .application .window-header {
     background: transparent;
     border-bottom: none;
     justify-content: end;
 
     button.header-control {
-        background: #0e0d15;
+        background: $deep-black;
     }
 }
 

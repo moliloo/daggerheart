@@ -1,21 +1,25 @@
+@import '../utils/color.scss';
+
 .application {
-    input[type='text'] {
-        background: rgba(24, 22, 46, 0.33);
+    input[type='text'],
+    input[type='number'] {
+        background: $semi-transparent-dark-blue;
         border-radius: 6px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 30px $soft-shadow;
         backdrop-filter: blur(9.5px);
         -webkit-backdrop-filter: blur(9.5px);
         outline: none;
-        color: #f3c267;
+        color: $golden;
     }
 
-    input:focus[type='text'] {
+    input:focus[type='text'],
+    input:focus[type='number'] {
         box-shadow: none;
-        outline: none;
+        outline: 2px solid $golden;
     }
 
     button {
-        background: #f3c267;
+        background: $golden;
         border: 1px solid #18162e;
         color: #18162e;
     }
@@ -24,8 +28,8 @@
         outline: none;
         box-shadow: none;
         background: #18162e;
-        border: 1px solid #f3c267;
-        color: #f3c267;
+        border: 1px solid $golden;
+        color: $golden;
     }
 
     p {

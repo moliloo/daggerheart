@@ -52,9 +52,7 @@ export default class DaggerheartActorBase extends foundry.abstract.TypeDataModel
         });
 
         schema.damageThreshold = new fields.SchemaField({
-            major: new fields.SchemaField({
-                value: new fields.NumberField({ ...requiredInteger, initial: 0 })
-            })
+            value: new fields.NumberField({ ...requiredInteger, initial: 0 })
         });
 
         schema.currency = new fields.SchemaField({

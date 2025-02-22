@@ -1,3 +1,5 @@
+@import '../../utils/color.scss';
+
 .char-sheet-header {
     display: flex;
     flex-direction: column;
@@ -5,9 +7,9 @@
     top: -37px;
     // background-image: url(../../assets/images/background/dark-header.svg);
     align-items: center;
-    background: #1488cc;
-    background: -webkit-linear-gradient(128deg, #1488cc 0%, #2b32b2 100%);
-    background: linear-gradient(128deg, #1488cc 0%, #2b32b2 100%);
+    background: $primary-blue;
+    background: -webkit-linear-gradient(128deg, $primary-blue 0%, $secondary-blue 100%);
+    background: linear-gradient(128deg, $primary-blue 0%, $secondary-blue 100%);
 
     .actor-name {
         margin-top: -8px;
@@ -28,9 +30,9 @@
     }
 
     .stats-section {
-        position: relative;
         display: flex;
         flex-direction: row;
+        position: relative;
         gap: 40px;
         top: -20px;
         height: 30px;
@@ -39,10 +41,10 @@
         .stat-armor {
             width: 40px;
             height: 40px;
-            border: 1px solid #f3c267;
-            background-color: #18162e;
+            border: 1px solid $golden;
+            background-color: $dark-blue;
             border-radius: 6px;
-            box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 3px 3px $light-black;
             justify-items: center;
             p {
                 font-size: 1.5rem;
@@ -51,9 +53,9 @@
 
             .label {
                 position: relative;
-                background: #f3c267;
+                background: $golden;
                 top: -2px;
-                color: #18162e;
+                color: $dark-blue;
                 padding: 3px 5px;
                 text-align: center;
                 border-radius: 2px;
@@ -89,32 +91,22 @@
                 appearance: none;
                 width: 100px;
                 height: 40px;
-                border: 1px solid #f3c267;
+                border: 1px solid $golden;
                 border-radius: 6px;
-                box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+                box-shadow: 0px 3px 3px $light-black;
                 z-index: 1;
 
                 &::-webkit-progress-bar {
                     border: none;
-                    background: #18162e;
+                    background: $dark-blue;
                     border-radius: 6px;
                 }
                 &::-webkit-progress-value {
-                    background: linear-gradient(
-                        15deg,
-                        rgba(70, 20, 10, 1) 0%,
-                        rgba(190, 0, 0, 1) 42%,
-                        rgba(252, 176, 69, 1) 100%
-                    );
+                    background: $gradient-hp;
                     border-radius: 5px;
                 }
                 &.stress-color::-webkit-progress-value {
-                    background: linear-gradient(
-                        15deg,
-                        rgba(130, 59, 1, 1) 0%,
-                        rgba(252, 142, 69, 1) 65%,
-                        rgba(190, 0, 0, 1) 100%
-                    );
+                    background: $gradient-stress;
                     border-radius: 5px;
                 }
                 &::-moz-progress-value,
@@ -123,20 +115,10 @@
                 }
 
                 &::-moz-progress-bar {
-                    background: linear-gradient(
-                        15deg,
-                        rgba(70, 20, 10, 1) 0%,
-                        rgba(190, 0, 0, 1) 42%,
-                        rgba(252, 176, 69, 1) 100%
-                    );
+                    background: $gradient-hp;
                 }
                 &.stress-color::-moz-progress-bar {
-                    background: linear-gradient(
-                        15deg,
-                        rgba(130, 59, 1, 1) 0%,
-                        rgba(252, 142, 69, 1) 65%,
-                        rgba(190, 0, 0, 1) 100%
-                    );
+                    background: $gradient-stress;
                     border-radius: 5px;
                 }
             }
@@ -180,10 +162,10 @@
         .level-div {
             width: 40px;
             height: 40px;
-            border: 1px solid #f3c267;
-            background-color: #18162e;
+            border: 1px solid $golden;
+            background-color: $dark-blue;
             border-radius: 6px;
-            box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 3px 3px $light-black;
             justify-items: center;
             p {
                 font-size: 1.5rem;
@@ -191,9 +173,9 @@
             }
             .label {
                 position: relative;
-                background: #f3c267;
+                background: $golden;
                 top: -2px;
-                color: #18162e;
+                color: $dark-blue;
                 padding: 3px 5px;
                 text-align: center;
                 border-radius: 2px;
@@ -201,19 +183,41 @@
         }
     }
 
-    .hope-section {
+    .row {
         display: flex;
-        background-color: #18162e;
-        color: #f3c267;
-        gap: 10px;
-        padding: 5px 10px;
-        border: 1px solid #f3c267;
-        border-radius: 6px;
-        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
-        margin-top: 8px;
-        align-items: center;
-        .hope {
-            cursor: pointer;
+        gap: 20px;
+        margin: 8px 0;
+        .hope-section {
+            display: flex;
+            background-color: $dark-blue;
+            color: $golden;
+            gap: 10px;
+            padding: 5px 10px;
+            border: 1px solid $golden;
+            border-radius: 6px;
+            box-shadow: 0px 3px 3px $light-black;
+            align-items: center;
+            .hope {
+                cursor: pointer;
+            }
+        }
+
+        .threshold-section {
+            display: flex;
+            background-color: $dark-blue;
+            color: $golden;
+            gap: 10px;
+            padding: 5px 10px;
+            border: 1px solid $golden;
+            border-radius: 6px;
+            box-shadow: 0px 3px 3px $light-black;
+            align-items: center;
+
+            input[type='number'] {
+                height: 18px;
+                width: 36px;
+                text-align: center;
+            }
         }
     }
 }
