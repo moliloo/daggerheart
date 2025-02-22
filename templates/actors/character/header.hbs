@@ -1,48 +1,98 @@
 <header class='char-sheet-header'>
     <img class='profile' src='{{source.img}}' data-action='editImage' data-edit='img' title='{{source.name}}' />
+    <div class='level-section'>
+        <div class='level-div'>
+            <p>{{actor.system.level}}</p>
+            <div class='label'>
+                LEVEL
+            </div>
+        </div>
+    </div>
     <div class='stats-section'>
+        <div class='stat-evasion'>
+            <p>{{actor.system.stats.evasion.value}}</p>
+            <div class='label'>
+                EVASION
+            </div>
+        </div>
         <div class='stat-bar'>
-            <div class='labels'>
-                <input
-                    type='number'
-                    name='system.stats.hp.value'
-                    type='text'
-                    value='{{actor.system.stats.hp.value}}'
-                    max='{{actor.system.stats.hp.max}}'
-                    placeholder='00'
-                />
-                <p>{{actor.system.stats.hp.max}}</p>
+            <div class='labels' data-tooltip='Health'>
+                <p>{{actor.system.stats.hp.value}}/{{actor.system.stats.hp.max}}</p>
             </div>
             <progress
                 class='progress-bar'
                 value='{{actor.system.stats.hp.value}}'
                 max='{{actor.system.stats.hp.max}}'
             ></progress>
+            <div class='controls'>
+                <button data-action='HpIncrease'><i class='fa-solid fa-plus'></i></button>
+                <button data-action='HpDecrease'><i class='fa-solid fa-minus'></i></button>
+            </div>
         </div>
         <div class='stat-bar'>
-            <div class='labels'>
-                <input
-                    type='number'
-                    name='system.stats.stress.value'
-                    type='text'
-                    value='{{actor.system.stats.stress.value}}'
-                    max='{{actor.system.stats.stress.max}}'
-                    placeholder='00'
-                />
-                <p>{{actor.system.stats.stress.max}}</p>
+            <div class='labels' data-tooltip='Stress'>
+                <p>{{actor.system.stats.stress.value}}/{{actor.system.stats.stress.max}}</p>
             </div>
             <progress
                 class='progress-bar stress-color'
                 value='{{actor.system.stats.stress.value}}'
                 max='{{actor.system.stats.stress.max}}'
             ></progress>
+            <div class='controls'>
+                <button data-action='StressIncrease'><i class='fa-solid fa-plus'></i></button>
+                <button data-action='StressDecrease'><i class='fa-solid fa-minus'></i></button>
+            </div>
+        </div>
+        <div class='stat-armor'>
+            <p>{{actor.system.stats.armor.value}}</p>
+            <div class='label'>
+                ARMOR
+            </div>
         </div>
     </div>
-    <input
-        type='text'
-        name='name'
-        type='text'
-        value='{{source.name}}'
-        placeholder='Actor Name'
-    />
+    <input type='text' name='name' type='text' value='{{source.name}}' placeholder='Actor Name' />
+    <div class='hope-secion'>
+        <h4>Hope</h4>
+        <div class='star-rating'>
+            <span class='star' data-action='hope' data-hope-value='1'>
+                {{#le actor.system.hope.value 0}}
+                    <i class='fa-regular fa-circle'></i>
+                {{else}}
+                    <i class='fa-solid fa-diamond'></i>
+                {{/le}}
+            </span>
+            <span class='star' data-action='hope' data-hope-value='2'>
+                {{#le actor.system.hope.value 1}}
+                    <i class='fa-regular fa-circle'></i>
+                {{else}}
+                    <i class='fa-solid fa-diamond'></i>
+                {{/le}}
+            </span>
+            <span class='star' data-action='hope' data-hope-value='3'>
+                {{#le actor.system.hope.value 2}}
+                    <i class='fa-regular fa-circle'></i>
+                {{else}}
+                    <i class='fa-solid fa-diamond'></i>
+                {{/le}}
+            </span><span class='star' data-action='hope' data-hope-value='4'>
+                {{#le actor.system.hope.value 3}}
+                    <i class='fa-regular fa-circle'></i>
+                {{else}}
+                    <i class='fa-solid fa-diamond'></i>
+                {{/le}}
+            </span><span class='star' data-action='hope' data-hope-value='5'>
+                {{#le actor.system.hope.value 4}}
+                    <i class='fa-regular fa-circle'></i>
+                {{else}}
+                    <i class='fa-solid fa-diamond'></i>
+                {{/le}}
+            </span><span class='star' data-action='hope' data-hope-value='6'>
+                {{#le actor.system.hope.value 5}}
+                    <i class='fa-regular fa-circle'></i>
+                {{else}}
+                    <i class='fa-solid fa-diamond'></i>
+                {{/le}}
+            </span>
+        </div>
+    </div>
 </header>

@@ -13,10 +13,13 @@ export default class DaggerheartActorBase extends foundry.abstract.TypeDataModel
                 max: new fields.NumberField({ ...requiredInteger, initial: 6 })
             }),
             stress: new fields.SchemaField({
-                value: new fields.NumberField({ ...requiredInteger, initial: 6, min: 0 }),
+                value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
                 max: new fields.NumberField({ ...requiredInteger, initial: 6 })
             }),
             evasion: new fields.SchemaField({
+                value: new fields.NumberField({ ...requiredInteger, initial: 9, min: 0 })
+            }),
+            armor: new fields.SchemaField({
                 value: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 })
             })
         });

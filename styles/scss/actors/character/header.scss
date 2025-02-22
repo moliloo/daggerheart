@@ -3,11 +3,14 @@
     flex-direction: column;
     position: absolute;
     top: -37px;
-    background-image: url(../../assets/images/background/dark-header.svg);
+    // background-image: url(../../assets/images/background/dark-header.svg);
     align-items: center;
+    background: #1488cc;
+    background: -webkit-linear-gradient(128deg, #1488cc 0%, #2b32b2 100%);
+    background: linear-gradient(128deg, #1488cc 0%, #2b32b2 100%);
 
     input[type='text'] {
-        font-size: 32px;
+        font-size: 24px;
         height: 36px;
         width: 320px;
         text-align: center;
@@ -25,33 +28,66 @@
         flex-direction: row;
         gap: 40px;
         top: -20px;
+        height: 30px;
+
+        .stat-evasion,
+        .stat-armor {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #f3c267;
+            background-color: #18162e;
+            border-radius: 6px;
+            box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+            justify-items: center;
+            p {
+                font-size: 1.5rem;
+                margin: 0;
+            }
+
+            .label {
+                position: relative;
+                background: #f3c267;
+                top: -2px;
+                color: #18162e;
+                width: 60px;
+                text-align: center;
+                border-radius: 2px;
+            }
+        }
         .stat-bar {
             position: relative;
             width: 100px;
             height: 40px;
+
             .labels {
                 position: absolute;
                 display: flex;
                 padding: 0 6px;
-                font-size: 2rem;
+                font-size: 1.5rem;
                 align-items: center;
                 width: 100px;
                 height: 40px;
+                justify-content: center;
+                z-index: 2;
 
-                input {
+                input[type='number'] {
                     background: transparent;
-                    font-size: 2rem;
-                    width: 3rem;
+                    font-size: 1.5rem;
+                    width: 100px;
+                    height: 40px;
                     text-align: center;
+                    border: none;
                 }
             }
             .progress-bar {
+                position: absolute;
                 appearance: none;
                 width: 100px;
                 height: 40px;
                 border: 1px solid #f3c267;
                 border-radius: 6px;
                 box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+                z-index: 1;
 
                 &::-webkit-progress-bar {
                     border: none;
@@ -98,6 +134,64 @@
                     );
                     border-radius: 5px;
                 }
+            }
+            .controls {
+                position: absolute;
+                display: flex;
+                flex-direction: row;
+                top: 0px;
+                justify-self: anchor-center;
+                height: 20px;
+                width: 100px;
+                transition: transform 0.3s ease-out;
+                z-index: 0;
+                transform: translateY(0px);
+                button {
+                    transition: transform 0.3s ease-out;
+                    i {
+                        margin: 0;
+                    }
+                }
+            }
+
+            &:hover {
+                .controls {
+                    button {
+                        transform: translateY(-24px);
+                        &::focus-within {
+                            transform: translateY(-24px);
+                            transition: all 3s ease-in-out;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .level-section {
+        position: absolute;
+        top: 16px;
+        left: 25px;
+        .level-div {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #f3c267;
+            background-color: #18162e;
+            border-radius: 6px;
+            box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+            justify-items: center;
+            p {
+                font-size: 1.5rem;
+                margin: 0;
+            }
+            .label {
+                position: relative;
+                background: #f3c267;
+                top: -2px;
+                color: #18162e;
+                width: 60px;
+                text-align: center;
+                border-radius: 2px;
             }
         }
     }

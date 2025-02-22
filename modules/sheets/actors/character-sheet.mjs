@@ -78,8 +78,34 @@ export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorS
     async _prepareContext(options) {
         return {
             actor: this.document,
-            source: this.document.toObject(),
+            source: this.document.toObject()
         };
+    }
+
+    async _onClickAction(event, target) {
+        event.preventDefault();
+        event.stopPropagation();
+        switch (target.dataset.action) {
+            case 'HpIncrease':
+                if (this.actor.system.stats.hp.value <= this.actor.system.stats.hp.max) {
+                    return this.actor.update({ 'system.stats.hp.value': this.actor.system.stats.hp.value + 1 });
+                }
+            case 'HpDecrease':
+                if (this.actor.system.stats.hp.value >= 0) {
+                    return this.actor.update({ 'system.stats.hp.value': this.actor.system.stats.hp.value - 1 });
+                }
+            case 'StressIncrease':
+                if (this.actor.system.stats.stress.value <= this.actor.system.stats.stress.max) {
+                    return this.actor.update({ 'system.stats.stress.value': this.actor.system.stats.stress.value + 1 });
+                }
+            case 'StressDecrease':
+                if (this.actor.system.stats.stress.value >= 0) {
+                    return this.actor.update({ 'system.stats.stress.value': this.actor.system.stats.stress.value - 1 });
+                }
+            case 'hope':
+                const hopeValue = parseInt(target.dataset.hopeValue);
+                return this.actor.update({ 'system.hope.value': hopeValue });
+        }
     }
 
     getData() {

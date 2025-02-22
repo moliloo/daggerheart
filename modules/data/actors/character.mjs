@@ -14,7 +14,7 @@ export default class DaggerheartCharacter extends DaggerheartActorBase {
         schema.pronouns = new fields.StringField({ initial: '' });
 
         schema.hope = new fields.SchemaField({
-            value: new fields.NumberField({ ...requiredInteger, initial: 6, min: 0 }),
+            value: new fields.NumberField({ ...requiredInteger, initial: 2, min: 0 }),
             max: new fields.NumberField({ ...requiredInteger, initial: 6 })
         });
 
