@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
 .char-sheet-header {
   display: flex;
   flex-direction: column;
@@ -7,6 +8,9 @@
   background: #1488cc;
   background: -webkit-linear-gradient(128deg, #1488cc 0%, #2b32b2 100%);
   background: linear-gradient(128deg, #1488cc 0%, #2b32b2 100%);
+}
+.char-sheet-header .actor-name {
+  margin-top: -8px;
 }
 .char-sheet-header input[type=text] {
   font-size: 24px;
@@ -18,6 +22,7 @@
   width: 450px;
   height: 300px;
   object-fit: cover;
+  border: none;
 }
 .char-sheet-header .stats-section {
   position: relative;
@@ -48,7 +53,7 @@
   background: #f3c267;
   top: -2px;
   color: #18162e;
-  width: 60px;
+  padding: 3px 5px;
   text-align: center;
   border-radius: 2px;
 }
@@ -157,9 +162,24 @@
   background: #f3c267;
   top: -2px;
   color: #18162e;
-  width: 60px;
+  padding: 3px 5px;
   text-align: center;
   border-radius: 2px;
+}
+.char-sheet-header .hope-section {
+  display: flex;
+  background-color: #18162e;
+  color: #f3c267;
+  gap: 10px;
+  padding: 5px 10px;
+  border: 1px solid #f3c267;
+  border-radius: 6px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+  margin-top: 8px;
+  align-items: center;
+}
+.char-sheet-header .hope-section .hope {
+  cursor: pointer;
 }
 
 .application .window-header {
@@ -181,16 +201,18 @@
   padding: 0;
 }
 
-.application input:focus[type=text] {
-  box-shadow: none;
-  outline: none;
-}
 .application input[type=text] {
   background: rgba(24, 22, 46, 0.33);
   border-radius: 6px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(9.5px);
   -webkit-backdrop-filter: blur(9.5px);
+  outline: none;
+  color: #f3c267;
+}
+.application input:focus[type=text] {
+  box-shadow: none;
+  outline: none;
 }
 .application button {
   background: #f3c267;
@@ -206,6 +228,35 @@
 }
 .application p {
   margin: 0;
+}
+
+.application h1 {
+  font-family: "Cinzel Decorative", serif;
+  margin: 0;
+  border: none;
+}
+.application h2,
+.application h3 {
+  font-family: "Cinzel", serif;
+  margin: 0;
+  border: none;
+}
+.application h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  border: none;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: none;
+  color: #f3c267;
+}
+.application p,
+.application span {
+  font-family: "Montserrat", sans-serif;
+}
+.application small {
+  font-family: "Montserrat", sans-serif;
+  opacity: 0.8;
 }
 
 /*# sourceMappingURL=daggerheart.css.map */

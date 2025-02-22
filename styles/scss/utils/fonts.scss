@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap');
+
+// Definições gerais
+$font-title: 'Cinzel Decorative', serif;
+$font-subtitle: 'Cinzel', serif;
+$font-body: 'Montserrat', sans-serif;
+
+// Aplicação global (mantendo tamanhos padrões)
+
+.application {
+    h1 {
+        font-family: $font-title;
+        margin: 0;
+        border: none;
+    }
+
+    h2,
+    h3 {
+        font-family: $font-subtitle;
+        margin: 0;
+        border: none;
+    }
+
+    h4 {
+        font-family: $font-body;
+        font-size: 14px;
+        border: none;
+        font-weight: 700;
+        margin: 0;
+        text-shadow: none;
+        color: #f3c267;
+    }
+
+    // Textos normais (descrições, valores de atributos, efeitos)
+    p,
+    span {
+        font-family: $font-body;
+    }
+
+    // Pequenos detalhes (labels, tooltips)
+    small {
+        font-family: $font-body;
+        opacity: 0.8;
+    }
+}
+
+// Títulos principais (ex: nome do personagem, seções importantes)

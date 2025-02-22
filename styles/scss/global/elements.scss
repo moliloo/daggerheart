@@ -1,15 +1,17 @@
 .application {
-    input:focus[type='text'] {
-        box-shadow: none;
-        outline: none;
-    }
-
     input[type='text'] {
         background: rgba(24, 22, 46, 0.33);
         border-radius: 6px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(9.5px);
         -webkit-backdrop-filter: blur(9.5px);
+        outline: none;
+        color: #f3c267;
+    }
+
+    input:focus[type='text'] {
+        box-shadow: none;
+        outline: none;
     }
 
     button {

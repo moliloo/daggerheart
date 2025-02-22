@@ -3,17 +3,17 @@
     <div class='level-section'>
         <div class='level-div'>
             <p>{{actor.system.level}}</p>
-            <div class='label'>
+            <h4 class='label'>
                 LEVEL
-            </div>
+            </h4>
         </div>
     </div>
     <div class='stats-section'>
         <div class='stat-evasion'>
             <p>{{actor.system.stats.evasion.value}}</p>
-            <div class='label'>
+            <h4 class='label'>
                 EVASION
-            </div>
+            </h4>
         </div>
         <div class='stat-bar'>
             <div class='labels' data-tooltip='Health'>
@@ -45,54 +45,52 @@
         </div>
         <div class='stat-armor'>
             <p>{{actor.system.stats.armor.value}}</p>
-            <div class='label'>
+            <h4 class='label'>
                 ARMOR
-            </div>
+            </h4>
         </div>
     </div>
-    <input type='text' name='name' type='text' value='{{source.name}}' placeholder='Actor Name' />
-    <div class='hope-secion'>
-        <h4>Hope</h4>
-        <div class='star-rating'>
-            <span class='star' data-action='hope' data-hope-value='1'>
-                {{#le actor.system.hope.value 0}}
-                    <i class='fa-regular fa-circle'></i>
-                {{else}}
-                    <i class='fa-solid fa-diamond'></i>
-                {{/le}}
-            </span>
-            <span class='star' data-action='hope' data-hope-value='2'>
-                {{#le actor.system.hope.value 1}}
-                    <i class='fa-regular fa-circle'></i>
-                {{else}}
-                    <i class='fa-solid fa-diamond'></i>
-                {{/le}}
-            </span>
-            <span class='star' data-action='hope' data-hope-value='3'>
-                {{#le actor.system.hope.value 2}}
-                    <i class='fa-regular fa-circle'></i>
-                {{else}}
-                    <i class='fa-solid fa-diamond'></i>
-                {{/le}}
-            </span><span class='star' data-action='hope' data-hope-value='4'>
-                {{#le actor.system.hope.value 3}}
-                    <i class='fa-regular fa-circle'></i>
-                {{else}}
-                    <i class='fa-solid fa-diamond'></i>
-                {{/le}}
-            </span><span class='star' data-action='hope' data-hope-value='5'>
-                {{#le actor.system.hope.value 4}}
-                    <i class='fa-regular fa-circle'></i>
-                {{else}}
-                    <i class='fa-solid fa-diamond'></i>
-                {{/le}}
-            </span><span class='star' data-action='hope' data-hope-value='6'>
-                {{#le actor.system.hope.value 5}}
-                    <i class='fa-regular fa-circle'></i>
-                {{else}}
-                    <i class='fa-solid fa-diamond'></i>
-                {{/le}}
-            </span>
-        </div>
+    <h1 class="actor-name"><input type='text' name='name' type='text' value='{{source.name}}' placeholder='Actor Name' /></h1>
+    <div class='hope-section'>
+        <h4>HOPE</h4>
+        <span class='hope' data-action='hope' data-hope-value='1'>
+            {{#le actor.system.hope.value 0}}
+                <i class='fa-regular fa-circle'></i>
+            {{else}}
+                <i class='fa-solid fa-diamond'></i>
+            {{/le}}
+        </span>
+        <span class='hope' data-action='hope' data-hope-value='2'>
+            {{#le actor.system.hope.value 1}}
+                <i class='fa-regular fa-circle'></i>
+            {{else}}
+                <i class='fa-solid fa-diamond'></i>
+            {{/le}}
+        </span>
+        <span class='hope' data-action='hope' data-hope-value='3'>
+            {{#le actor.system.hope.value 2}}
+                <i class='fa-regular fa-circle'></i>
+            {{else}}
+                <i class='fa-solid fa-diamond'></i>
+            {{/le}}
+        </span><span class='hope' data-action='hope' data-hope-value='4'>
+            {{#le actor.system.hope.value 3}}
+                <i class='fa-regular fa-circle'></i>
+            {{else}}
+                <i class='fa-solid fa-diamond'></i>
+            {{/le}}
+        </span><span class='hope' data-action='hope' data-hope-value='5'>
+            {{#le actor.system.hope.value 4}}
+                <i class='fa-regular fa-circle'></i>
+            {{else}}
+                <i class='fa-solid fa-diamond'></i>
+            {{/le}}
+        </span><span class='hope' data-action='hope' data-hope-value='6'>
+            {{#le actor.system.hope.value 5}}
+                <i class='fa-regular fa-circle'></i>
+            {{else}}
+                <i class='fa-solid fa-diamond'></i>
+            {{/le}}
+        </span>
     </div>
 </header>

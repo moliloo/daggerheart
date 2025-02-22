@@ -9,6 +9,10 @@
     background: -webkit-linear-gradient(128deg, #1488cc 0%, #2b32b2 100%);
     background: linear-gradient(128deg, #1488cc 0%, #2b32b2 100%);
 
+    .actor-name {
+        margin-top: -8px;
+    }
+
     input[type='text'] {
         font-size: 24px;
         height: 36px;
@@ -20,6 +24,7 @@
         width: 450px;
         height: 300px;
         object-fit: cover;
+        border: none;
     }
 
     .stats-section {
@@ -49,7 +54,7 @@
                 background: #f3c267;
                 top: -2px;
                 color: #18162e;
-                width: 60px;
+                padding: 3px 5px;
                 text-align: center;
                 border-radius: 2px;
             }
@@ -189,10 +194,26 @@
                 background: #f3c267;
                 top: -2px;
                 color: #18162e;
-                width: 60px;
+                padding: 3px 5px;
                 text-align: center;
                 border-radius: 2px;
             }
+        }
+    }
+
+    .hope-section {
+        display: flex;
+        background-color: #18162e;
+        color: #f3c267;
+        gap: 10px;
+        padding: 5px 10px;
+        border: 1px solid #f3c267;
+        border-radius: 6px;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+        margin-top: 8px;
+        align-items: center;
+        .hope {
+            cursor: pointer;
         }
     }
 }

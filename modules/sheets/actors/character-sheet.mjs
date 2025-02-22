@@ -104,7 +104,11 @@ export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorS
                 }
             case 'hope':
                 const hopeValue = parseInt(target.dataset.hopeValue);
-                return this.actor.update({ 'system.hope.value': hopeValue });
+                if (this.actor.system.hope.value === hopeValue) {
+                    return this.actor.update({ 'system.hope.value': this.actor.system.hope.value - 1 });
+                } else {
+                    return this.actor.update({ 'system.hope.value': hopeValue });
+                }
         }
     }
 
