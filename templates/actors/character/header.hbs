@@ -107,4 +107,45 @@
             <h4>SEVERE</h4>
         </div>
     </div>
+    <div class='heritage-section'>
+        {{#each (filterByType actor.items 'ancestry') as |item|}}
+            <div class='heritage-item' data-item-id='{{item._id}}'>
+                <h4>{{item.name}}</h4>
+                <div class='controls'>
+                    <a data-action='editItem' data-item-id='{{item._id}}' data-tooltip='Edit Item'>
+                        <i class='fa-solid fa-edit'></i>
+                    </a>
+                    <a data-action='deleteItem' data-item-id='{{item._id}}' data-tooltip='Delete Item'>
+                        <i class='fa-solid fa-trash'></i>
+                    </a>
+                </div>
+            </div>
+        {{/each}}
+        {{#each (filterByType actor.items 'community') as |item|}}
+            <div class='heritage-item' data-item-id='{{item._id}}'>
+                <h4>{{item.name}}</h4>
+                <div class='controls'>
+                    <a data-action='editItem' data-item-id='{{item._id}}' data-tooltip='Edit Item'><i
+                            class='fa-solid fa-edit'
+                        ></i></a>
+                    <a data-action='deleteItem' data-item-id='{{item._id}}' data-tooltip='Edit Item'><i
+                            class='fa-solid fa-trash'
+                        ></i></a>
+                </div>
+            </div>
+        {{/each}}
+        {{#each (filterByType actor.items 'class') as |item|}}
+            <div class='heritage-item' data-item-id='{{item._id}}'>
+                <h4>{{item.name}}</h4>
+                <div class='controls'>
+                    <a data-action='editItem' data-item-id='{{item._id}}' data-tooltip='Edit Item'><i
+                            class='fa-solid fa-edit'
+                        ></i></a>
+                    <a data-action='deleteItem' data-item-id='{{item._id}}' data-tooltip='Edit Item'><i
+                            class='fa-solid fa-trash'
+                        ></i></a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
 </header>

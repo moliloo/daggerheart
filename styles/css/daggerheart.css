@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   position: absolute;
+  width: 100%;
   top: -37px;
   align-items: center;
   background: #1488cc;
@@ -19,7 +20,7 @@
   text-align: center;
 }
 .char-sheet-header .profile {
-  width: 450px;
+  width: 100%;
   height: 300px;
   object-fit: cover;
   border: none;
@@ -201,6 +202,34 @@
   width: 36px;
   text-align: center;
 }
+.char-sheet-header .heritage-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 8px;
+}
+.char-sheet-header .heritage-section .heritage-item {
+  display: flex;
+  color: #f3c267;
+  background-color: #18162e;
+  gap: 5px;
+  padding: 5px 10px;
+  border: 1px solid #f3c267;
+  border-radius: 6px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+  align-items: center;
+  text-transform: uppercase;
+  height: 30px;
+}
+.char-sheet-header .heritage-section .heritage-item .controls {
+  display: none;
+}
+.char-sheet-header .heritage-section .heritage-item:hover .controls {
+  display: flex;
+  gap: 5px;
+}
+.char-sheet-header .heritage-section .heritage-item:hover .controls a {
+  text-shadow: none;
+}
 
 .application .window-header {
   background: transparent;
@@ -250,6 +279,11 @@
 }
 .application p {
   margin: 0;
+}
+.application ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .application h1 {

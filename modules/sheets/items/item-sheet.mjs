@@ -1,26 +1,33 @@
 import { daggerheart } from '../../helpers/config.mjs';
 
-export class DaggerheartItemSheet extends ItemSheet {
-    static get defaultOptions() {
-        return foundry.utils.mergeObject(super.defaultOptions, {
-            classes: ['daggerheart', 'sheet', 'item'],
+const { HandlebarsApplicationMixin } = foundry.applications.api;
+const { ItemSheetV2 } = foundry.applications.sheets;
+
+export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
+    get title() {
+        return this.item.isToken ? `[Token] ${this.item.name}` : this.item.name;
+    }
+
+    static DEFAULT_OPTIONS = {
+        tag: 'form',
+        form: {
+            submitOnChange: true
+        },
+        classes: ['daggerheart', 'item', 'ancestry'],
+        position: {
             width: 400,
-            height: 400
-            // tabs: [{ navSelector: '.tab-nav', contentSelector: '.tab-select', initial: 'description' }]
-        });
-    }
-
-    //   get template() {
-    // 		return `systems/espers/templates/items/item-sheet.hbs`
-    // 	}
-
-    getData() {
-        const context = super.getData();
-
-        // context.effects = this.prepareActiveEffectCategories(this.actor.effects)
-
-        // this._prepareItems(context)
-
-        return context;
-    }
+            height: 650
+        },
+        window: {
+            icon: 'fa-solid fa-leaf',
+            resizable: true
+        },
+        dragDrop: [
+            {
+                dragSelector: '[data-drag]',
+                dropSelector: null
+            }
+        ],
+        actions: {}
+    };
 }

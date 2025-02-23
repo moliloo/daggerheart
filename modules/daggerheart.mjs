@@ -31,10 +31,9 @@ Hooks.once('init', function () {
     CONFIG.Actor.dataModels = {
         character: models.DaggerheartCharacter
     };
-    // CONFIG.Item.dataModels = {
-    //     equipment: models.DaggerheartEquipment,
-    //     card: models.DaggerheartCard
-    // };
+    CONFIG.Item.dataModels = {
+        ancestry: models.DaggerheartAncestry
+    };
 
     Items.unregisterSheet('core', ItemSheet);
     Items.registerSheet('daggerheart', DaggerheartItemSheet, { makeDefault: true });
@@ -53,4 +52,8 @@ Hooks.once('ready', function () {
 Handlebars.registerHelper('le', function (a, b) {
     var next = arguments[arguments.length - 1];
     return a <= b ? next.fn(this) : next.inverse(this);
+});
+
+Handlebars.registerHelper('filterByType', function (items, type) {
+    return items.filter(item => item.type === type);
 });
