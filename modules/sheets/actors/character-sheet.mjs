@@ -2,6 +2,7 @@ import { daggerheart } from '../../helpers/config.mjs';
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
+const DialogV2 = foundry.applications.api.DialogV2;
 
 export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // Private properties
@@ -16,10 +17,11 @@ export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorS
         tag: 'form',
         form: { submitOnChange: true },
         classes: ['daggerheart', 'actor', 'character', 'sheet'],
-        position: { width: 450, height: 850 },
+        position: { width: 850, height: 850 },
         window: { icon: 'fa-solid fa-dagger', resizable: true },
         dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }],
         actions: {
+            rollHopeFear: DaggerheartCharacterSheet._openRollDialog,
             editImage: DaggerheartCharacterSheet.#onEditImage // TODO: remove in v13
         }
     };
@@ -179,6 +181,86 @@ export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorS
                 await item.sheet.render({ force: true });
                 return;
         }
+    }
+
+    static async _openRollDialog() {
+        await new DialogV2({
+            title: 'Escolha o tipo de rolagem',
+            content: `
+            <p>Selecione como deseja rolar os dados:</p>
+            <button data-mode="normal">Normal</button>
+            <button data-mode="advantage">Vantagem</button>
+            <button data-mode="disadvantage">Desvantagem</button>
+          `,
+            buttons: [
+                {
+                    action: 'Normal',
+                    label: `Normal`,
+                    callback: async () => this._rollDice('normal')
+                },
+                {
+                    action: 'Vantagem',
+                    label: `Vantagem`,
+                    callback: async () => this._rollDice('advantage')
+                },
+                {
+                    action: 'Desvantagem',
+                    label: `Desvantagem`,
+                    callback: async () => this._rollDice('disadvantage')
+                }
+            ],
+            default: 'normal'
+        }).render(true);
+    }
+
+    async _rollDice(mode) {
+        // Rola os dados separadamente para controle total
+        const hopeRoll = new Roll('1d12');
+        const fearRoll = new Roll('1d12');
+
+        await hopeRoll.evaluate({ async: true });
+        await fearRoll.evaluate({ async: true });
+
+        const hope = hopeRoll.total;
+        const fear = fearRoll.total;
+
+        // O maior valor entre os dois é o escolhido
+        let finalResult = Math.max(hope, fear);
+
+        let d6Roll = null;
+        if (mode !== 'normal') {
+            // Adiciona um d6 caso tenha vantagem/desvantagem
+            d6Roll = new Roll('1d6');
+            await d6Roll.evaluate({ async: true });
+
+            if (mode === 'advantage') {
+                finalResult += d6Roll.total;
+            } else if (mode === 'disadvantage') {
+                finalResult -= d6Roll.total;
+            }
+        }
+
+        // Criar uma fórmula para exibir os dados corretamente no chat
+        let rollFormula = `1d12[Hope] + 1d12[Fear]`;
+        if (mode !== 'normal') {
+            rollFormula += ` + ${mode === 'advantage' ? '1d6[Vantagem]' : '-1d6[Desvantagem]'}`;
+        }
+
+        // Criar um novo Roll que reflete a jogada completa (mas mantendo o maior d12 no total final)
+        const fullRoll = new Roll(rollFormula, {});
+        await fullRoll.evaluate({ async: true });
+
+        // Substituir o total pelo valor correto (apenas o maior d12 + d6, se aplicável)
+        fullRoll._total = finalResult;
+
+        // Enviar a mensagem para o chat
+        await fullRoll.toMessage({
+            user: game.user.id,
+            speaker: ChatMessage.getSpeaker(),
+            flavor: `<strong>Rolagem (${mode === 'normal' ? 'Normal' : mode === 'advantage' ? 'Vantagem' : 'Desvantagem'})</strong><br>
+          🎲 Hope: ${hope} | 🎲 Fear: ${fear} ${d6Roll ? `<br> 🎲 d6 (${mode}): ${d6Roll.total}` : ''}<br>
+          <strong>Resultado Final: ${finalResult}</strong>`
+        });
     }
 
     // Rendering methods

@@ -1,6 +1,6 @@
 @import '../utils/color.scss';
 
-.application {
+.application.sheet {
     input[type='text'],
     input[type='number'] {
         background: $semi-transparent-dark-blue;
@@ -33,6 +33,7 @@
     }
 
     p {
+        font-size: 1.5rem;
         margin: 0;
     }
 

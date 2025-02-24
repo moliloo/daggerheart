@@ -1,37 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
 .char-sheet-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   position: absolute;
   width: 100%;
-  top: -37px;
+  top: -36px;
   align-items: center;
   background: #1488cc;
   background: -webkit-linear-gradient(128deg, #1488cc 0%, #2b32b2 100%);
   background: linear-gradient(128deg, #1488cc 0%, #2b32b2 100%);
 }
+.char-sheet-header .main-section {
+  align-self: start;
+  flex-grow: 1;
+}
+.char-sheet-header .main-section .background-header {
+  height: 36px;
+  background: linear-gradient(128deg, #f3c267 0%, #2b32b2 100%);
+}
 .char-sheet-header .actor-name {
   margin-top: -8px;
 }
 .char-sheet-header input[type=text] {
-  font-size: 24px;
-  height: 36px;
-  width: 320px;
+  font-size: 32px;
+  height: 42px;
+  width: 380px;
   text-align: center;
 }
-.char-sheet-header .profile {
-  width: 100%;
+.char-sheet-header .image-section {
+  width: 300px;
   height: 300px;
+}
+.char-sheet-header .image-section .profile {
   object-fit: cover;
   border: none;
 }
 .char-sheet-header .stats-section {
+  position: absolute;
+  top: 8px;
   display: flex;
   flex-direction: row;
-  position: relative;
-  gap: 40px;
-  top: -20px;
-  height: 30px;
+  gap: 60px;
+  justify-content: center;
+  width: 300px;
 }
 .char-sheet-header .stats-section .stat-evasion,
 .char-sheet-header .stats-section .stat-armor {
@@ -43,11 +54,6 @@
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
   justify-items: center;
 }
-.char-sheet-header .stats-section .stat-evasion p,
-.char-sheet-header .stats-section .stat-armor p {
-  font-size: 1.5rem;
-  margin: 0;
-}
 .char-sheet-header .stats-section .stat-evasion .label,
 .char-sheet-header .stats-section .stat-armor .label {
   position: relative;
@@ -58,12 +64,22 @@
   text-align: center;
   border-radius: 2px;
 }
-.char-sheet-header .stats-section .stat-bar {
+.char-sheet-header .stats-bars {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  gap: 40px;
+  height: 40px;
+  width: 300px;
+  bottom: 0;
+  justify-content: center;
+}
+.char-sheet-header .stats-bars .stat-bar {
   position: relative;
   width: 100px;
   height: 40px;
 }
-.char-sheet-header .stats-section .stat-bar .labels {
+.char-sheet-header .stats-bars .stat-bar .labels {
   position: absolute;
   display: flex;
   padding: 0 6px;
@@ -74,7 +90,7 @@
   justify-content: center;
   z-index: 2;
 }
-.char-sheet-header .stats-section .stat-bar .labels input[type=number] {
+.char-sheet-header .stats-bars .stat-bar .labels input[type=number] {
   background: transparent;
   font-size: 1.5rem;
   width: 100px;
@@ -82,7 +98,7 @@
   text-align: center;
   border: none;
 }
-.char-sheet-header .stats-section .stat-bar .progress-bar {
+.char-sheet-header .stats-bars .stat-bar .progress-bar {
   position: absolute;
   appearance: none;
   width: 100px;
@@ -92,30 +108,30 @@
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
-.char-sheet-header .stats-section .stat-bar .progress-bar::-webkit-progress-bar {
+.char-sheet-header .stats-bars .stat-bar .progress-bar::-webkit-progress-bar {
   border: none;
   background: #18162e;
   border-radius: 6px;
 }
-.char-sheet-header .stats-section .stat-bar .progress-bar::-webkit-progress-value {
+.char-sheet-header .stats-bars .stat-bar .progress-bar::-webkit-progress-value {
   background: linear-gradient(15deg, rgb(70, 20, 10) 0%, rgb(190, 0, 0) 42%, rgb(252, 176, 69) 100%);
   border-radius: 5px;
 }
-.char-sheet-header .stats-section .stat-bar .progress-bar.stress-color::-webkit-progress-value {
+.char-sheet-header .stats-bars .stat-bar .progress-bar.stress-color::-webkit-progress-value {
   background: linear-gradient(15deg, rgb(130, 59, 1) 0%, rgb(252, 142, 69) 65%, rgb(190, 0, 0) 100%);
   border-radius: 5px;
 }
-.char-sheet-header .stats-section .stat-bar .progress-bar::-moz-progress-value, .char-sheet-header .stats-section .stat-bar .progress-bar::-moz-progress-bar {
+.char-sheet-header .stats-bars .stat-bar .progress-bar::-moz-progress-value, .char-sheet-header .stats-bars .stat-bar .progress-bar::-moz-progress-bar {
   border-radius: 5px;
 }
-.char-sheet-header .stats-section .stat-bar .progress-bar::-moz-progress-bar {
+.char-sheet-header .stats-bars .stat-bar .progress-bar::-moz-progress-bar {
   background: linear-gradient(15deg, rgb(70, 20, 10) 0%, rgb(190, 0, 0) 42%, rgb(252, 176, 69) 100%);
 }
-.char-sheet-header .stats-section .stat-bar .progress-bar.stress-color::-moz-progress-bar {
+.char-sheet-header .stats-bars .stat-bar .progress-bar.stress-color::-moz-progress-bar {
   background: linear-gradient(15deg, rgb(130, 59, 1) 0%, rgb(252, 142, 69) 65%, rgb(190, 0, 0) 100%);
   border-radius: 5px;
 }
-.char-sheet-header .stats-section .stat-bar .controls {
+.char-sheet-header .stats-bars .stat-bar .controls {
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -127,23 +143,18 @@
   z-index: 0;
   transform: translateY(0px);
 }
-.char-sheet-header .stats-section .stat-bar .controls button {
+.char-sheet-header .stats-bars .stat-bar .controls button {
   transition: transform 0.3s ease-out;
 }
-.char-sheet-header .stats-section .stat-bar .controls button i {
+.char-sheet-header .stats-bars .stat-bar .controls button i {
   margin: 0;
 }
-.char-sheet-header .stats-section .stat-bar:hover .controls button {
+.char-sheet-header .stats-bars .stat-bar:hover .controls button {
   transform: translateY(-24px);
 }
-.char-sheet-header .stats-section .stat-bar:hover .controls button::focus-within {
+.char-sheet-header .stats-bars .stat-bar:hover .controls button::focus-within {
   transform: translateY(-24px);
   transition: all 3s ease-in-out;
-}
-.char-sheet-header .level-section {
-  position: absolute;
-  top: 16px;
-  left: 25px;
 }
 .char-sheet-header .level-section .level-div {
   width: 40px;
@@ -167,26 +178,31 @@
   text-align: center;
   border-radius: 2px;
 }
-.char-sheet-header .row {
+.char-sheet-header .name-row {
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+}
+.char-sheet-header .resources-row {
   display: flex;
   gap: 20px;
   margin: 8px 0;
 }
-.char-sheet-header .row .hope-section {
+.char-sheet-header .resources-row .hope-section {
   display: flex;
+  gap: 10px;
   background-color: #18162e;
   color: #f3c267;
-  gap: 10px;
   padding: 5px 10px;
   border: 1px solid #f3c267;
   border-radius: 6px;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
   align-items: center;
 }
-.char-sheet-header .row .hope-section .hope {
+.char-sheet-header .resources-row .hope-section .hope {
   cursor: pointer;
 }
-.char-sheet-header .row .threshold-section {
+.char-sheet-header .resources-row .threshold-section {
   display: flex;
   background-color: #18162e;
   color: #f3c267;
@@ -197,7 +213,7 @@
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
   align-items: center;
 }
-.char-sheet-header .row .threshold-section input[type=number] {
+.char-sheet-header .resources-row .threshold-section input[type=number] {
   height: 18px;
   width: 36px;
   text-align: center;
@@ -230,28 +246,60 @@
 .char-sheet-header .heritage-section .heritage-item:hover .controls a {
   text-shadow: none;
 }
+.char-sheet-header .attributes-section {
+  align-items: center;
+}
+.char-sheet-header .attributes-section .attribute-div {
+  height: 60px;
+  width: 100px;
+  background-color: #18162e;
+  padding: 5px 0px;
+  border: 1px solid #f3c267;
+  border-radius: 6px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-items: center;
+}
+.char-sheet-header .attributes-section .attribute-div .label {
+  display: flex;
+  height: 20px;
+  gap: 5px;
+  align-items: center;
+  color: #f3c267;
+  border-bottom: 1px solid #f3c267;
+  text-transform: uppercase;
+}
+.char-sheet-header .attributes-section .attribute-div .label .dice-icon {
+  display: none;
+}
+.char-sheet-header .attributes-section .attribute-div .label:hover .attribute-checked {
+  display: none;
+}
+.char-sheet-header .attributes-section .attribute-div .label:hover .dice-icon {
+  display: flex;
+}
 
-.application .window-header {
+.application.sheet .window-header {
   background: transparent;
   border-bottom: none;
   justify-content: end;
 }
-.application .window-header button.header-control {
+.application.sheet .window-header button.header-control {
   background: #0e0d15;
 }
 
-.application:not(.minimized) .window-title,
-.application:not(.minimized) .window-icon {
+.application.sheet:not(.minimized) .window-title,
+.application.sheet:not(.minimized) .window-icon {
   display: none;
 }
 
-.application .window-content {
+.application.sheet .window-content {
   overflow: initial;
   padding: 0;
 }
 
-.application input[type=text],
-.application input[type=number] {
+.application.sheet input[type=text],
+.application.sheet input[type=number] {
   background: rgba(24, 22, 46, 0.33);
   border-radius: 6px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -260,44 +308,45 @@
   outline: none;
   color: #f3c267;
 }
-.application input:focus[type=text],
-.application input:focus[type=number] {
+.application.sheet input:focus[type=text],
+.application.sheet input:focus[type=number] {
   box-shadow: none;
   outline: 2px solid #f3c267;
 }
-.application button {
+.application.sheet button {
   background: #f3c267;
   border: 1px solid #18162e;
   color: #18162e;
 }
-.application button:hover {
+.application.sheet button:hover {
   outline: none;
   box-shadow: none;
   background: #18162e;
   border: 1px solid #f3c267;
   color: #f3c267;
 }
-.application p {
+.application.sheet p {
+  font-size: 1.5rem;
   margin: 0;
 }
-.application ul {
+.application.sheet ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.application h1 {
+.application.sheet h1 {
   font-family: "Cinzel Decorative", serif;
   margin: 0;
   border: none;
 }
-.application h2,
-.application h3 {
+.application.sheet h2,
+.application.sheet h3 {
   font-family: "Cinzel", serif;
   margin: 0;
   border: none;
 }
-.application h4 {
+.application.sheet h4 {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   border: none;
@@ -306,11 +355,11 @@
   text-shadow: none;
   color: #f3c267;
 }
-.application p,
-.application span {
+.application.sheet p,
+.application.sheet span {
   font-family: "Montserrat", sans-serif;
 }
-.application small {
+.application.sheet small {
   font-family: "Montserrat", sans-serif;
   opacity: 0.8;
 }

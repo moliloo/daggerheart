@@ -57,3 +57,5 @@ Handlebars.registerHelper('le', function (a, b) {
 Handlebars.registerHelper('filterByType', function (items, type) {
     return items.filter(item => item.type === type);
 });
+
+Handlebars.registerHelper('eqg', (a, b) => a >= b)

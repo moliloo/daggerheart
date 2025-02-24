@@ -1,6 +1,6 @@
 @import '../utils/color.scss';
 
-.application .window-header {
+.application.sheet .window-header {
     background: transparent;
     border-bottom: none;
     justify-content: end;
@@ -10,14 +10,14 @@
     }
 }
 
-.application:not(.minimized) {
+.application.sheet:not(.minimized) {
     .window-title,
     .window-icon {
         display: none;
     }
 }
 
-.application .window-content {
+.application.sheet .window-content {
     overflow: initial;
     padding: 0;
 }

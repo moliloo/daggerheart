@@ -1,47 +1,18 @@
 <header class='char-sheet-header'>
-    <img class='profile' src='{{source.img}}' data-action='editImage' data-edit='img' title='{{source.name}}' />
-    <div class='level-section'>
-        <div class='level-div'>
-            <p>{{actor.system.level}}</p>
-            <h4 class='label'>
-                LEVEL
-            </h4>
-        </div>
-    </div>
     <div class='stats-section'>
+        <div class='level-section'>
+            <div class='level-div'>
+                <p>{{actor.system.level}}</p>
+                <h4 class='label'>
+                    LEVEL
+                </h4>
+            </div>
+        </div>
         <div class='stat-evasion'>
             <p>{{actor.system.stats.evasion.value}}</p>
             <h4 class='label'>
                 EVASION
             </h4>
-        </div>
-        <div class='stat-bar'>
-            <div class='labels' data-tooltip='Health'>
-                <p>{{actor.system.stats.hp.value}}/{{actor.system.stats.hp.max}}</p>
-            </div>
-            <progress
-                class='progress-bar'
-                value='{{actor.system.stats.hp.value}}'
-                max='{{actor.system.stats.hp.max}}'
-            ></progress>
-            <div class='controls'>
-                <button data-action='HpIncrease'><i class='fa-solid fa-plus'></i></button>
-                <button data-action='HpDecrease'><i class='fa-solid fa-minus'></i></button>
-            </div>
-        </div>
-        <div class='stat-bar'>
-            <div class='labels' data-tooltip='Stress'>
-                <p>{{actor.system.stats.stress.value}}/{{actor.system.stats.stress.max}}</p>
-            </div>
-            <progress
-                class='progress-bar stress-color'
-                value='{{actor.system.stats.stress.value}}'
-                max='{{actor.system.stats.stress.max}}'
-            ></progress>
-            <div class='controls'>
-                <button data-action='StressIncrease'><i class='fa-solid fa-plus'></i></button>
-                <button data-action='StressDecrease'><i class='fa-solid fa-minus'></i></button>
-            </div>
         </div>
         <div class='stat-armor'>
             <p>{{actor.system.stats.armor.value}}</p>
@@ -50,102 +21,171 @@
             </h4>
         </div>
     </div>
-    <h1 class='actor-name'><input type='text' name='name' value='{{source.name}}' placeholder='Actor Name' /></h1>
-    <div class='row'>
-        <div class='hope-section'>
-            <h4>HOPE</h4>
-            <span class='hope' data-action='hope' data-hope-value='1'>
-                {{#le actor.system.hope.value 0}}
-                    <i class='fa-regular fa-circle'></i>
-                {{else}}
-                    <i class='fa-solid fa-diamond'></i>
-                {{/le}}
-            </span>
-            <span class='hope' data-action='hope' data-hope-value='2'>
-                {{#le actor.system.hope.value 1}}
-                    <i class='fa-regular fa-circle'></i>
-                {{else}}
-                    <i class='fa-solid fa-diamond'></i>
-                {{/le}}
-            </span>
-            <span class='hope' data-action='hope' data-hope-value='3'>
-                {{#le actor.system.hope.value 2}}
-                    <i class='fa-regular fa-circle'></i>
-                {{else}}
-                    <i class='fa-solid fa-diamond'></i>
-                {{/le}}
-            </span><span class='hope' data-action='hope' data-hope-value='4'>
-                {{#le actor.system.hope.value 3}}
-                    <i class='fa-regular fa-circle'></i>
-                {{else}}
-                    <i class='fa-solid fa-diamond'></i>
-                {{/le}}
-            </span><span class='hope' data-action='hope' data-hope-value='5'>
-                {{#le actor.system.hope.value 4}}
-                    <i class='fa-regular fa-circle'></i>
-                {{else}}
-                    <i class='fa-solid fa-diamond'></i>
-                {{/le}}
-            </span><span class='hope' data-action='hope' data-hope-value='6'>
-                {{#le actor.system.hope.value 5}}
-                    <i class='fa-regular fa-circle'></i>
-                {{else}}
-                    <i class='fa-solid fa-diamond'></i>
-                {{/le}}
-            </span>
-        </div>
-        <div class='threshold-section'>
-            <h4>MAJOR</h4>
-            <h4>
-                <input
-                    type='number'
-                    name='system.damageThreshold.value'
-                    value='{{actor.system.damageThreshold.value}}'
-                    placeholder='00'
-                />
-            </h4>
-            <h4>SEVERE</h4>
+
+    <div class='image-section'>
+        <img class='profile' src='{{source.img}}' data-action='editImage' data-edit='img' title='{{source.name}}' />
+        <div class='stats-bars'>
+            <div class='stat-bar'>
+                <div class='labels' data-tooltip='Health'>
+                    <p>{{actor.system.stats.hp.value}}/{{actor.system.stats.hp.max}}</p>
+                </div>
+                <progress
+                    class='progress-bar'
+                    value='{{actor.system.stats.hp.value}}'
+                    max='{{actor.system.stats.hp.max}}'
+                ></progress>
+                <div class='controls'>
+                    <button data-action='HpIncrease'><i class='fa-solid fa-plus'></i></button>
+                    <button data-action='HpDecrease'><i class='fa-solid fa-minus'></i></button>
+                </div>
+            </div>
+            <div class='stat-bar'>
+                <div class='labels' data-tooltip='Stress'>
+                    <p>{{actor.system.stats.stress.value}}/{{actor.system.stats.stress.max}}</p>
+                </div>
+                <progress
+                    class='progress-bar stress-color'
+                    value='{{actor.system.stats.stress.value}}'
+                    max='{{actor.system.stats.stress.max}}'
+                ></progress>
+                <div class='controls'>
+                    <button data-action='StressIncrease'><i class='fa-solid fa-plus'></i></button>
+                    <button data-action='StressDecrease'><i class='fa-solid fa-minus'></i></button>
+                </div>
+            </div>
         </div>
     </div>
-    <div class='heritage-section'>
-        {{#each (filterByType actor.items 'ancestry') as |item|}}
-            <div class='heritage-item' data-item-id='{{item._id}}'>
-                <h4>{{item.name}}</h4>
-                <div class='controls'>
-                    <a data-action='editItem' data-item-id='{{item._id}}' data-tooltip='Edit Item'>
-                        <i class='fa-solid fa-edit'></i>
-                    </a>
-                    <a data-action='deleteItem' data-item-id='{{item._id}}' data-tooltip='Delete Item'>
-                        <i class='fa-solid fa-trash'></i>
-                    </a>
+    <div class='main-section'>
+        <div class='background-header'></div>
+        <div class='name-row'>
+            <h1 class='actor-name'><input
+                    type='text'
+                    name='name'
+                    value='{{source.name}}'
+                    placeholder='Actor Name'
+                /></h1>
+
+        </div>
+        <div class='resources-row'>
+            <div class='hope-section'>
+                <h4>HOPE</h4>
+                <span class='hope' data-action='hope' data-hope-value='1'>
+                    {{#le actor.system.hope.value 0}}
+                        <i class='fa-regular fa-circle'></i>
+                    {{else}}
+                        <i class='fa-solid fa-diamond'></i>
+                    {{/le}}
+                </span>
+                <span class='hope' data-action='hope' data-hope-value='2'>
+                    {{#le actor.system.hope.value 1}}
+                        <i class='fa-regular fa-circle'></i>
+                    {{else}}
+                        <i class='fa-solid fa-diamond'></i>
+                    {{/le}}
+                </span>
+                <span class='hope' data-action='hope' data-hope-value='3'>
+                    {{#le actor.system.hope.value 2}}
+                        <i class='fa-regular fa-circle'></i>
+                    {{else}}
+                        <i class='fa-solid fa-diamond'></i>
+                    {{/le}}
+                </span><span class='hope' data-action='hope' data-hope-value='4'>
+                    {{#le actor.system.hope.value 3}}
+                        <i class='fa-regular fa-circle'></i>
+                    {{else}}
+                        <i class='fa-solid fa-diamond'></i>
+                    {{/le}}
+                </span><span class='hope' data-action='hope' data-hope-value='5'>
+                    {{#le actor.system.hope.value 4}}
+                        <i class='fa-regular fa-circle'></i>
+                    {{else}}
+                        <i class='fa-solid fa-diamond'></i>
+                    {{/le}}
+                </span><span class='hope' data-action='hope' data-hope-value='6'>
+                    {{#le actor.system.hope.value 5}}
+                        <i class='fa-regular fa-circle'></i>
+                    {{else}}
+                        <i class='fa-solid fa-diamond'></i>
+                    {{/le}}
+                </span>
+            </div>
+            <div class='threshold-section'>
+                <h4>MAJOR</h4>
+                <h4>
+                    <input
+                        type='number'
+                        name='system.damageThreshold.value'
+                        value='{{actor.system.damageThreshold.value}}'
+                        placeholder='00'
+                    />
+                </h4>
+                <h4>SEVERE</h4>
+            </div>
+        </div>
+        <div class='heritage-section'>
+            {{#each (filterByType actor.items 'ancestry') as |ancestry|}}
+                <div class='heritage-item' data-item-id='{{ancestry._id}}'>
+                    <h4>{{ancestry.name}}</h4>
+                    <div class='controls'>
+                        <a data-action='editItem' data-item-id='{{ancestry._id}}' data-tooltip='Edit Item'>
+                            <i class='fa-solid fa-edit'></i>
+                        </a>
+                        <a data-action='deleteItem' data-item-id='{{ancestry._id}}' data-tooltip='Delete Item'>
+                            <i class='fa-solid fa-trash'></i>
+                        </a>
+                    </div>
+                </div>
+            {{/each}}
+            {{#each (filterByType actor.items 'community') as |community|}}
+                <div class='heritage-item' data-item-id='{{community._id}}'>
+                    <h4>{{community.name}}</h4>
+                    <div class='controls'>
+                        <a data-action='editItem' data-item-id='{{community._id}}' data-tooltip='Edit Item'><i
+                                class='fa-solid fa-edit'
+                            ></i></a>
+                        <a data-action='deleteItem' data-item-id='{{community._id}}' data-tooltip='Edit Item'><i
+                                class='fa-solid fa-trash'
+                            ></i></a>
+                    </div>
+                </div>
+            {{/each}}
+            {{#each (filterByType actor.items 'class') as |class|}}
+                <div class='heritage-item' data-item-id='{{class._id}}'>
+                    <h4>{{class.name}}</h4>
+                    <div class='controls'>
+                        <a data-action='editItem' data-item-id='{{class._id}}' data-tooltip='Edit Item'><i
+                                class='fa-solid fa-edit'
+                            ></i></a>
+                        <a data-action='deleteItem' data-item-id='{{class._id}}' data-tooltip='Edit Item'><i
+                                class='fa-solid fa-trash'
+                            ></i></a>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <div class='attributes-section'>
+            <div class='attribute-div' data-tooltip='Sprint<br>Leap<br>Maneuver'>
+                <a class='label' data-action='rollHopeFear'>
+                    <h4>Agility</h4>
+                    <span class='attribute-checked'>
+                        {{#if actor.system.attributes.agility.value}}
+                            <i class='fa-solid fa-circle'></i>
+                        {{else}}
+                            <i class='fa-regular fa-circle'></i>
+                        {{/if}}
+                    </span>
+                    <span class='dice-icon'>
+                        <i class='fa-solid fa-dice-d6'></i>
+                    </span>
+                </a>
+                <div class='attribute-value'>
+                    {{#if (eqg actor.system.attributes.agility.value 0)}}
+                        <p>+{{actor.system.attributes.agility.value}}</p>
+                    {{else}}
+                        <p>{{actor.system.attributes.agility.value}}</p>
+                    {{/if}}
                 </div>
             </div>
-        {{/each}}
-        {{#each (filterByType actor.items 'community') as |item|}}
-            <div class='heritage-item' data-item-id='{{item._id}}'>
-                <h4>{{item.name}}</h4>
-                <div class='controls'>
-                    <a data-action='editItem' data-item-id='{{item._id}}' data-tooltip='Edit Item'><i
-                            class='fa-solid fa-edit'
-                        ></i></a>
-                    <a data-action='deleteItem' data-item-id='{{item._id}}' data-tooltip='Edit Item'><i
-                            class='fa-solid fa-trash'
-                        ></i></a>
-                </div>
-            </div>
-        {{/each}}
-        {{#each (filterByType actor.items 'class') as |item|}}
-            <div class='heritage-item' data-item-id='{{item._id}}'>
-                <h4>{{item.name}}</h4>
-                <div class='controls'>
-                    <a data-action='editItem' data-item-id='{{item._id}}' data-tooltip='Edit Item'><i
-                            class='fa-solid fa-edit'
-                        ></i></a>
-                    <a data-action='deleteItem' data-item-id='{{item._id}}' data-tooltip='Edit Item'><i
-                            class='fa-solid fa-trash'
-                        ></i></a>
-                </div>
-            </div>
-        {{/each}}
+        </div>
     </div>
 </header>

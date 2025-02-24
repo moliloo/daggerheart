@@ -15,8 +15,8 @@ export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2
         },
         classes: ['daggerheart', 'item', 'ancestry'],
         position: {
-            width: 400,
-            height: 650
+            width: 500,
+            height: 750
         },
         window: {
             icon: 'fa-solid fa-leaf',
