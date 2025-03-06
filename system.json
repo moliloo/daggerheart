@@ -16,7 +16,13 @@
     "readme": "README.md",
     "esmodules": ["modules/daggerheart.mjs"],
     "styles": ["styles/css/daggerheart.css"],
-
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        }
+    ],
     "manifest": "",
     "download": "",
     "background": ""

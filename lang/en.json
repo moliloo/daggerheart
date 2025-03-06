@@ -1,0 +1,76 @@
+{
+    "TYPES": {
+        "ancestry": "Ancestry",
+        "community": "Community",
+        "class": "Class"
+    },
+    "DAGGERHEART": {
+        "Actor": {
+            "hope": "Hope",
+            "threshold": {
+                "major": "Major",
+                "severe": "Severe"
+            },
+            "level": "Level",
+            "evasion": "Evasion",
+            "armor": "Armor",
+            "slots": "Slots",
+            "attributes": {
+                "agility": {
+                    "name": "Agility",
+                    "short": "AGI",
+                    "descriptions": {
+                        "sprint": "Sprint",
+                        "leap": "Leap",
+                        "maneuver": "Maneuver"
+                    }
+                },
+                "strength": {
+                    "name": "Strength",
+                    "short": "STR",
+                    "descriptions": {
+                        "lift": "Lift",
+                        "smash": "Smash",
+                        "grapple": "Grapple"
+                    }
+                },
+                "finesse": {
+                    "name": "Finesse",
+                    "short": "FIN",
+                    "descriptions": {
+                        "control": "Control",
+                        "hide": "Hide",
+                        "tinker": "Tinker"
+                    }
+                },
+                "instinct": {
+                    "name": "Instinct",
+                    "short": "INS",
+                    "descriptions": {
+                        "perceive": "Perceive",
+                        "sense": "Sense",
+                        "navigate": "Navigate"
+                    }
+                },
+                "presence": {
+                    "name": "Presence",
+                    "short": "PRE",
+                    "descriptions": {
+                        "charm": "Charm",
+                        "perform": "Perform",
+                        "deceive": "Deceive"
+                    }
+                },
+                "knowledge": {
+                    "name": "Knowledge",
+                    "short": "KNO",
+                    "descriptions": {
+                        "recall": "Recall",
+                        "analyze": "Analyze",
+                        "comprehend": "Comprehend"
+                    }
+                }
+            }
+        }
+    }
+}

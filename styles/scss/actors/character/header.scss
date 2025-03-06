@@ -1,23 +1,34 @@
 @import '../../utils/color.scss';
 
+.theme-light .application {
+    .char-sheet-header {
+        top: 0;
+    }
+}
+
 .char-sheet-header {
     display: flex;
     flex-direction: row;
     position: absolute;
     width: 100%;
     top: -36px;
-    // background-image: url(../../assets/images/background/dark-header.svg);
     align-items: center;
-    background: $primary-blue;
-    background: -webkit-linear-gradient(128deg, $primary-blue 0%, $secondary-blue 100%);
-    background: linear-gradient(128deg, $primary-blue 0%, $secondary-blue 100%);
+    height: 300px;
 
     .main-section {
         align-self: start;
         flex-grow: 1;
+        justify-items: center;
+
+        .background-header,
+        .background-footer {
+            width: 100%;
+            border-bottom: 1px solid $golden;
+            mask-image: linear-gradient(270deg, transparent 0%, black 50%, transparent 100%);
+        }
+
         .background-header {
             height: 36px;
-            background: linear-gradient(128deg, $golden 0%, $secondary-blue 100%);
         }
     }
 
@@ -37,34 +48,34 @@
         height: 300px;
         .profile {
             object-fit: cover;
-            border: none;
+            border-right: 1px solid $golden;
+            border-bottom: 1px solid $golden;
+            box-sizing: border-box;
         }
     }
 
     .stats-section {
-        position: absolute;
-        top: 8px;
         display: flex;
         flex-direction: row;
-        gap: 60px;
+        gap: 20px;
         justify-content: center;
-        width: 300px;
+        align-content: center;
+        margin-bottom: 12px;
 
         .stat-evasion,
-        .stat-armor {
-            width: 40px;
-            height: 40px;
+        .stat-armor,
+        .stat-armor-slots,
+        .level-div {
             border: 1px solid $golden;
             background-color: $dark-blue;
+            padding: 5px;
             border-radius: 6px;
             box-shadow: 0px 3px 3px $light-black;
             justify-items: center;
+            text-transform: uppercase;
 
             .label {
-                position: relative;
-                background: $golden;
-                top: -2px;
-                color: $dark-blue;
+                color: $golden;
                 padding: 3px 5px;
                 text-align: center;
                 border-radius: 2px;
@@ -78,7 +89,7 @@
         gap: 40px;
         height: 40px;
         width: 300px;
-        bottom: 0;
+        bottom: -20px;
         justify-content: center;
         .stat-bar {
             position: relative;
@@ -174,31 +185,6 @@
         }
     }
 
-    .level-section {
-        .level-div {
-            width: 40px;
-            height: 40px;
-            border: 1px solid $golden;
-            background-color: $dark-blue;
-            border-radius: 6px;
-            box-shadow: 0px 3px 3px $light-black;
-            justify-items: center;
-            p {
-                font-size: 1.5rem;
-                margin: 0;
-            }
-            .label {
-                position: relative;
-                background: $golden;
-                top: -2px;
-                color: $dark-blue;
-                padding: 3px 5px;
-                text-align: center;
-                border-radius: 2px;
-            }
-        }
-    }
-
     .name-row {
         display: flex;
         gap: 20px;
@@ -208,7 +194,9 @@
     .resources-row {
         display: flex;
         gap: 20px;
-        margin: 8px 0;
+        margin: 12px 0;
+        text-transform: uppercase;
+
         .hope-section {
             display: flex;
             gap: 10px;
@@ -245,7 +233,7 @@
     .heritage-section {
         display: flex;
         gap: 20px;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
         .heritage-item {
             display: flex;
             color: $golden;
@@ -258,6 +246,10 @@
             align-items: center;
             text-transform: uppercase;
             height: 30px;
+
+            &.empty {
+                border: 1px dashed $golden;
+            }
 
             .controls {
                 display: none;
@@ -275,10 +267,13 @@
         }
     }
     .attributes-section {
+        display: flex;
+        gap: 12px;
         align-items: center;
+        margin-bottom: 12px;
         .attribute-div {
             height: 60px;
-            width: 100px;
+            width: 70px;
             background-color: $dark-blue;
             padding: 5px 0px;
             border: 1px solid $golden;
@@ -286,6 +281,7 @@
             box-shadow: 0px 3px 3px $light-black;
             align-items: center;
             justify-items: center;
+            margin-bottom: 12px;
             .label {
                 display: flex;
                 height: 20px;
@@ -294,6 +290,7 @@
                 color: $golden;
                 border-bottom: 1px solid $golden;
                 text-transform: uppercase;
+                text-shadow: none;
                 .dice-icon {
                     display: none;
                 }

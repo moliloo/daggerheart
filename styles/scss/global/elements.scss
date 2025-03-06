@@ -1,6 +1,8 @@
 @import '../utils/color.scss';
 
 .application.sheet {
+    border: 1px solid $golden;
+
     input[type='text'],
     input[type='number'] {
         background: $semi-transparent-dark-blue;

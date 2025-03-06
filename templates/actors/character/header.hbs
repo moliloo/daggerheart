@@ -1,27 +1,4 @@
 <header class='char-sheet-header'>
-    <div class='stats-section'>
-        <div class='level-section'>
-            <div class='level-div'>
-                <p>{{actor.system.level}}</p>
-                <h4 class='label'>
-                    LEVEL
-                </h4>
-            </div>
-        </div>
-        <div class='stat-evasion'>
-            <p>{{actor.system.stats.evasion.value}}</p>
-            <h4 class='label'>
-                EVASION
-            </h4>
-        </div>
-        <div class='stat-armor'>
-            <p>{{actor.system.stats.armor.value}}</p>
-            <h4 class='label'>
-                ARMOR
-            </h4>
-        </div>
-    </div>
-
     <div class='image-section'>
         <img class='profile' src='{{source.img}}' data-action='editImage' data-edit='img' title='{{source.name}}' />
         <div class='stats-bars'>
@@ -68,7 +45,7 @@
         </div>
         <div class='resources-row'>
             <div class='hope-section'>
-                <h4>HOPE</h4>
+                <h4>{{localize 'DAGGERHEART.Actor.hope'}}</h4>
                 <span class='hope' data-action='hope' data-hope-value='1'>
                     {{#le actor.system.hope.value 0}}
                         <i class='fa-regular fa-circle'></i>
@@ -110,7 +87,7 @@
                 </span>
             </div>
             <div class='threshold-section'>
-                <h4>MAJOR</h4>
+                <h4>{{localize 'DAGGERHEART.Actor.threshold.major'}}</h4>
                 <h4>
                     <input
                         type='number'
@@ -119,10 +96,46 @@
                         placeholder='00'
                     />
                 </h4>
-                <h4>SEVERE</h4>
+                <h4>{{localize 'DAGGERHEART.Actor.threshold.severe'}}</h4>
+            </div>
+        </div>
+        <div class='stats-section'>
+            <div class='level-div'>
+                <h4 class='label'>
+                    <i class='fa-solid fa-graduation-cap'></i>
+                    {{localize 'DAGGERHEART.Actor.level'}}
+                    {{actor.system.level}}
+                </h4>
+            </div>
+            <div class='stat-evasion'>
+                <h4 class='label'>
+                    <i class='fa-solid fa-person-running'></i>
+                    {{localize 'DAGGERHEART.Actor.evasion'}}
+                    {{actor.system.stats.evasion.value}}
+                </h4>
+            </div>
+            <div class='stat-armor'>
+                <h4 class='label'>
+                    <i class='fa-solid fa-shirt'></i>
+                    {{localize 'DAGGERHEART.Actor.armor'}}
+                    {{actor.system.stats.armor.value}}
+                </h4>
+            </div>
+            <!-- TODO: Add Data from Armor Slots later -->
+            <div class='stat-armor-slots'>
+                <h4 class='label'>
+                    <i class='fa-solid fa-shield'></i>
+                    <span>{{localize 'DAGGERHEART.Actor.slots'}}</span>
+                    <span>00/06</span>
+                </h4>
             </div>
         </div>
         <div class='heritage-section'>
+            {{#unless (filterByType actor.items 'ancestry')}}
+                <div class='heritage-item empty'>
+                    <h4>{{localize 'TYPES.ancestry'}}</h4>
+                </div>
+            {{/unless}}
             {{#each (filterByType actor.items 'ancestry') as |ancestry|}}
                 <div class='heritage-item' data-item-id='{{ancestry._id}}'>
                     <h4>{{ancestry.name}}</h4>
@@ -136,6 +149,11 @@
                     </div>
                 </div>
             {{/each}}
+            {{#unless (filterByType actor.items 'community')}}
+                <div class='heritage-item empty'>
+                    <h4>{{localize 'TYPES.community'}}</h4>
+                </div>
+            {{/unless}}
             {{#each (filterByType actor.items 'community') as |community|}}
                 <div class='heritage-item' data-item-id='{{community._id}}'>
                     <h4>{{community.name}}</h4>
@@ -149,6 +167,11 @@
                     </div>
                 </div>
             {{/each}}
+            {{#unless (filterByType actor.items 'class')}}
+                <div class='heritage-item empty'>
+                    <h4>{{localize 'TYPES.class'}}</h4>
+                </div>
+            {{/unless}}
             {{#each (filterByType actor.items 'class') as |class|}}
                 <div class='heritage-item' data-item-id='{{class._id}}'>
                     <h4>{{class.name}}</h4>
@@ -164,28 +187,35 @@
             {{/each}}
         </div>
         <div class='attributes-section'>
-            <div class='attribute-div' data-tooltip='Sprint<br>Leap<br>Maneuver'>
-                <a class='label' data-action='rollHopeFear'>
-                    <h4>Agility</h4>
-                    <span class='attribute-checked'>
-                        {{#if actor.system.attributes.agility.value}}
-                            <i class='fa-solid fa-circle'></i>
+            {{#each actor.system.attributes as |attribute key|}}
+                <div
+                    class='attribute-div'
+                    data-tooltip='
+                    {{#each attribute.descriptions as |description|}}{{localize description}}<br>{{/each}}'>
+                    <a class='label' data-action='dualityRoll' data-attribute='{{key}}'>
+                        <h4>{{localize (concat 'DAGGERHEART.Actor.attributes.' key '.short')}}
+                        </h4>
+                        <span class='attribute-checked'>
+                            {{#if attribute.value}}
+                                <i class='fa-solid fa-circle'></i>
+                            {{else}}
+                                <i class='fa-regular fa-circle'></i>
+                            {{/if}}
+                        </span>
+                        <span class='dice-icon'>
+                            <i class='fa-solid fa-dice-d6'></i>
+                        </span>
+                    </a>
+                    <div class='attribute-value'>
+                        {{#if (eqg attribute.value 0)}}
+                            <p>+{{attribute.value}}</p>
                         {{else}}
-                            <i class='fa-regular fa-circle'></i>
+                            <p>{{attribute.value}}</p>
                         {{/if}}
-                    </span>
-                    <span class='dice-icon'>
-                        <i class='fa-solid fa-dice-d6'></i>
-                    </span>
-                </a>
-                <div class='attribute-value'>
-                    {{#if (eqg actor.system.attributes.agility.value 0)}}
-                        <p>+{{actor.system.attributes.agility.value}}</p>
-                    {{else}}
-                        <p>{{actor.system.attributes.agility.value}}</p>
-                    {{/if}}
+                    </div>
                 </div>
-            </div>
+            {{/each}}
         </div>
+        <div class='background-footer'></div>
     </div>
 </header>

@@ -1,11 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap');
 
-// Definições gerais
 $font-title: 'Cinzel Decorative', serif;
 $font-subtitle: 'Cinzel', serif;
 $font-body: 'Montserrat', sans-serif;
-
-// Aplicação global (mantendo tamanhos padrões)
 
 .application.sheet {
     h1 {
@@ -31,17 +28,13 @@ $font-body: 'Montserrat', sans-serif;
         color: #f3c267;
     }
 
-    // Textos normais (descrições, valores de atributos, efeitos)
     p,
     span {
         font-family: $font-body;
     }
 
-    // Pequenos detalhes (labels, tooltips)
     small {
         font-family: $font-body;
         opacity: 0.8;
     }
 }
-
-// Títulos principais (ex: nome do personagem, seções importantes)
