@@ -1,15 +1,9 @@
 @import '../../utils/color.scss';
 
-.theme-light .application {
-    .char-sheet-header {
-        top: 0;
-    }
-}
-
 .char-sheet-header {
     display: flex;
     flex-direction: row;
-    position: absolute;
+    position: relative;
     width: 100%;
     top: -36px;
     align-items: center;

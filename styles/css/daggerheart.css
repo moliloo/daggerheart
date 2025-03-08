@@ -1,12 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
-.theme-light .application .char-sheet-header {
-  top: 0;
-}
-
 .char-sheet-header {
   display: flex;
   flex-direction: row;
-  position: absolute;
+  position: relative;
   width: 100%;
   top: -36px;
   align-items: center;
@@ -276,6 +272,28 @@
   display: flex;
 }
 
+.sections {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
+.char-tabs {
+  position: relative;
+  top: -20px;
+}
+
+.sheet nav.sheet-tabs {
+  margin: 0;
+  border: none;
+}
+
+.char-tab {
+  border: none;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
 .application.sheet .window-header {
   background: transparent;
   border-bottom: none;
@@ -354,6 +372,11 @@
   margin: 0;
   text-shadow: none;
   color: #f3c267;
+}
+.application.sheet h5 {
+  font-size: 14px;
+  color: #f3c267;
+  margin: 0;
 }
 .application.sheet p,
 .application.sheet span {

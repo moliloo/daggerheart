@@ -17,7 +17,7 @@ export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorS
         tag: 'form',
         form: { submitOnChange: true },
         classes: ['daggerheart', 'actor', 'character', 'sheet'],
-        position: { width: 850, height: 850 },
+        position: { width: 850, height: 700 },
         window: { icon: 'fa-solid fa-dagger', resizable: true },
         dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }],
         actions: {
@@ -26,7 +26,12 @@ export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorS
     };
 
     static PARTS = {
-        header: { template: `systems/daggerheart/templates/actors/character/header.hbs` }
+        header: { template: 'systems/daggerheart/templates/actors/character/header.hbs' },
+        sections: { template: 'systems/daggerheart/templates/actors/character/sections.hbs' }
+        // sidebar: { template: 'systems/daggerheart/templates/actors/character/sidebar.hbs' },
+        // tabs: { template: 'systems/daggerheart/templates/actors/character/tab-navigation.hbs' },
+        // summary: { template: 'systems/daggerheart/templates/actors/character/summary.hbs' },
+        // domainCards: { template: 'systems/daggerheart/templates/actors/character/domain-cards.hbs' }
     };
 
     // Getter for dragDrop private property
@@ -59,12 +64,66 @@ export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorS
         await fp.browse();
     }
 
+    _configureRenderOptions(options) {
+        super._configureRenderOptions(options);
+        // TODO: Refactor to use _configureRenderParts in v13
+        if (this.document.limited) {
+            options.parts = ['header', 'tabs', 'biography'];
+        }
+    }
+
+    tabGroups = {
+        primary: 'summary'
+    };
+
+    // TODO: Add other tabs later
+    tabs = {
+        summary: {
+            group: 'primary',
+            id: 'summary',
+            icon: 'fa-solid fa-user',
+            title: 'Summary'
+        },
+        domainCards: {
+            group: 'primary',
+            id: 'domainCards',
+            icon: 'fa-solid fa-tablet',
+            title: 'Domain Cards'
+        }
+    };
+
+    _getTabs() {
+        const tabs = this.tabs;
+
+        for (const tab of Object.values(tabs)) {
+            tab.active = this.tabGroups[tab.group] === tab.id;
+            tab.cssClass = tab.active ? 'active' : '';
+        }
+        console.log('Tabs processadas:', tabs);
+        return tabs;
+    }
+
     // Prepare the context for rendering
     async _prepareContext(options) {
         return {
             actor: this.document,
-            source: this.document.toObject()
+            source: this.document.toObject(),
+            tabs: this._getTabs()
         };
+    }
+
+    activateListeners(html) {
+        super.activateListeners(html);
+
+        // Seleciona a aba inicial
+        const activeTab = this.tabGroups.primary;
+        const tabElement = html.find(`.tab-part[data-tab="${activeTab}"]`);
+
+        if (tabElement.length > 0) {
+            tabElement.addClass('active'); // Força a aba inicial a ser visível
+        } else {
+            console.warn('Tab inicial não encontrada:', activeTab);
+        }
     }
 
     // Methods related to drag and drop functionality
@@ -134,7 +193,6 @@ export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorS
                 break;
         }
     }
-
 
     async _onClickAction(event, target) {
         event.preventDefault();

@@ -1,0 +1,9 @@
+.sections {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}
+
+.char-tabs {
+    position: relative;
+    top: -20px;
+}
