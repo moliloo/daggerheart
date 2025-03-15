@@ -2,6 +2,13 @@
 @import './actors/character/sections.scss';
 @import './actors/character/tab-navigation.scss';
 
+@import './items/feature/header.scss';
+@import './items/feature/sections.scss';
+@import './items/feature/settings.scss';
+@import './items/feature/details.scss';
+
 @import './global/sheet.scss';
 @import './global/elements.scss';
+@import './global/editor-container.scss';
+
 @import './utils/fonts.scss';

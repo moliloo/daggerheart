@@ -1,0 +1,16 @@
+.application prose-mirror {
+    min-height: 270px;
+    .editor-content {
+        padding: 5px 10px;
+        height: fit-content;
+        h1 {
+            font-size: 36px;
+        }
+        h2 {
+            font-size: 32px;
+        }
+        h3 {
+            font-size: 24px;
+        }
+    }
+}

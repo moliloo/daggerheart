@@ -28,6 +28,27 @@ export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2
                 dropSelector: null
             }
         ],
-        actions: {}
+        actions: {
+            editImage: DaggerheartItemSheet.#onEditImage
+        }
     };
+
+    static async #onEditImage(event) {
+        const attr = event.target.dataset.edit;
+        const current = foundry.utils.getProperty(this.document, attr);
+        const fp = new FilePicker({
+            current,
+            type: 'image',
+            callback: path => {
+                event.target.src = path;
+                if (this.options.form.submitOnChange) {
+                    const submit = new Event('submit');
+                    this.element.dispatchEvent(submit);
+                }
+            },
+            top: this.position.top + 40,
+            left: this.position.left + 10
+        });
+        await fp.browse();
+    }
 }

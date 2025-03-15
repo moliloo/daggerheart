@@ -1,9 +1,11 @@
-.sections {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-}
+.sheet.daggerheart.actor.character {
+    .sections {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+    }
 
-.char-tabs {
-    position: relative;
-    top: -20px;
+    .char-tabs {
+        position: relative;
+        top: -30px;
+    }
 }

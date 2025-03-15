@@ -1,0 +1,48 @@
+<section class='tab {{tab.cssClass}} settings' data-tab='settings' data-group='primary'>
+    <fieldset>
+        <legend>Settings</legend>
+        <span>Feature Type:</span>
+        <select name='system.type'>
+            {{selectOptions config.featureType selected=item.system.type localize=true}}
+        </select>
+
+        <span>Frequency</span>
+        <div class='nest-inputs'>
+            {{#unless (eq item.system.frequency.type 'atWill')}}
+                <input type='number' name='system.frequency.times' value='{{system.frequency.times}}' placeholder='0' />
+            {{/unless}}
+            <select name='system.frequency.type'>
+                {{selectOptions config.frequency selected=item.system.frequency.type localize=true}}
+            </select>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Usage</legend>
+        <span>Cost</span>
+        <div class='nest-inputs'>
+            {{#unless (eq item.system.cost.type 'noCost')}}
+                <input type='number' name='system.frequency.value' value='{{system.frequency.value}}' placeholder='0' />
+            {{/unless}}
+            <select name='system.cost.type'>
+                {{selectOptions config.cost selected=item.system.cost.type localize=true}}
+            </select>
+        </div>
+
+        <span>Uses</span>
+        <div class='nest-inputs'>
+            {{#unless (eq item.system.uses.type 'unlimited')}}
+                <input type='number' name='system.uses.value' value='{{system.uses.value}}' placeholder='0' />
+            {{/unless}}
+            <select name='system.uses.type'>
+                {{selectOptions config.uses selected=item.system.uses.type localize=true}}
+            </select>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Actions</legend>
+        <span>Category</span>
+        <select name='system.actionCategory.type'>
+            {{selectOptions config.actionCategory selected=item.system.actionCategory.type localize=true}}
+        </select>
+    </fieldset>
+</section>

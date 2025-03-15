@@ -4,6 +4,7 @@ import { DaggerheartItem } from './documents/item.mjs';
 import { DaggerheartCharacterSheet } from './sheets/actors/character-sheet.mjs';
 
 import { DaggerheartItemSheet } from './sheets/items/item-sheet.mjs';
+import { DaggerheartFeatureSheet } from './sheets/items/feature-sheet.mjs';
 
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { daggerheart } from './helpers/config.mjs';
@@ -32,11 +33,13 @@ Hooks.once('init', function () {
         character: models.DaggerheartCharacter
     };
     CONFIG.Item.dataModels = {
-        ancestry: models.DaggerheartAncestry
+        ancestry: models.DaggerheartAncestry,
+        feature: models.DaggerheartFeature
     };
 
     Items.unregisterSheet('core', ItemSheet);
     Items.registerSheet('daggerheart', DaggerheartItemSheet, { makeDefault: true });
+    Items.registerSheet('daggerheart', DaggerheartFeatureSheet, { types: ['feature'], makeDefault: true });
 
     Actors.unregisterSheet('core', ActorSheet);
     Actors.registerSheet('daggerheart', DaggerheartCharacterSheet, { types: ['character'], makeDefault: true });
@@ -58,4 +61,4 @@ Handlebars.registerHelper('filterByType', function (items, type) {
     return items.filter(item => item.type === type);
 });
 
-Handlebars.registerHelper('eqg', (a, b) => a >= b)
+Handlebars.registerHelper('eqg', (a, b) => a >= b);

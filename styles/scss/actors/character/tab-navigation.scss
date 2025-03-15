@@ -1,11 +1,12 @@
-.sheet nav.sheet-tabs {
-    margin: 0;
-    border: none;
-}
+.sheet.daggerheart.actor.character {
+    nav.sheet-tabs {
+        margin: 0;
+        border: none;
+    }
 
-.char-tab {
-    border: none;
-    height: 30px;
-    align-items: center;
-    justify-content: center;
+    .char-tab {
+        height: 30px;
+        align-items: center;
+        justify-content: center;
+    }
 }

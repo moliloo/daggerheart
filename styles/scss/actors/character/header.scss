@@ -1,299 +1,301 @@
 @import '../../utils/color.scss';
 
-.char-sheet-header {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    width: 100%;
-    top: -36px;
-    align-items: center;
-    height: 300px;
-
-    .main-section {
-        align-self: start;
-        flex-grow: 1;
-        justify-items: center;
-
-        .background-header,
-        .background-footer {
-            width: 100%;
-            border-bottom: 1px solid $golden;
-            mask-image: linear-gradient(270deg, transparent 0%, black 50%, transparent 100%);
-        }
-
-        .background-header {
-            height: 36px;
-        }
-    }
-
-    .actor-name {
-        margin-top: -8px;
-    }
-
-    input[type='text'] {
-        font-size: 32px;
-        height: 42px;
-        width: 380px;
-        text-align: center;
-    }
-
-    .image-section {
-        width: 300px;
+.sheet.daggerheart.actor.character {
+    .char-sheet-header {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        width: 100%;
+        top: -36px;
+        align-items: center;
         height: 300px;
-        .profile {
-            object-fit: cover;
-            border-right: 1px solid $golden;
-            border-bottom: 1px solid $golden;
-            box-sizing: border-box;
-        }
-    }
 
-    .stats-section {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        justify-content: center;
-        align-content: center;
-        margin-bottom: 12px;
-
-        .stat-evasion,
-        .stat-armor,
-        .stat-armor-slots,
-        .level-div {
-            border: 1px solid $golden;
-            background-color: $dark-blue;
-            padding: 5px;
-            border-radius: 6px;
-            box-shadow: 0px 3px 3px $light-black;
+        .main-section {
+            align-self: start;
+            flex-grow: 1;
             justify-items: center;
-            text-transform: uppercase;
 
-            .label {
-                color: $golden;
-                padding: 3px 5px;
-                text-align: center;
-                border-radius: 2px;
+            .background-header,
+            .background-footer {
+                width: 100%;
+                border-bottom: 1px solid $golden;
+                mask-image: linear-gradient(270deg, transparent 0%, black 50%, transparent 100%);
+            }
+
+            .background-header {
+                height: 36px;
             }
         }
-    }
-    .stats-bars {
-        display: flex;
-        flex-direction: row;
-        position: absolute;
-        gap: 40px;
-        height: 40px;
-        width: 300px;
-        bottom: -20px;
-        justify-content: center;
-        .stat-bar {
-            position: relative;
-            width: 100px;
-            height: 40px;
 
-            .labels {
-                position: absolute;
-                display: flex;
-                padding: 0 6px;
-                font-size: 1.5rem;
-                align-items: center;
-                width: 100px;
-                height: 40px;
-                justify-content: center;
-                z-index: 2;
+        .actor-name {
+            margin-top: -8px;
+        }
 
-                input[type='number'] {
-                    background: transparent;
-                    font-size: 1.5rem;
-                    width: 100px;
-                    height: 40px;
-                    text-align: center;
-                    border: none;
-                }
+        input[type='text'] {
+            font-size: 32px;
+            height: 42px;
+            width: 380px;
+            text-align: center;
+        }
+
+        .image-section {
+            width: 300px;
+            height: 300px;
+            .profile {
+                object-fit: cover;
+                border-right: 1px solid $golden;
+                border-bottom: 1px solid $golden;
+                box-sizing: border-box;
             }
-            .progress-bar {
-                position: absolute;
-                appearance: none;
-                width: 100px;
-                height: 40px;
+        }
+
+        .stats-section {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: center;
+            align-content: center;
+            margin-bottom: 12px;
+
+            .stat-evasion,
+            .stat-armor,
+            .stat-armor-slots,
+            .level-div {
                 border: 1px solid $golden;
+                background-color: $dark-blue;
+                padding: 5px;
                 border-radius: 6px;
                 box-shadow: 0px 3px 3px $light-black;
-                z-index: 1;
+                justify-items: center;
+                text-transform: uppercase;
 
-                &::-webkit-progress-bar {
-                    border: none;
-                    background: $dark-blue;
-                    border-radius: 6px;
-                }
-                &::-webkit-progress-value {
-                    background: $gradient-hp;
-                    border-radius: 5px;
-                }
-                &.stress-color::-webkit-progress-value {
-                    background: $gradient-stress;
-                    border-radius: 5px;
-                }
-                &::-moz-progress-value,
-                &::-moz-progress-bar {
-                    border-radius: 5px;
-                }
-
-                &::-moz-progress-bar {
-                    background: $gradient-hp;
-                }
-                &.stress-color::-moz-progress-bar {
-                    background: $gradient-stress;
-                    border-radius: 5px;
+                .label {
+                    color: $golden;
+                    padding: 3px 5px;
+                    text-align: center;
+                    border-radius: 2px;
                 }
             }
-            .controls {
-                position: absolute;
-                display: flex;
-                flex-direction: row;
-                top: 0px;
-                justify-self: anchor-center;
-                height: 20px;
+        }
+        .stats-bars {
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            gap: 40px;
+            height: 40px;
+            width: 300px;
+            bottom: -20px;
+            justify-content: center;
+            .stat-bar {
+                position: relative;
                 width: 100px;
-                transition: transform 0.3s ease-out;
-                z-index: 0;
-                transform: translateY(0px);
-                button {
-                    transition: transform 0.3s ease-out;
-                    i {
-                        margin: 0;
+                height: 40px;
+
+                .labels {
+                    position: absolute;
+                    display: flex;
+                    padding: 0 6px;
+                    font-size: 1.5rem;
+                    align-items: center;
+                    width: 100px;
+                    height: 40px;
+                    justify-content: center;
+                    z-index: 2;
+
+                    input[type='number'] {
+                        background: transparent;
+                        font-size: 1.5rem;
+                        width: 100px;
+                        height: 40px;
+                        text-align: center;
+                        border: none;
                     }
                 }
-            }
+                .progress-bar {
+                    position: absolute;
+                    appearance: none;
+                    width: 100px;
+                    height: 40px;
+                    border: 1px solid $golden;
+                    border-radius: 6px;
+                    box-shadow: 0px 3px 3px $light-black;
+                    z-index: 1;
 
-            &:hover {
+                    &::-webkit-progress-bar {
+                        border: none;
+                        background: $dark-blue;
+                        border-radius: 6px;
+                    }
+                    &::-webkit-progress-value {
+                        background: $gradient-hp;
+                        border-radius: 6px;
+                    }
+                    &.stress-color::-webkit-progress-value {
+                        background: $gradient-stress;
+                        border-radius: 6px;
+                    }
+                    &::-moz-progress-value,
+                    &::-moz-progress-bar {
+                        border-radius: 6px;
+                    }
+
+                    &::-moz-progress-bar {
+                        background: $gradient-hp;
+                    }
+                    &.stress-color::-moz-progress-bar {
+                        background: $gradient-stress;
+                        border-radius: 6px;
+                    }
+                }
                 .controls {
+                    position: absolute;
+                    display: flex;
+                    flex-direction: row;
+                    top: 0px;
+                    justify-self: anchor-center;
+                    height: 20px;
+                    width: 100px;
+                    transition: transform 0.3s ease-out;
+                    z-index: 0;
+                    transform: translateY(0px);
                     button {
-                        transform: translateY(-24px);
-                        &::focus-within {
+                        transition: transform 0.3s ease-out;
+                        i {
+                            margin: 0;
+                        }
+                    }
+                }
+
+                &:hover {
+                    .controls {
+                        button {
                             transform: translateY(-24px);
-                            transition: all 3s ease-in-out;
+                            &::focus-within {
+                                transform: translateY(-24px);
+                                transition: all 3s ease-in-out;
+                            }
                         }
                     }
                 }
             }
         }
-    }
 
-    .name-row {
-        display: flex;
-        gap: 20px;
-        align-items: baseline;
-    }
-
-    .resources-row {
-        display: flex;
-        gap: 20px;
-        margin: 12px 0;
-        text-transform: uppercase;
-
-        .hope-section {
+        .name-row {
             display: flex;
-            gap: 10px;
-            background-color: $dark-blue;
-            color: $golden;
-            padding: 5px 10px;
-            border: 1px solid $golden;
-            border-radius: 6px;
-            box-shadow: 0px 3px 3px $light-black;
-            align-items: center;
-            .hope {
-                cursor: pointer;
-            }
+            gap: 20px;
+            align-items: baseline;
         }
 
-        .threshold-section {
+        .resources-row {
             display: flex;
-            background-color: $dark-blue;
-            color: $golden;
-            gap: 10px;
-            padding: 5px 10px;
-            border: 1px solid $golden;
-            border-radius: 6px;
-            box-shadow: 0px 3px 3px $light-black;
-            align-items: center;
-
-            input[type='number'] {
-                height: 18px;
-                width: 36px;
-                text-align: center;
-            }
-        }
-    }
-    .heritage-section {
-        display: flex;
-        gap: 20px;
-        margin-bottom: 12px;
-        .heritage-item {
-            display: flex;
-            color: $golden;
-            background-color: $dark-blue;
-            gap: 5px;
-            padding: 5px 10px;
-            border: 1px solid $golden;
-            border-radius: 6px;
-            box-shadow: 0px 3px 3px $light-black;
-            align-items: center;
+            gap: 20px;
+            margin: 12px 0;
             text-transform: uppercase;
-            height: 30px;
 
-            &.empty {
-                border: 1px dashed $golden;
+            .hope-section {
+                display: flex;
+                gap: 10px;
+                background-color: $dark-blue;
+                color: $golden;
+                padding: 5px 10px;
+                border: 1px solid $golden;
+                border-radius: 6px;
+                box-shadow: 0px 3px 3px $light-black;
+                align-items: center;
+                .hope {
+                    cursor: pointer;
+                }
             }
 
-            .controls {
-                display: none;
-            }
+            .threshold-section {
+                display: flex;
+                background-color: $dark-blue;
+                color: $golden;
+                gap: 10px;
+                padding: 5px 10px;
+                border: 1px solid $golden;
+                border-radius: 6px;
+                box-shadow: 0px 3px 3px $light-black;
+                align-items: center;
 
-            &:hover {
-                .controls {
-                    display: flex;
-                    gap: 5px;
-                    a {
-                        text-shadow: none;
-                    }
+                input[type='number'] {
+                    height: 18px;
+                    width: 36px;
+                    text-align: center;
                 }
             }
         }
-    }
-    .attributes-section {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-        margin-bottom: 12px;
-        .attribute-div {
-            height: 60px;
-            width: 70px;
-            background-color: $dark-blue;
-            padding: 5px 0px;
-            border: 1px solid $golden;
-            border-radius: 6px;
-            box-shadow: 0px 3px 3px $light-black;
-            align-items: center;
-            justify-items: center;
+        .heritage-section {
+            display: flex;
+            gap: 20px;
             margin-bottom: 12px;
-            .label {
+            .heritage-item {
                 display: flex;
-                height: 20px;
-                gap: 5px;
-                align-items: center;
                 color: $golden;
-                border-bottom: 1px solid $golden;
+                background-color: $dark-blue;
+                gap: 5px;
+                padding: 5px 10px;
+                border: 1px solid $golden;
+                border-radius: 6px;
+                box-shadow: 0px 3px 3px $light-black;
+                align-items: center;
                 text-transform: uppercase;
-                text-shadow: none;
-                .dice-icon {
+                height: 30px;
+
+                &.empty {
+                    border: 1px dashed $golden;
+                }
+
+                .controls {
                     display: none;
                 }
+
                 &:hover {
-                    .attribute-checked {
+                    .controls {
+                        display: flex;
+                        gap: 5px;
+                        a {
+                            text-shadow: none;
+                        }
+                    }
+                }
+            }
+        }
+        .attributes-section {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 12px;
+            .attribute-div {
+                height: 60px;
+                width: 70px;
+                background-color: $dark-blue;
+                padding: 5px 0px;
+                border: 1px solid $golden;
+                border-radius: 6px;
+                box-shadow: 0px 3px 3px $light-black;
+                align-items: center;
+                justify-items: center;
+                margin-bottom: 12px;
+                .label {
+                    display: flex;
+                    height: 20px;
+                    gap: 5px;
+                    align-items: center;
+                    color: $golden;
+                    border-bottom: 1px solid $golden;
+                    text-transform: uppercase;
+                    text-shadow: none;
+                    .dice-icon {
                         display: none;
                     }
-                    .dice-icon {
-                        display: flex;
+                    &:hover {
+                        .attribute-checked {
+                            display: none;
+                        }
+                        .dice-icon {
+                            display: flex;
+                        }
                     }
                 }
             }

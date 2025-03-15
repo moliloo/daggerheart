@@ -71,6 +71,41 @@
                     }
                 }
             }
+        },
+        "Feature": {
+            "type": {
+                "class": "Class Feature",
+                "community": "Community Feature",
+                "ancestry": "Ancestry Feature"
+            },
+            "frequency": {
+                "atWill": "At-Will",
+                "round": "Round",
+                "battle": "Battle",
+                "day": "Day",
+                "shortRest": "Short Rest",
+                "longRest": "Long Rest",
+                "perSession": "Per Session"
+            },
+            "cost": {
+                "noCost": "No Cost",
+                "hope": "Hope",
+                "action": "Action"
+            },
+            "uses": {
+                "unlimited": "Unlimited",
+                "limited": "Limited"
+            },
+            "actionCategory": {
+                "roll": "Roll",
+                "advantage": "Advantage",
+                "attack": "Attack",
+                "damageBonus": "Damage Bonus",
+                "heal": "Heal",
+                "attributeCheck": "Attribute Check",
+                "attributeBonus": "Attribute Bonus",
+                "description": "description"
+            }
         }
     }
 }

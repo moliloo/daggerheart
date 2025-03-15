@@ -35,7 +35,6 @@
     }
 
     p {
-        font-size: 1.5rem;
         margin: 0;
     }
 
@@ -43,5 +42,23 @@
         margin: 0;
         padding: 0;
         list-style: none;
+    }
+
+    fieldset {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 5px;
+        gap: 10px;
+        border-radius: 6px;
+        border-color: $golden;
+        legend {
+            color: $golden;
+        }
+
+        .nest-inputs {
+            display: flex;
+            gap: 5px;
+        }
     }
 }
