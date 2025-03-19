@@ -1,0 +1,44 @@
+@import '../../utils/fonts.scss';
+
+.sheet.daggerheart.item.feature {
+    .tab.effects {
+        padding: 0 10px;
+        max-height: 265px;
+        overflow-y: auto;
+        .effect-list {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            .effect {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                .effect-line {
+                    display: grid;
+                    align-items: center;
+                    grid-template-columns: 1fr 4fr 1fr;
+
+                    h4 {
+                        font-family: $font-body;
+                        font-weight: lighter;
+                        color: $beige;
+                    }
+                    .image {
+                        height: 40px;
+                        width: 40px;
+                        object-fit: cover;
+                        border-radius: 6px;
+                        border: none;
+                    }
+                    .controls {
+                        display: flex;
+                        gap: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

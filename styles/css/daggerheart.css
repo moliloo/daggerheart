@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
 .sheet.daggerheart.actor.character .char-sheet-header {
   display: flex;
   flex-direction: row;
@@ -12,12 +17,6 @@
   align-self: start;
   flex-grow: 1;
   justify-items: center;
-}
-.sheet.daggerheart.actor.character .char-sheet-header .main-section .background-header,
-.sheet.daggerheart.actor.character .char-sheet-header .main-section .background-footer {
-  width: 100%;
-  border-bottom: 1px solid #f3c267;
-  mask-image: linear-gradient(270deg, transparent 0%, black 50%, transparent 100%);
 }
 .sheet.daggerheart.actor.character .char-sheet-header .main-section .background-header {
   height: 36px;
@@ -54,7 +53,7 @@
 .sheet.daggerheart.actor.character .char-sheet-header .stats-section .stat-armor-slots,
 .sheet.daggerheart.actor.character .char-sheet-header .stats-section .level-div {
   border: 1px solid #f3c267;
-  background-color: #18162e;
+  background-color: rgb(24, 22, 46);
   padding: 5px;
   border-radius: 6px;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
@@ -116,7 +115,7 @@
 }
 .sheet.daggerheart.actor.character .char-sheet-header .stats-bars .stat-bar .progress-bar::-webkit-progress-bar {
   border: none;
-  background: #18162e;
+  background: rgb(24, 22, 46);
   border-radius: 6px;
 }
 .sheet.daggerheart.actor.character .char-sheet-header .stats-bars .stat-bar .progress-bar::-webkit-progress-value {
@@ -176,7 +175,7 @@
 .sheet.daggerheart.actor.character .char-sheet-header .resources-row .hope-section {
   display: flex;
   gap: 10px;
-  background-color: #18162e;
+  background-color: rgb(24, 22, 46);
   color: #f3c267;
   padding: 5px 10px;
   border: 1px solid #f3c267;
@@ -189,7 +188,7 @@
 }
 .sheet.daggerheart.actor.character .char-sheet-header .resources-row .threshold-section {
   display: flex;
-  background-color: #18162e;
+  background-color: rgb(24, 22, 46);
   color: #f3c267;
   gap: 10px;
   padding: 5px 10px;
@@ -211,7 +210,7 @@
 .sheet.daggerheart.actor.character .char-sheet-header .heritage-section .heritage-item {
   display: flex;
   color: #f3c267;
-  background-color: #18162e;
+  background-color: rgb(24, 22, 46);
   gap: 5px;
   padding: 5px 10px;
   border: 1px solid #f3c267;
@@ -243,7 +242,7 @@
 .sheet.daggerheart.actor.character .char-sheet-header .attributes-section .attribute-div {
   height: 60px;
   width: 70px;
-  background-color: #18162e;
+  background-color: rgb(24, 22, 46);
   padding: 5px 0px;
   border: 1px solid #f3c267;
   border-radius: 6px;
@@ -291,6 +290,127 @@
   justify-content: center;
 }
 
+.application.sheet h1 {
+  font-family: "Cinzel Decorative", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h2,
+.application.sheet h3 {
+  font-family: "Cinzel", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  border: none;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: none;
+  color: #f3c267;
+}
+.application.sheet h5 {
+  font-size: 14px;
+  color: #f3c267;
+  margin: 0;
+}
+.application.sheet p,
+.application.sheet span {
+  font-family: "Montserrat", sans-serif;
+}
+.application.sheet small {
+  font-family: "Montserrat", sans-serif;
+  opacity: 0.8;
+}
+
+.sheet.daggerheart.item.feature .tab.details {
+  padding: 0 10px;
+  max-height: 265px;
+  overflow-y: auto;
+}
+.sheet.daggerheart.item.feature .tab.details input[type=text] {
+  color: #efe6d8;
+  font-family: "Montserrat", sans-serif;
+}
+.sheet.daggerheart.item.feature .tab.details input[type=text]:focus {
+  outline: 2px solid #efe6d8;
+}
+
+.application.sheet h1 {
+  font-family: "Cinzel Decorative", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h2,
+.application.sheet h3 {
+  font-family: "Cinzel", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  border: none;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: none;
+  color: #f3c267;
+}
+.application.sheet h5 {
+  font-size: 14px;
+  color: #f3c267;
+  margin: 0;
+}
+.application.sheet p,
+.application.sheet span {
+  font-family: "Montserrat", sans-serif;
+}
+.application.sheet small {
+  font-family: "Montserrat", sans-serif;
+  opacity: 0.8;
+}
+
+.sheet.daggerheart.item.feature .tab.effects {
+  padding: 0 10px;
+  max-height: 265px;
+  overflow-y: auto;
+}
+.sheet.daggerheart.item.feature .tab.effects .effect-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.sheet.daggerheart.item.feature .tab.effects .effect-list .effect {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.sheet.daggerheart.item.feature .tab.effects .effect-list .effect .effect-line {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 4fr 1fr;
+}
+.sheet.daggerheart.item.feature .tab.effects .effect-list .effect .effect-line h4 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: lighter;
+  color: #efe6d8;
+}
+.sheet.daggerheart.item.feature .tab.effects .effect-list .effect .effect-line .image {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: none;
+}
+.sheet.daggerheart.item.feature .tab.effects .effect-list .effect .effect-line .controls {
+  display: flex;
+  gap: 10px;
+}
+
 .sheet.daggerheart.item.feature .window-content {
   position: relative;
   top: -36px;
@@ -304,7 +424,7 @@
   height: 300px;
   width: 100%;
   object-fit: cover;
-  mask-image: linear-gradient(0deg, transparent 0%, black 50%);
+  mask-image: linear-gradient(0deg, transparent 0%, black 10%);
 }
 .sheet.daggerheart.item.feature .feature-sheet-header .feature-info {
   display: flex;
@@ -313,6 +433,7 @@
   position: relative;
   top: -25px;
   gap: 5px;
+  margin: 0 12px;
 }
 .sheet.daggerheart.item.feature .feature-sheet-header .feature-info .feature-name input[type=text] {
   font-size: 32px;
@@ -323,16 +444,99 @@
   font-size: 1rem;
 }
 
-.sheet.daggerheart.item.feature .tab.settings {
-  padding: 0 10px;
-  max-height: 280px;
-  overflow-y: auto;
+.application.sheet h1 {
+  font-family: "Cinzel Decorative", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h2,
+.application.sheet h3 {
+  font-family: "Cinzel", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  border: none;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: none;
+  color: #f3c267;
+}
+.application.sheet h5 {
+  font-size: 14px;
+  color: #f3c267;
+  margin: 0;
+}
+.application.sheet p,
+.application.sheet span {
+  font-family: "Montserrat", sans-serif;
+}
+.application.sheet small {
+  font-family: "Montserrat", sans-serif;
+  opacity: 0.8;
 }
 
-.sheet.daggerheart.item.feature .tab.details {
+.sheet.daggerheart.item.feature .tab.settings {
   padding: 0 10px;
-  max-height: 280px;
+  max-height: 265px;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #f3c267 transparent;
+}
+.sheet.daggerheart.item.feature .tab.settings input[type=number] {
+  color: #efe6d8;
+  font-family: "Montserrat", sans-serif;
+}
+.sheet.daggerheart.item.feature .tab.settings input[type=number]:focus {
+  outline: 2px solid #efe6d8;
+}
+
+.application.sheet h1 {
+  font-family: "Cinzel Decorative", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h2,
+.application.sheet h3 {
+  font-family: "Cinzel", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  border: none;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: none;
+  color: #f3c267;
+}
+.application.sheet h5 {
+  font-size: 14px;
+  color: #f3c267;
+  margin: 0;
+}
+.application.sheet p,
+.application.sheet span {
+  font-family: "Montserrat", sans-serif;
+}
+.application.sheet small {
+  font-family: "Montserrat", sans-serif;
+  opacity: 0.8;
+}
+
+.sheet.daggerheart.item.feature .tab-navigation {
+  margin: 5px 0;
+}
+.sheet.daggerheart.item.feature .tab-navigation .feature-tab {
+  border: none;
+  color: #f3c267;
+}
+.sheet.daggerheart.item.feature .tab-navigation .feature-tab a {
+  text-shadow: none;
+  font-family: "Montserrat", sans-serif;
 }
 
 .application.sheet .window-header {
@@ -351,7 +555,46 @@
 
 .application.sheet .window-content {
   overflow: initial;
+  backdrop-filter: none;
   padding: 0;
+}
+
+.application.sheet {
+  backdrop-filter: blur(4px);
+}
+
+.application.sheet h1 {
+  font-family: "Cinzel Decorative", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h2,
+.application.sheet h3 {
+  font-family: "Cinzel", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  border: none;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: none;
+  color: #f3c267;
+}
+.application.sheet h5 {
+  font-size: 14px;
+  color: #f3c267;
+  margin: 0;
+}
+.application.sheet p,
+.application.sheet span {
+  font-family: "Montserrat", sans-serif;
+}
+.application.sheet small {
+  font-family: "Montserrat", sans-serif;
+  opacity: 0.8;
 }
 
 .application.sheet {
@@ -384,6 +627,19 @@
   border: 1px solid #f3c267;
   color: #f3c267;
 }
+.application.sheet select {
+  background: rgba(24, 22, 46, 0.33);
+  color: #efe6d8;
+  font-family: "Montserrat", sans-serif;
+}
+.application.sheet select:focus {
+  outline-color: #efe6d8;
+  box-shadow: none;
+}
+.application.sheet select option {
+  background-color: rgb(24, 22, 46);
+  border-radius: 6px;
+}
 .application.sheet p {
   margin: 0;
 }
@@ -393,24 +649,42 @@
   list-style: none;
 }
 .application.sheet fieldset {
-  display: grid;
   align-items: center;
-  grid-template-columns: 1fr 1fr;
   margin-top: 5px;
-  gap: 10px;
   border-radius: 6px;
   border-color: #f3c267;
 }
+.application.sheet fieldset.one-column {
+  display: flex;
+  gap: 10px;
+  min-height: 64px;
+}
+.application.sheet fieldset.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+}
 .application.sheet fieldset legend {
+  font-family: "Montserrat", sans-serif;
   color: #f3c267;
 }
 .application.sheet fieldset .nest-inputs {
   display: flex;
   gap: 5px;
 }
+.application.sheet line-div {
+  display: block;
+  height: 1px;
+  width: 100%;
+  border-bottom: 1px solid #f3c267;
+  mask-image: linear-gradient(270deg, transparent 0%, black 50%, transparent 100%);
+}
 
 .application prose-mirror {
-  min-height: 270px;
+  min-height: 265px;
+}
+.application prose-mirror .editor-menu {
+  background-color: transparent;
 }
 .application prose-mirror .editor-content {
   padding: 5px 10px;

@@ -73,6 +73,36 @@
             }
         },
         "Feature": {
+            "tabs": {
+                "description": "Description",
+                "settings": "Settings",
+                "details": "Details",
+                "effects": "Effects"
+            },
+            "details": {
+                "publication": "Publication",
+                "title": "Title",
+                "authors": "Author's"
+            },
+            "settings": {
+                "settings": "Settings",
+                "featureType": "Feature Type",
+                "frequency": "Frequency",
+                "usage": "Usage",
+                "cost": "Cost",
+                "uses": "Uses",
+                "actions": "Actions",
+                "category": "Category",
+                "rollFormula": "Roll Formula",
+                "justRollDamage": "Just Roll Damage?",
+                "proficiencyInDamage": "Uses Proficiency in Damage?",
+                "attribute": "Attribute",
+                "type": "Type",
+                "damageFormula": "Damage Formula",
+                "healFormula": "Heal Formula",
+                "dc": "Difficulty Check",
+                "rollDiceOnSucess": "Roll dice on sucess?"
+            },
             "type": {
                 "class": "Class Feature",
                 "community": "Community Feature",
@@ -90,7 +120,8 @@
             "cost": {
                 "noCost": "No Cost",
                 "hope": "Hope",
-                "action": "Action"
+                "action": "Action",
+                "stress": "Stress"
             },
             "uses": {
                 "unlimited": "Unlimited",
@@ -102,10 +133,19 @@
                 "attack": "Attack",
                 "damageBonus": "Damage Bonus",
                 "heal": "Heal",
-                "attributeCheck": "Attribute Check",
-                "attributeBonus": "Attribute Bonus",
-                "description": "description"
+                "attributeCheck": "Attribute Check"
             }
+        },
+        "Attack": {
+            "type": {
+                "physical": "Physical",
+                "magical": "Magical"
+            }
+        },
+        "ActiveEffect": {
+            "temporary": "Temporary",
+            "passive": "Passive",
+            "inactive": "Inactive"
         }
     }
 }

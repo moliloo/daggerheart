@@ -1,14 +1,18 @@
-<section class='tab {{tab.cssClass}} details' data-tab='details' data-group='primary'>
-    <fieldset>
-        <legend>Publication</legend>
-        <span>Title</span>
+<section
+    class='tab {{tabs.details.cssClass}} {{tabs.details.id}}'
+    data-tab='{{tabs.details.id}}'
+    data-group='{{tabs.details.group}}'
+>
+    <fieldset class='two-columns'>
+        <legend>{{localize 'DAGGERHEART.Feature.details.publication'}}</legend>
+        <span>{{localize 'DAGGERHEART.Feature.details.title'}}</span>
         <input
             type='text'
             name='system.publication.title'
             value='{{item.system.publication.title}}'
             placeholder='Book, Homebrew Collection...'
         />
-        <span>Author's</span>
+        <span>{{localize 'DAGGERHEART.Feature.details.authors'}}</span>
         <input
             type='text'
             name='system.publication.author'

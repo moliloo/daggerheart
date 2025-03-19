@@ -20,7 +20,7 @@ export class DaggerheartFeatureSheet extends HandlebarsApplicationMixin(Daggerhe
         },
         window: {
             icon: '',
-            resizable: true
+            resizable: false
         },
         dragDrop: [
             {
@@ -34,22 +34,49 @@ export class DaggerheartFeatureSheet extends HandlebarsApplicationMixin(Daggerhe
     static PARTS = {
         header: { template: 'systems/daggerheart/templates/items/feature/header.hbs' },
         tabs: { template: 'systems/daggerheart/templates/items/feature/tab-navigation.hbs' },
-        sections: { template: 'systems/daggerheart/templates/items/feature/sections.hbs', scrollable: ['.settings'] }
+        description: { template: 'systems/daggerheart/templates/items/feature/description.hbs' },
+        settings: { template: 'systems/daggerheart/templates/items/feature/settings.hbs', scrollable: ['.settings'] },
+        details: { template: 'systems/daggerheart/templates/items/feature/details.hbs' },
+        effects: { template: 'systems/daggerheart/templates/items/feature/effects.hbs', scrollable: ['.effects'] }
     };
 
-    get title() {
-        return this.item.isToken ? `[Token] ${this.item.name}` : this.item.name;
+    static TABS = {
+        sheet: [
+            { id: 'description', group: 'feature', label: 'DAGGERHEART.Feature.tabs.description' },
+            { id: 'settings', group: 'feature', label: 'DAGGERHEART.Feature.tabs.settings' },
+            { id: 'details', group: 'feature', label: 'DAGGERHEART.Feature.tabs.details' },
+            { id: 'effects', group: 'feature', label: 'DAGGERHEART.Feature.tabs.effects' }
+        ]
+    };
+
+    tabGroups = {
+        sheet: 'description'
+    };
+
+    #prepareTabs() {
+        const tabs = {};
+        for (const [groupId, config] of Object.entries(this.constructor.TABS)) {
+            const group = {};
+            for (const t of config) {
+                if (!this.tabGroups[t.group]) this.tabGroups[t.group] = t.id;
+                const active = this.tabGroups[t.group] === t.id;
+                group[t.id] = Object.assign({ active, cssClass: active ? 'active' : '' }, t);
+            }
+            tabs[groupId] = group;
+        }
+        if (!game.user.isGM) delete tabs.sheet.hooks;
+        return tabs;
     }
 
     async _prepareContext(options) {
-        console.log(this.document.system.schema.fields);
         return {
             item: this.document,
             source: this.document.toObject(),
             config: daggerheart,
             description: this.document.system.description,
-            fields: this.document.system.schema.fields
-            // tabs: this._getTabs()
+            fields: this.document.system.schema.fields,
+            effects: this.prepareActiveEffectCategories(this.item.effects),
+            tabs: this.#prepareTabs().sheet
         };
     }
 }

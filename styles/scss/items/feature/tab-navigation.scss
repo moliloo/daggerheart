@@ -1,0 +1,17 @@
+@import '../../utils/color.scss';
+@import '../../utils/fonts.scss';
+
+.sheet.daggerheart.item.feature {
+    .tab-navigation {
+        margin: 5px 0;
+        .feature-tab {
+            border: none;
+            color: $golden;
+
+            a {
+                text-shadow: none;
+                font-family: $font-body;
+            }
+        }
+    }
+}

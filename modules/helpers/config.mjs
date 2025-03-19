@@ -2,6 +2,33 @@ export const daggerheart = {};
 
 daggerheart.ascii = 'daggerheart';
 
+daggerheart.attributes = {
+    agility: {
+        value: 'agility',
+        label: 'DAGGERHEART.Actor.attributes.agility.name'
+    },
+    strength: {
+        value: 'strength',
+        label: 'DAGGERHEART.Actor.attributes.strength.name'
+    },
+    finesse: {
+        value: 'finesse',
+        label: 'DAGGERHEART.Actor.attributes.finesse.name'
+    },
+    instinct: {
+        value: 'instinct',
+        label: 'DAGGERHEART.Actor.attributes.instinct.name'
+    },
+    presence: {
+        value: 'presence',
+        label: 'DAGGERHEART.Actor.attributes.presence.name'
+    },
+    knowledge: {
+        value: 'knowledge',
+        label: 'DAGGERHEART.Actor.attributes.knowledge.name'
+    }
+};
+
 daggerheart.featureType = {
     class: {
         value: 'class',
@@ -58,8 +85,12 @@ daggerheart.cost = {
         label: 'DAGGERHEART.Feature.cost.hope'
     },
     action: {
-        value: 'perSession',
+        value: 'action',
         label: 'DAGGERHEART.Feature.cost.action'
+    },
+    stress: {
+        value: 'stress',
+        label: 'DAGGERHEART.Feature.cost.stress'
     }
 };
 
@@ -74,10 +105,21 @@ daggerheart.uses = {
     }
 };
 
+daggerheart.attackType = {
+    physical: {
+        value: 'physical',
+        label: 'DAGGERHEART.Attack.type.physical'
+    },
+    magical: {
+        value: 'magical',
+        label: 'DAGGERHEART.Attack.type.magical'
+    }
+};
+
 daggerheart.actionCategory = {
-    description: {
-        value: 'description',
-        label: 'DAGGERHEART.Feature.actionCategory.description'
+    none: {
+        value: 'none',
+        label: ''
     },
     roll: {
         value: 'roll',
@@ -102,9 +144,5 @@ daggerheart.actionCategory = {
     attributeCheck: {
         value: 'attributeCheck',
         label: 'DAGGERHEART.Feature.actionCategory.attributeCheck'
-    },
-    attributeBonus: {
-        value: 'attributeBonus',
-        label: 'DAGGERHEART.Feature.actionCategory.attributeBonus'
     }
 };

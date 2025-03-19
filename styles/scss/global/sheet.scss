@@ -19,5 +19,10 @@
 
 .application.sheet .window-content {
     overflow: initial;
+    backdrop-filter: none;
     padding: 0;
+}
+
+.application.sheet {
+    backdrop-filter: blur(4px);
 }

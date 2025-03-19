@@ -23,8 +23,6 @@ Hooks.once('init', function () {
 
     CONFIG.DAGGERHEART = daggerheart;
 
-    console.log(CONFIG);
-
     CONFIG.Actor.documentClass = DaggerheartActor;
     CONFIG.Item.documentClass = DaggerheartItem;
     CONFIG.Item.entityClass = DaggerheartItem;
@@ -49,7 +47,6 @@ Hooks.once('init', function () {
 
 Hooks.once('ready', function () {
     Hooks.on('hotbarDrop', (bar, data, slot) => createItemMacro(data, slot));
-    console.log(game);
 });
 
 Handlebars.registerHelper('le', function (a, b) {

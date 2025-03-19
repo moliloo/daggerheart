@@ -1,5 +1,8 @@
 .application prose-mirror {
-    min-height: 270px;
+    min-height: 265px;
+    .editor-menu {
+        background-color: transparent;
+    }
     .editor-content {
         padding: 5px 10px;
         height: fit-content;

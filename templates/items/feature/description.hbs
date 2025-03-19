@@ -1,4 +1,8 @@
-<section class='tab {{tab.cssClass}} description' data-tab='description' data-group='primary'>
+<section
+    class='tab {{tabs.description.cssClass}} {{tabs.description.id}}'
+    data-tab='{{tabs.description.id}}'
+    data-group='{{tabs.description.group}}'
+>
     {{formInput
         fields.description
         value=source.system.description

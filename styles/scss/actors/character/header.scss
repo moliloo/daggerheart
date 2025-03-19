@@ -15,13 +15,6 @@
             flex-grow: 1;
             justify-items: center;
 
-            .background-header,
-            .background-footer {
-                width: 100%;
-                border-bottom: 1px solid $golden;
-                mask-image: linear-gradient(270deg, transparent 0%, black 50%, transparent 100%);
-            }
-
             .background-header {
                 height: 36px;
             }

@@ -1,48 +1,151 @@
-<section class='tab {{tab.cssClass}} settings' data-tab='settings' data-group='primary'>
-    <fieldset>
-        <legend>Settings</legend>
-        <span>Feature Type:</span>
+<section
+    class='tab {{tabs.settings.cssClass}} {{tabs.settings.id}}'
+    data-tab='{{tabs.settings.id}}'
+    data-group='{{tabs.settings.group}}'
+>
+    <fieldset class='two-columns'>
+        <legend>{{localize 'DAGGERHEART.Feature.settings.settings'}}</legend>
+        <span>{{localize 'DAGGERHEART.Feature.settings.featureType'}}:</span>
         <select name='system.type'>
             {{selectOptions config.featureType selected=item.system.type localize=true}}
         </select>
 
-        <span>Frequency</span>
+        <span>{{localize 'DAGGERHEART.Feature.settings.frequency'}}:</span>
         <div class='nest-inputs'>
             {{#unless (eq item.system.frequency.type 'atWill')}}
-                <input type='number' name='system.frequency.times' value='{{system.frequency.times}}' placeholder='0' />
+                <input
+                    type='number'
+                    name='system.frequency.times'
+                    value='{{item.system.frequency.times}}'
+                    placeholder='0'
+                />
             {{/unless}}
             <select name='system.frequency.type'>
                 {{selectOptions config.frequency selected=item.system.frequency.type localize=true}}
             </select>
         </div>
     </fieldset>
-    <fieldset>
-        <legend>Usage</legend>
-        <span>Cost</span>
+    <fieldset class='two-columns'>
+        <legend>{{localize 'DAGGERHEART.Feature.settings.usage'}}</legend>
+        <span>{{localize 'DAGGERHEART.Feature.settings.cost'}}:</span>
         <div class='nest-inputs'>
             {{#unless (eq item.system.cost.type 'noCost')}}
-                <input type='number' name='system.frequency.value' value='{{system.frequency.value}}' placeholder='0' />
+                <input type='number' name='system.cost.value' value='{{item.system.cost.value}}' placeholder='0' />
             {{/unless}}
             <select name='system.cost.type'>
                 {{selectOptions config.cost selected=item.system.cost.type localize=true}}
             </select>
         </div>
 
-        <span>Uses</span>
+        <span>{{localize 'DAGGERHEART.Feature.settings.uses'}}:</span>
         <div class='nest-inputs'>
             {{#unless (eq item.system.uses.type 'unlimited')}}
-                <input type='number' name='system.uses.value' value='{{system.uses.value}}' placeholder='0' />
+                <input type='number' name='system.uses.value' value='{{item.system.uses.value}}' placeholder='0' />
             {{/unless}}
             <select name='system.uses.type'>
                 {{selectOptions config.uses selected=item.system.uses.type localize=true}}
             </select>
         </div>
     </fieldset>
-    <fieldset>
-        <legend>Actions</legend>
-        <span>Category</span>
+    <fieldset class='two-columns'>
+        <legend>{{localize 'DAGGERHEART.Feature.settings.actions'}}</legend>
+        <span>{{localize 'DAGGERHEART.Feature.settings.category'}}:</span>
         <select name='system.actionCategory.type'>
             {{selectOptions config.actionCategory selected=item.system.actionCategory.type localize=true}}
         </select>
+        {{#if (eq item.system.actionCategory.type 'roll')}}
+            <span>{{localize 'DAGGERHEART.Feature.settings.rollFormula'}}:</span>
+            <input
+                type='text'
+                name='system.actionCategory.roll.rollFormula'
+                value='{{item.system.actionCategory.roll.rollFormula}}'
+                placeholder='1d6'
+            />
+        {{/if}}
+        {{#if (eq item.system.actionCategory.type 'attack')}}
+            <span>{{localize 'DAGGERHEART.Feature.settings.justRollDamage'}}</span>
+            <input
+                type='checkbox'
+                name='system.actionCategory.attack.rollsDamage'
+                {{checked item.system.actionCategory.attack.rollsDamage}}
+            />
+            <span>{{localize 'DAGGERHEART.Feature.settings.proficiencyInDamage'}}</span>
+            <input
+                type='checkbox'
+                name='system.actionCategory.attack.usesProficiency'
+                {{checked item.system.actionCategory.attack.usesProficiency}}
+            />
+            {{#unless item.system.actionCategory.attack.rollsDamage}}
+                <span>{{localize 'DAGGERHEART.Feature.settings.Attribute'}}:</span>
+                <select name='system.actionCategory.attack.attribute'>
+                    {{selectOptions
+                        config.attributes
+                        selected=item.system.actionCategory.attack.attribute
+                        localize=true
+                    }}
+                </select>
+            {{/unless}}
+            <span>{{localize 'DAGGERHEART.Feature.settings.type'}}:</span>
+            <select name='system.actionCategory.attack.type'>
+                {{selectOptions config.attackType selected=item.system.actionCategory.attack.type localize=true}}
+            </select>
+            <span>{{localize 'DAGGERHEART.Feature.settings.rollFormula'}}:</span>
+            <input
+                type='text'
+                name='system.actionCategory.attack.rollFormula'
+                value='{{item.system.actionCategory.attack.rollFormula}}'
+                placeholder='1d6'
+            />
+        {{/if}}
+        {{#if (eq item.system.actionCategory.type 'damageBonus')}}
+            <span>{{localize 'DAGGERHEART.Feature.settings.damageFormula'}}:</span>
+            <input
+                type='text'
+                name='system.actionCategory.damageBonus.rollFormula'
+                value='{{item.system.actionCategory.damageBonus.rollFormula}}'
+                placeholder='1d6'
+            />
+        {{/if}}
+        {{#if (eq item.system.actionCategory.type 'heal')}}
+            <span>{{localize 'DAGGERHEART.Feature.settings.healFormula'}}:</span>
+            <input
+                type='text'
+                name='system.actionCategory.heal.rollFormula'
+                value='{{item.system.actionCategory.heal.rollFormula}}'
+                placeholder='1d6'
+            />
+        {{/if}}
+        {{#if (eq item.system.actionCategory.type 'attributeCheck')}}
+            <span>{{localize 'DAGGERHEART.Feature.settings.Attribute'}}:</span>
+            <select name='system.actionCategory.attributeCheck.attribute'>
+                {{selectOptions
+                    config.attributes
+                    selected=item.system.actionCategory.attributeCheck.attribute
+                    localize=true
+                }}
+            </select>
+            <span>{{localize 'DAGGERHEART.Feature.settings.dc'}}:</span>
+            <input
+                type='text'
+                name='system.actionCategory.attributeCheck.dc'
+                value='{{item.system.actionCategory.attributeCheck.dc}}'
+                placeholder='12'
+            />
+            <span>{{localize 'DAGGERHEART.Feature.settings.rollDiceOnSucess'}}</span>
+            <input
+                type='checkbox'
+                name='system.actionCategory.attributeCheck.rollsDice'
+                {{checked item.system.actionCategory.attributeCheck.rollsDice}}
+            />
+            {{#if item.system.actionCategory.attributeCheck.rollsDice}}
+                <span>{{localize 'DAGGERHEART.Feature.settings.rollFormula'}}:</span>
+                <input
+                    type='text'
+                    name='system.actionCategory.attributeCheck.rollFormula'
+                    value='{{item.system.actionCategory.attributeCheck.rollFormula}}'
+                    placeholder='d6'
+                />
+            {{/if}}
+        {{/if}}
     </fieldset>
 </section>

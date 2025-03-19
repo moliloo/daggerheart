@@ -26,7 +26,29 @@ export default class DaggerheartFeature extends DaggerheartItemBase {
         });
 
         schema.actionCategory = new fields.SchemaField({
-            type: new fields.StringField({ initial: 'unlimited' })
+            type: new fields.StringField({ initial: 'none' }),
+            roll: new fields.SchemaField({
+                rollFormula: new fields.StringField({ initial: '' })
+            }),
+            attack: new fields.SchemaField({
+                attribute: new fields.StringField({ initial: '' }),
+                rollsDamage: new fields.BooleanField({ initial: false }),
+                usesProficiency: new fields.BooleanField({ initial: false }),
+                type: new fields.StringField({ initial: 'physical' }),
+                rollFormula: new fields.StringField({ initial: '' })
+            }),
+            damageBonus: new fields.SchemaField({
+                rollFormula: new fields.StringField({ initial: '' })
+            }),
+            heal: new fields.SchemaField({
+                rollFormula: new fields.StringField({ initial: '' })
+            }),
+            attributeCheck: new fields.SchemaField({
+                attribute: new fields.StringField({ initial: '' }),
+                dc: new fields.NumberField({ ...requiredInteger, initial: 0 }),
+                rollsDice: new fields.BooleanField({ initial: false }),
+                rollFormula: new fields.StringField({ initial: '' })
+            })
         });
 
         return schema;
