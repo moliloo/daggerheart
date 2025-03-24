@@ -116,6 +116,21 @@ daggerheart.attackType = {
     }
 };
 
+daggerheart.actionType = {
+    passive: {
+        value: 'passive',
+        label: 'DAGGERHEART.Feature.actionType.passive'
+    },
+    action: {
+        value: 'action',
+        label: 'DAGGERHEART.Feature.actionType.action'
+    },
+    reaction: {
+        value: 'reaction',
+        label: 'DAGGERHEART.Feature.actionType.reaction'
+    }
+};
+
 daggerheart.actionCategory = {
     none: {
         value: 'none',

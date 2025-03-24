@@ -8,6 +8,7 @@ export default class DaggerheartFeature extends DaggerheartItemBase {
         const schema = super.defineSchema();
 
         schema.type = new fields.StringField({ initial: '' });
+        schema.actionType = new fields.StringField({ initial: 'passive' });
         schema.cost = new fields.NumberField({ ...requiredInteger, initial: 0 });
 
         schema.frequency = new fields.SchemaField({

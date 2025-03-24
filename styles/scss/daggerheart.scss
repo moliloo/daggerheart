@@ -2,15 +2,19 @@
 @import './actors/character/sections.scss';
 @import './actors/character/tab-navigation.scss';
 
-@import './items/feature/details.scss';
-@import './items/feature/effects.scss';
 @import './items/feature/header.scss';
-@import './items/feature/sections.scss';
 @import './items/feature/settings.scss';
-@import './items/feature/tab-navigation.scss';
+
+@import './items/community/header.scss';
 
 @import './global/sheet.scss';
 @import './global/elements.scss';
 @import './global/editor-container.scss';
 
+@import './global/tabs/details.scss';
+@import './global/tabs/feature-section.scss';
+@import './global/tabs/tab-navigation.scss';
+@import './global/tabs/effects.scss';
+
 @import './utils/fonts.scss';
+@import './utils/color.scss';

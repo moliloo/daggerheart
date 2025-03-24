@@ -5,6 +5,7 @@ import { DaggerheartCharacterSheet } from './sheets/actors/character-sheet.mjs';
 
 import { DaggerheartItemSheet } from './sheets/items/item-sheet.mjs';
 import { DaggerheartFeatureSheet } from './sheets/items/feature-sheet.mjs';
+import { DaggerheartCommunitySheet } from './sheets/items/community-sheet.mjs';
 
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { daggerheart } from './helpers/config.mjs';
@@ -32,12 +33,14 @@ Hooks.once('init', function () {
     };
     CONFIG.Item.dataModels = {
         ancestry: models.DaggerheartAncestry,
-        feature: models.DaggerheartFeature
+        feature: models.DaggerheartFeature,
+        community: models.DaggerheartCommunity
     };
 
     Items.unregisterSheet('core', ItemSheet);
     Items.registerSheet('daggerheart', DaggerheartItemSheet, { makeDefault: true });
     Items.registerSheet('daggerheart', DaggerheartFeatureSheet, { types: ['feature'], makeDefault: true });
+    Items.registerSheet('daggerheart', DaggerheartCommunitySheet, { types: ['community'], makeDefault: true });
 
     Actors.unregisterSheet('core', ActorSheet);
     Actors.registerSheet('daggerheart', DaggerheartCharacterSheet, { types: ['character'], makeDefault: true });

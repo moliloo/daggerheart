@@ -1,0 +1,44 @@
+import { daggerheart } from '../../helpers/config.mjs';
+import { DaggerheartItemSheet } from './item-sheet.mjs';
+
+const { HandlebarsApplicationMixin } = foundry.applications.api;
+
+export class DaggerheartCommunitySheet extends HandlebarsApplicationMixin(DaggerheartItemSheet) {
+    static DEFAULT_OPTIONS = {
+        classes: ['daggerheart', 'item', 'community']
+    };
+
+    static PARTS = {
+        header: { template: 'systems/daggerheart/templates/items/community/header.hbs' },
+        tabs: { template: 'systems/daggerheart/templates/items/global/partials/tab-navigation.hbs' },
+        description: { template: 'systems/daggerheart/templates/items/global/tabs/description.hbs' },
+        featureSection: {
+            template: 'systems/daggerheart/templates/items/global/tabs/feature-section.hbs',
+            scrollable: ['.features']
+        },
+        details: { template: 'systems/daggerheart/templates/items/global/tabs/details.hbs' }
+    };
+
+    static TABS = {
+        sheet: [
+            { id: 'description', group: 'community', label: 'DAGGERHEART.Community.tabs.description' },
+            { id: 'features', group: 'community', label: 'DAGGERHEART.Community.tabs.features' },
+            { id: 'details', group: 'community', label: 'DAGGERHEART.Community.tabs.details' }
+        ]
+    };
+
+    tabGroups = {
+        sheet: 'description'
+    };
+
+    async _prepareContext(options) {
+        return {
+            item: this.document,
+            source: this.document.toObject(),
+            config: daggerheart,
+            description: this.document.system.description,
+            fields: this.document.system.schema.fields,
+            tabs: this.prepareTabs(this.constructor.TABS).sheet
+        };
+    }
+}

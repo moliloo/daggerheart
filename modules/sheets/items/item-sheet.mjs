@@ -4,8 +4,19 @@ const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
 
 export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
+    #dragDrop;
+
+    constructor(options = {}) {
+        super(options);
+        this.#dragDrop = this.#createDragDropHandlers();
+    }
+
     get title() {
         return this.item.isToken ? `[Token] ${this.item.name}` : this.item.name;
+    }
+
+    get dragDrop() {
+        return this.#dragDrop;
     }
 
     static DEFAULT_OPTIONS = {
@@ -13,10 +24,9 @@ export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2
         form: {
             submitOnChange: true
         },
-        classes: ['daggerheart', 'item', 'ancestry'],
         position: {
-            width: 500,
-            height: 750
+            width: 450,
+            height: 700
         },
         window: {
             icon: '',
@@ -52,10 +62,59 @@ export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2
         await fp.browse();
     }
 
+    #createDragDropHandlers() {
+        return this.options.dragDrop.map(d => {
+            d.permissions = {
+                dragstart: this._canDragStart.bind(this),
+                drop: this._canDragDrop.bind(this)
+            };
+            d.callbacks = {
+                dragstart: this._onDragStart.bind(this),
+                dragover: this._onDragOver.bind(this),
+                drop: this._onDrop.bind(this)
+            };
+            return new DragDrop(d);
+        });
+    }
+
+    _canDragStart(selector) {
+        return this.isEditable;
+    }
+
+    _canDragDrop(selector) {
+        return this.isEditable;
+    }
+
+    _onDragStart(event) {
+        const el = event.currentTarget;
+        if ('link' in event.target.dataset) return;
+        let dragData = null;
+        if (!dragData) return;
+        event.dataTransfer.setData('text/plain', JSON.stringify(dragData));
+    }
+
+    _onDragOver(event) {}
+
+    async _onDrop(event) {
+        event.preventDefault();
+        const data = TextEditor.getDragEventData(event);
+        if (!data) return;
+
+        if (data.type === 'Item') {
+            const item = await Item.fromDropData(data);
+            if (!item) return;
+
+            const updatedItems = [...this.item.system.items, item];
+
+            await this.item.update({
+                'system.items': updatedItems
+            });
+        }
+    }
+
     async _onClickAction(event, target) {
         event.preventDefault();
         event.stopPropagation();
-        const itemId = target.dataset.itemId;
 
         switch (target.dataset.action) {
             case 'createEffect':
@@ -70,7 +129,25 @@ export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2
             case 'toggleEffect':
                 this.toggleActiveEffect(event, this.item);
                 break;
+            case 'editItem':
+                this.editItem(event, this.item);
+                break;
+            case 'deleteItem':
+                this.deleteItem(event, this.item);
+                break;
+            case 'openItemDescription':
+                this.openItemDescription(event);
+                break;
         }
+    }
+
+    openItemDescription(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        let listItem = event.target.closest('li');
+        let editor = $(listItem).find('.item-description');
+        editor.toggleClass('invisible');
     }
 
     prepareActiveEffectCategories(effects) {
@@ -105,6 +182,25 @@ export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2
         return effectId ? owner.effects.get(effectId) : null;
     }
 
+    getItemObj(event, owner) {
+        const itemId = event.target.closest('li').dataset.itemId;
+        return itemId ? owner.system.items.find(item => item._id === itemId) : null;
+    }
+
+    editItem(event, owner) {
+        const item = new Item(this.getItemObj(event, owner));
+        return item.sheet.render(true);
+    }
+
+    deleteItem(event, owner) {
+        const item = this.getItemObj(event, owner);
+        if (!item) return;
+
+        owner.update({
+            'system.items': owner.system.items.filter(i => i._id !== item._id)
+        });
+    }
+
     createActiveEffect(event, owner) {
         event.preventDefault();
         event.stopPropagation();
@@ -135,5 +231,26 @@ export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2
     toggleActiveEffect(event, owner) {
         const effect = this.getEffectId(event, owner);
         effect.update({ disabled: !effect.disabled });
+    }
+
+    prepareTabs(tabsConstructor) {
+        let tabs = {};
+
+        Object.entries(tabsConstructor).forEach(([groupId, config]) => {
+            tabs[groupId] = config.reduce((acc, tab) => {
+                if (!this.tabGroups[tab.group]) this.tabGroups[tab.group] = tab.id;
+                const isActive = this.tabGroups[tab.group] === tab.id;
+                acc[tab.id] = { ...tab, active: isActive, cssClass: isActive ? 'active' : '' };
+                return acc;
+            }, {});
+        });
+
+        if (!game.user.isGM) delete tabs?.sheet?.hooks;
+
+        return tabs;
+    }
+
+    _onRender(context, options) {
+        this.#dragDrop.forEach(d => d.bind(this.element));
     }
 }

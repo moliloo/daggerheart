@@ -1,0 +1,38 @@
+<section
+    class='tab {{tabs.features.cssClass}} {{tabs.features.id}}'
+    data-tab='{{tabs.features.id}}'
+    data-group='{{tabs.features.group}}'
+>
+    <fieldset class='one-column'>
+        <legend>Features</legend>
+        <div class='feature-list'>
+            {{#each item.system.items as |feature|}}
+                <li class='feature-item' data-item-id='{{feature._id}}'>
+                    <div class='feature-line' data-action='openItemDescription'>
+                        <img class='image' src='{{feature.img}}' />
+                        <h4>{{feature.name}}</h4>
+                        <div class='controls'>
+                            <a
+                                class='effect-control'
+                                data-action='editItem'
+                                data-tooltip="{{localize 'DAGGERHEART.Tooltip.openItemWorld'}}"
+                            >
+                                <i class='fa-solid fa-globe'></i>
+                            </a>
+                            <a
+                                class='effect-control'
+                                data-action='deleteItem'
+                                data-tooltip="{{localize 'DAGGERHEART.Tooltip.delete'}}"
+                            >
+                                <i class='fas fa-trash'></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class='item-description invisible' data-item-description='description'>
+                        {{{feature.system.description}}}
+                    </div>
+                </li>
+            {{/each}}
+        </div>
+    </fieldset>
+</section>

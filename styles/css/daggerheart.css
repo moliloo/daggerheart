@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
 .sheet.daggerheart.actor.character .char-sheet-header {
   display: flex;
   flex-direction: row;
@@ -290,127 +291,6 @@
   justify-content: center;
 }
 
-.application.sheet h1 {
-  font-family: "Cinzel Decorative", serif;
-  margin: 0;
-  border: none;
-}
-.application.sheet h2,
-.application.sheet h3 {
-  font-family: "Cinzel", serif;
-  margin: 0;
-  border: none;
-}
-.application.sheet h4 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-  border: none;
-  font-weight: 700;
-  margin: 0;
-  text-shadow: none;
-  color: #f3c267;
-}
-.application.sheet h5 {
-  font-size: 14px;
-  color: #f3c267;
-  margin: 0;
-}
-.application.sheet p,
-.application.sheet span {
-  font-family: "Montserrat", sans-serif;
-}
-.application.sheet small {
-  font-family: "Montserrat", sans-serif;
-  opacity: 0.8;
-}
-
-.sheet.daggerheart.item.feature .tab.details {
-  padding: 0 10px;
-  max-height: 265px;
-  overflow-y: auto;
-}
-.sheet.daggerheart.item.feature .tab.details input[type=text] {
-  color: #efe6d8;
-  font-family: "Montserrat", sans-serif;
-}
-.sheet.daggerheart.item.feature .tab.details input[type=text]:focus {
-  outline: 2px solid #efe6d8;
-}
-
-.application.sheet h1 {
-  font-family: "Cinzel Decorative", serif;
-  margin: 0;
-  border: none;
-}
-.application.sheet h2,
-.application.sheet h3 {
-  font-family: "Cinzel", serif;
-  margin: 0;
-  border: none;
-}
-.application.sheet h4 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-  border: none;
-  font-weight: 700;
-  margin: 0;
-  text-shadow: none;
-  color: #f3c267;
-}
-.application.sheet h5 {
-  font-size: 14px;
-  color: #f3c267;
-  margin: 0;
-}
-.application.sheet p,
-.application.sheet span {
-  font-family: "Montserrat", sans-serif;
-}
-.application.sheet small {
-  font-family: "Montserrat", sans-serif;
-  opacity: 0.8;
-}
-
-.sheet.daggerheart.item.feature .tab.effects {
-  padding: 0 10px;
-  max-height: 265px;
-  overflow-y: auto;
-}
-.sheet.daggerheart.item.feature .tab.effects .effect-list {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-.sheet.daggerheart.item.feature .tab.effects .effect-list .effect {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-.sheet.daggerheart.item.feature .tab.effects .effect-list .effect .effect-line {
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr 4fr 1fr;
-}
-.sheet.daggerheart.item.feature .tab.effects .effect-list .effect .effect-line h4 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: lighter;
-  color: #efe6d8;
-}
-.sheet.daggerheart.item.feature .tab.effects .effect-list .effect .effect-line .image {
-  height: 40px;
-  width: 40px;
-  object-fit: cover;
-  border-radius: 6px;
-  border: none;
-}
-.sheet.daggerheart.item.feature .tab.effects .effect-list .effect .effect-line .controls {
-  display: flex;
-  gap: 10px;
-}
-
 .sheet.daggerheart.item.feature .window-content {
   position: relative;
   top: -36px;
@@ -493,50 +373,37 @@
   outline: 2px solid #efe6d8;
 }
 
-.application.sheet h1 {
-  font-family: "Cinzel Decorative", serif;
-  margin: 0;
-  border: none;
+.sheet.daggerheart.item.community .window-content {
+  position: relative;
+  top: -36px;
 }
-.application.sheet h2,
-.application.sheet h3 {
-  font-family: "Cinzel", serif;
-  margin: 0;
-  border: none;
+.sheet.daggerheart.item.community .community-sheet-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
-.application.sheet h4 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-  border: none;
-  font-weight: 700;
-  margin: 0;
-  text-shadow: none;
-  color: #f3c267;
+.sheet.daggerheart.item.community .community-sheet-header .profile {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  mask-image: linear-gradient(0deg, transparent 0%, black 10%);
 }
-.application.sheet h5 {
-  font-size: 14px;
-  color: #f3c267;
-  margin: 0;
+.sheet.daggerheart.item.community .community-sheet-header .community-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -25px;
+  gap: 5px;
+  margin: 0 12px;
 }
-.application.sheet p,
-.application.sheet span {
-  font-family: "Montserrat", sans-serif;
+.sheet.daggerheart.item.community .community-sheet-header .community-info .community-name input[type=text] {
+  font-size: 32px;
+  height: 42px;
+  text-align: center;
 }
-.application.sheet small {
-  font-family: "Montserrat", sans-serif;
-  opacity: 0.8;
-}
-
-.sheet.daggerheart.item.feature .tab-navigation {
-  margin: 5px 0;
-}
-.sheet.daggerheart.item.feature .tab-navigation .feature-tab {
-  border: none;
-  color: #f3c267;
-}
-.sheet.daggerheart.item.feature .tab-navigation .feature-tab a {
-  text-shadow: none;
-  font-family: "Montserrat", sans-serif;
+.sheet.daggerheart.item.community .community-sheet-header .community-info h3 {
+  font-size: 1rem;
 }
 
 .application.sheet .window-header {
@@ -679,6 +546,18 @@
   border-bottom: 1px solid #f3c267;
   mask-image: linear-gradient(270deg, transparent 0%, black 50%, transparent 100%);
 }
+.application.sheet .item-description {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+.application.sheet .item-description.invisible {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-20px);
+  transform-origin: top;
+}
 
 .application prose-mirror {
   min-height: 265px;
@@ -698,6 +577,259 @@
 }
 .application prose-mirror .editor-content h3 {
   font-size: 24px;
+}
+
+.application.sheet h1 {
+  font-family: "Cinzel Decorative", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h2,
+.application.sheet h3 {
+  font-family: "Cinzel", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  border: none;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: none;
+  color: #f3c267;
+}
+.application.sheet h5 {
+  font-size: 14px;
+  color: #f3c267;
+  margin: 0;
+}
+.application.sheet p,
+.application.sheet span {
+  font-family: "Montserrat", sans-serif;
+}
+.application.sheet small {
+  font-family: "Montserrat", sans-serif;
+  opacity: 0.8;
+}
+
+.sheet.daggerheart.item .tab.details {
+  padding: 0 10px;
+  max-height: 265px;
+  overflow-y: auto;
+}
+.sheet.daggerheart.item .tab.details input[type=text] {
+  color: #efe6d8;
+  font-family: "Montserrat", sans-serif;
+}
+.sheet.daggerheart.item .tab.details input[type=text]:focus {
+  outline: 2px solid #efe6d8;
+}
+
+.application.sheet h1 {
+  font-family: "Cinzel Decorative", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h2,
+.application.sheet h3 {
+  font-family: "Cinzel", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  border: none;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: none;
+  color: #f3c267;
+}
+.application.sheet h5 {
+  font-size: 14px;
+  color: #f3c267;
+  margin: 0;
+}
+.application.sheet p,
+.application.sheet span {
+  font-family: "Montserrat", sans-serif;
+}
+.application.sheet small {
+  font-family: "Montserrat", sans-serif;
+  opacity: 0.8;
+}
+
+.sheet.daggerheart.item .tab.features {
+  padding: 0 10px;
+  max-height: 265px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #f3c267 transparent;
+}
+.sheet.daggerheart.item .tab.features .feature-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.sheet.daggerheart.item .tab.features .feature-list .feature-item {
+  margin-bottom: 10px;
+}
+.sheet.daggerheart.item .tab.features .feature-list .feature-item:last-child {
+  margin-bottom: 0px;
+}
+.sheet.daggerheart.item .tab.features .feature-list .feature-item .feature-line {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 4fr 1fr;
+  cursor: pointer;
+}
+.sheet.daggerheart.item .tab.features .feature-list .feature-item .feature-line h4 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: lighter;
+  color: #efe6d8;
+}
+.sheet.daggerheart.item .tab.features .feature-list .feature-item .feature-line .image {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: none;
+}
+.sheet.daggerheart.item .tab.features .feature-list .feature-item .feature-line .controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.sheet.daggerheart.item .tab.features .feature-list .feature-item .feature-line .controls a {
+  text-shadow: none;
+}
+.sheet.daggerheart.item .tab.features .feature-list .feature-item .item-description:not(.invisible) {
+  margin-top: 5px;
+}
+
+.application.sheet h1 {
+  font-family: "Cinzel Decorative", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h2,
+.application.sheet h3 {
+  font-family: "Cinzel", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  border: none;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: none;
+  color: #f3c267;
+}
+.application.sheet h5 {
+  font-size: 14px;
+  color: #f3c267;
+  margin: 0;
+}
+.application.sheet p,
+.application.sheet span {
+  font-family: "Montserrat", sans-serif;
+}
+.application.sheet small {
+  font-family: "Montserrat", sans-serif;
+  opacity: 0.8;
+}
+
+.sheet.daggerheart.item .tab-navigation {
+  margin: 5px 0;
+}
+.sheet.daggerheart.item .tab-navigation .feature-tab {
+  border: none;
+  color: #f3c267;
+}
+.sheet.daggerheart.item .tab-navigation .feature-tab a {
+  text-shadow: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+.application.sheet h1 {
+  font-family: "Cinzel Decorative", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h2,
+.application.sheet h3 {
+  font-family: "Cinzel", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  border: none;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: none;
+  color: #f3c267;
+}
+.application.sheet h5 {
+  font-size: 14px;
+  color: #f3c267;
+  margin: 0;
+}
+.application.sheet p,
+.application.sheet span {
+  font-family: "Montserrat", sans-serif;
+}
+.application.sheet small {
+  font-family: "Montserrat", sans-serif;
+  opacity: 0.8;
+}
+
+.sheet.daggerheart.item.feature .tab.effects {
+  padding: 0 10px;
+  max-height: 265px;
+  overflow-y: auto;
+}
+.sheet.daggerheart.item.feature .tab.effects .effect-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.sheet.daggerheart.item.feature .tab.effects .effect-list .effect {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.sheet.daggerheart.item.feature .tab.effects .effect-list .effect .effect-line {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 4fr 1fr;
+}
+.sheet.daggerheart.item.feature .tab.effects .effect-list .effect .effect-line h4 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: lighter;
+  color: #efe6d8;
+}
+.sheet.daggerheart.item.feature .tab.effects .effect-list .effect .effect-line .image {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: none;
+}
+.sheet.daggerheart.item.feature .tab.effects .effect-list .effect .effect-line .controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 .application.sheet h1 {

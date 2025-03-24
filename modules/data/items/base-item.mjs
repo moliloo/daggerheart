@@ -5,12 +5,14 @@ export default class DaggerheartItemBase extends foundry.abstract.TypeDataModel 
         const requiredInteger = { required: true, nullable: false, integer: true };
         const schema = {};
 
-        schema.description = new fields.HTMLField({ required: true, blank: true, initial: 'Biography' });
+        schema.description = new fields.HTMLField({ required: true, blank: true, initial: 'Description' });
 
         schema.publication = new fields.SchemaField({
             title: new fields.StringField({ initial: '' }),
             author: new fields.StringField({ initial: '' })
         });
+
+        schema.items = new fields.ArrayField(new fields.ObjectField());
 
         schema.currency = new fields.SchemaField({
             coins: new fields.SchemaField({

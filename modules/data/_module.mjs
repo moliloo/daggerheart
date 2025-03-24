@@ -4,3 +4,4 @@ export { default as DaggerheartCharacter } from './actors/character.mjs';
 export { default as DaggerheartItemBase } from './items/base-item.mjs';
 export { default as DaggerheartAncestry } from './items/ancestry.mjs';
 export { default as DaggerheartFeature } from './items/feature.mjs';
+export { default as DaggerheartCommunity } from './items/community.mjs';
