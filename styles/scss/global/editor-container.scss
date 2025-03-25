@@ -1,11 +1,13 @@
+@import '../utils/color.scss';
+
 .application prose-mirror {
-    min-height: 265px;
+    height: 265px;
     .editor-menu {
         background-color: transparent;
     }
     .editor-content {
-        padding: 5px 10px;
-        height: fit-content;
+        scrollbar-width: thin;
+        scrollbar-color: $golden transparent;
         h1 {
             font-size: 36px;
         }

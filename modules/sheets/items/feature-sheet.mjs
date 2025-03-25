@@ -11,7 +11,7 @@ export class DaggerheartFeatureSheet extends HandlebarsApplicationMixin(Daggerhe
     static PARTS = {
         header: { template: 'systems/daggerheart/templates/items/feature/header.hbs' },
         tabs: { template: 'systems/daggerheart/templates/items/global/partials/tab-navigation.hbs' },
-        description: { template: 'systems/daggerheart/templates/items/global/tabs/description.hbs' },
+        description: { template: 'systems/daggerheart/templates/items/global/tabs/description.hbs', scrollable: ['.description'] },
         settings: {
             template: 'systems/daggerheart/templates/items/feature/partials/settings.hbs',
             scrollable: ['.settings']

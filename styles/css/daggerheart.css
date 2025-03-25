@@ -406,6 +406,39 @@
   font-size: 1rem;
 }
 
+.sheet.daggerheart.item.ancestry .window-content {
+  position: relative;
+  top: -36px;
+}
+.sheet.daggerheart.item.ancestry .ancestry-sheet-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.sheet.daggerheart.item.ancestry .ancestry-sheet-header .profile {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  mask-image: linear-gradient(0deg, transparent 0%, black 10%);
+}
+.sheet.daggerheart.item.ancestry .ancestry-sheet-header .ancestry-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -25px;
+  gap: 5px;
+  margin: 0 12px;
+}
+.sheet.daggerheart.item.ancestry .ancestry-sheet-header .ancestry-info .ancestry-name input[type=text] {
+  font-size: 32px;
+  height: 42px;
+  text-align: center;
+}
+.sheet.daggerheart.item.ancestry .ancestry-sheet-header .ancestry-info h3 {
+  font-size: 1rem;
+}
+
 .application.sheet .window-header {
   background: transparent;
   border-bottom: none;
@@ -560,14 +593,14 @@
 }
 
 .application prose-mirror {
-  min-height: 265px;
+  height: 265px;
 }
 .application prose-mirror .editor-menu {
   background-color: transparent;
 }
 .application prose-mirror .editor-content {
-  padding: 5px 10px;
-  height: fit-content;
+  scrollbar-width: thin;
+  scrollbar-color: #f3c267 transparent;
 }
 .application prose-mirror .editor-content h1 {
   font-size: 36px;
@@ -830,6 +863,12 @@
   display: flex;
   justify-content: center;
   gap: 10px;
+}
+
+.sheet.daggerheart.item .tab.description {
+  padding: 5px;
+  max-height: 265px;
+  overflow-y: auto;
 }
 
 .application.sheet h1 {

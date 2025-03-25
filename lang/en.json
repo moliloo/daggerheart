@@ -106,7 +106,8 @@
                 "rollDiceOnSucess": "Roll dice on sucess?"
             },
             "type": {
-                "communityCard": "Community Card"
+                "communityCard": "Community Card",
+                "ancestryCard": "Ancestry Card"
             },
             "featureType": {
                 "class": "Class Feature",

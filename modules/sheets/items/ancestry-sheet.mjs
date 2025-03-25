@@ -3,13 +3,13 @@ import { DaggerheartItemSheet } from './item-sheet.mjs';
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 
-export class DaggerheartCommunitySheet extends HandlebarsApplicationMixin(DaggerheartItemSheet) {
+export class DaggerheartAncestrySheet extends HandlebarsApplicationMixin(DaggerheartItemSheet) {
     static DEFAULT_OPTIONS = {
-        classes: ['daggerheart', 'item', 'community']
+        classes: ['daggerheart', 'item', 'ancestry']
     };
 
     static PARTS = {
-        header: { template: 'systems/daggerheart/templates/items/community/header.hbs' },
+        header: { template: 'systems/daggerheart/templates/items/ancestry/header.hbs' },
         tabs: { template: 'systems/daggerheart/templates/items/global/partials/tab-navigation.hbs' },
         description: { template: 'systems/daggerheart/templates/items/global/tabs/description.hbs', scrollable: ['.description'] },
         featureSection: {
@@ -21,9 +21,9 @@ export class DaggerheartCommunitySheet extends HandlebarsApplicationMixin(Dagger
 
     static TABS = {
         sheet: [
-            { id: 'description', group: 'community', label: 'DAGGERHEART.Item.tabs.description' },
-            { id: 'features', group: 'community', label: 'DAGGERHEART.Item.tabs.features' },
-            { id: 'details', group: 'community', label: 'DAGGERHEART.Item.tabs.details' }
+            { id: 'description', group: 'ancestry', label: 'DAGGERHEART.Item.tabs.description' },
+            { id: 'features', group: 'ancestry', label: 'DAGGERHEART.Item.tabs.features' },
+            { id: 'details', group: 'ancestry', label: 'DAGGERHEART.Item.tabs.details' }
         ]
     };
 
