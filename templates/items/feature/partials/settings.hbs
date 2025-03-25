@@ -4,18 +4,18 @@
     data-group='{{tabs.settings.group}}'
 >
     <fieldset class='two-columns'>
-        <legend>{{localize 'DAGGERHEART.Feature.settings.settings'}}</legend>
-        <span>{{localize 'DAGGERHEART.Feature.settings.featureType'}}:</span>
+        <legend>{{localize 'DAGGERHEART.Item.settings.settings'}}</legend>
+        <span>{{localize 'DAGGERHEART.Item.settings.featureType'}}:</span>
         <select name='system.type'>
             {{selectOptions config.featureType selected=item.system.type localize=true}}
         </select>
 
-        <span>{{localize 'DAGGERHEART.Feature.settings.actionType'}}:</span>
+        <span>{{localize 'DAGGERHEART.Item.settings.actionType'}}:</span>
         <select name='system.actionType'>
             {{selectOptions config.actionType selected=item.system.actionType localize=true}}
         </select>
 
-        <span>{{localize 'DAGGERHEART.Feature.settings.frequency'}}:</span>
+        <span>{{localize 'DAGGERHEART.Item.settings.frequency'}}:</span>
         <div class='nest-inputs'>
             {{#unless (eq item.system.frequency.type 'atWill')}}
                 <input
@@ -31,8 +31,8 @@
         </div>
     </fieldset>
     <fieldset class='two-columns'>
-        <legend>{{localize 'DAGGERHEART.Feature.settings.usage'}}</legend>
-        <span>{{localize 'DAGGERHEART.Feature.settings.cost'}}:</span>
+        <legend>{{localize 'DAGGERHEART.Item.settings.usage'}}</legend>
+        <span>{{localize 'DAGGERHEART.Item.settings.cost'}}:</span>
         <div class='nest-inputs'>
             {{#unless (eq item.system.cost.type 'noCost')}}
                 <input type='number' name='system.cost.value' value='{{item.system.cost.value}}' placeholder='0' />
@@ -42,7 +42,7 @@
             </select>
         </div>
 
-        <span>{{localize 'DAGGERHEART.Feature.settings.uses'}}:</span>
+        <span>{{localize 'DAGGERHEART.Item.settings.uses'}}:</span>
         <div class='nest-inputs'>
             {{#unless (eq item.system.uses.type 'unlimited')}}
                 <input type='number' name='system.uses.value' value='{{item.system.uses.value}}' placeholder='0' />
@@ -54,13 +54,13 @@
     </fieldset>
     {{#unless (eq item.system.actionType 'passive')}}
         <fieldset class='two-columns'>
-            <legend>{{localize 'DAGGERHEART.Feature.settings.actions'}}</legend>
-            <span>{{localize 'DAGGERHEART.Feature.settings.category'}}:</span>
+            <legend>{{localize 'DAGGERHEART.Item.settings.actions'}}</legend>
+            <span>{{localize 'DAGGERHEART.Item.settings.category'}}:</span>
             <select name='system.actionCategory.type'>
                 {{selectOptions config.actionCategory selected=item.system.actionCategory.type localize=true}}
             </select>
             {{#if (eq item.system.actionCategory.type 'roll')}}
-                <span>{{localize 'DAGGERHEART.Feature.settings.rollFormula'}}:</span>
+                <span>{{localize 'DAGGERHEART.Item.settings.rollFormula'}}:</span>
                 <input
                     type='text'
                     name='system.actionCategory.roll.rollFormula'
@@ -69,20 +69,20 @@
                 />
             {{/if}}
             {{#if (eq item.system.actionCategory.type 'attack')}}
-                <span>{{localize 'DAGGERHEART.Feature.settings.justRollDamage'}}</span>
+                <span>{{localize 'DAGGERHEART.Item.settings.justRollDamage'}}</span>
                 <input
                     type='checkbox'
                     name='system.actionCategory.attack.rollsDamage'
                     {{checked item.system.actionCategory.attack.rollsDamage}}
                 />
-                <span>{{localize 'DAGGERHEART.Feature.settings.proficiencyInDamage'}}</span>
+                <span>{{localize 'DAGGERHEART.Item.settings.proficiencyInDamage'}}</span>
                 <input
                     type='checkbox'
                     name='system.actionCategory.attack.usesProficiency'
                     {{checked item.system.actionCategory.attack.usesProficiency}}
                 />
                 {{#unless item.system.actionCategory.attack.rollsDamage}}
-                    <span>{{localize 'DAGGERHEART.Feature.settings.Attribute'}}:</span>
+                    <span>{{localize 'DAGGERHEART.Item.settings.Attribute'}}:</span>
                     <select name='system.actionCategory.attack.attribute'>
                         {{selectOptions
                             config.attributes
@@ -91,11 +91,11 @@
                         }}
                     </select>
                 {{/unless}}
-                <span>{{localize 'DAGGERHEART.Feature.settings.type'}}:</span>
+                <span>{{localize 'DAGGERHEART.Item.settings.type'}}:</span>
                 <select name='system.actionCategory.attack.type'>
                     {{selectOptions config.attackType selected=item.system.actionCategory.attack.type localize=true}}
                 </select>
-                <span>{{localize 'DAGGERHEART.Feature.settings.rollFormula'}}:</span>
+                <span>{{localize 'DAGGERHEART.Item.settings.rollFormula'}}:</span>
                 <input
                     type='text'
                     name='system.actionCategory.attack.rollFormula'
@@ -104,7 +104,7 @@
                 />
             {{/if}}
             {{#if (eq item.system.actionCategory.type 'damageBonus')}}
-                <span>{{localize 'DAGGERHEART.Feature.settings.damageFormula'}}:</span>
+                <span>{{localize 'DAGGERHEART.Item.settings.damageFormula'}}:</span>
                 <input
                     type='text'
                     name='system.actionCategory.damageBonus.rollFormula'
@@ -113,7 +113,7 @@
                 />
             {{/if}}
             {{#if (eq item.system.actionCategory.type 'heal')}}
-                <span>{{localize 'DAGGERHEART.Feature.settings.healFormula'}}:</span>
+                <span>{{localize 'DAGGERHEART.Item.settings.healFormula'}}:</span>
                 <input
                     type='text'
                     name='system.actionCategory.heal.rollFormula'
@@ -122,7 +122,7 @@
                 />
             {{/if}}
             {{#if (eq item.system.actionCategory.type 'attributeCheck')}}
-                <span>{{localize 'DAGGERHEART.Feature.settings.Attribute'}}:</span>
+                <span>{{localize 'DAGGERHEART.Item.settings.Attribute'}}:</span>
                 <select name='system.actionCategory.attributeCheck.attribute'>
                     {{selectOptions
                         config.attributes
@@ -130,21 +130,21 @@
                         localize=true
                     }}
                 </select>
-                <span>{{localize 'DAGGERHEART.Feature.settings.dc'}}:</span>
+                <span>{{localize 'DAGGERHEART.Item.settings.dc'}}:</span>
                 <input
                     type='text'
                     name='system.actionCategory.attributeCheck.dc'
                     value='{{item.system.actionCategory.attributeCheck.dc}}'
                     placeholder='12'
                 />
-                <span>{{localize 'DAGGERHEART.Feature.settings.rollDiceOnSucess'}}</span>
+                <span>{{localize 'DAGGERHEART.Item.settings.rollDiceOnSucess'}}</span>
                 <input
                     type='checkbox'
                     name='system.actionCategory.attributeCheck.rollsDice'
                     {{checked item.system.actionCategory.attributeCheck.rollsDice}}
                 />
                 {{#if item.system.actionCategory.attributeCheck.rollsDice}}
-                    <span>{{localize 'DAGGERHEART.Feature.settings.rollFormula'}}:</span>
+                    <span>{{localize 'DAGGERHEART.Item.settings.rollFormula'}}:</span>
                     <input
                         type='text'
                         name='system.actionCategory.attributeCheck.rollFormula'

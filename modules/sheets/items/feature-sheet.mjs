@@ -25,10 +25,10 @@ export class DaggerheartFeatureSheet extends HandlebarsApplicationMixin(Daggerhe
 
     static TABS = {
         sheet: [
-            { id: 'description', group: 'feature', label: 'DAGGERHEART.Feature.tabs.description' },
-            { id: 'settings', group: 'feature', label: 'DAGGERHEART.Feature.tabs.settings' },
-            { id: 'details', group: 'feature', label: 'DAGGERHEART.Feature.tabs.details' },
-            { id: 'effects', group: 'feature', label: 'DAGGERHEART.Feature.tabs.effects' }
+            { id: 'description', group: 'feature', label: 'DAGGERHEART.Item.tabs.description' },
+            { id: 'settings', group: 'feature', label: 'DAGGERHEART.Item.tabs.settings' },
+            { id: 'details', group: 'feature', label: 'DAGGERHEART.Item.tabs.details' },
+            { id: 'effects', group: 'feature', label: 'DAGGERHEART.Item.tabs.effects' }
         ]
     };
 

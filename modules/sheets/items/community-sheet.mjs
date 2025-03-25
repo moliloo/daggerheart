@@ -21,9 +21,9 @@ export class DaggerheartCommunitySheet extends HandlebarsApplicationMixin(Dagger
 
     static TABS = {
         sheet: [
-            { id: 'description', group: 'community', label: 'DAGGERHEART.Community.tabs.description' },
-            { id: 'features', group: 'community', label: 'DAGGERHEART.Community.tabs.features' },
-            { id: 'details', group: 'community', label: 'DAGGERHEART.Community.tabs.details' }
+            { id: 'description', group: 'community', label: 'DAGGERHEART.Item.tabs.description' },
+            { id: 'features', group: 'community', label: 'DAGGERHEART.Item.tabs.features' },
+            { id: 'details', group: 'community', label: 'DAGGERHEART.Item.tabs.details' }
         ]
     };
 

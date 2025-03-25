@@ -72,12 +72,13 @@
                 }
             }
         },
-        "Feature": {
+        "Item": {
             "tabs": {
                 "description": "Description",
                 "settings": "Settings",
                 "details": "Details",
-                "effects": "Effects"
+                "effects": "Effects",
+                "features": "Features"
             },
             "details": {
                 "publication": "Publication",
@@ -105,6 +106,9 @@
                 "rollDiceOnSucess": "Roll dice on sucess?"
             },
             "type": {
+                "communityCard": "Community Card"
+            },
+            "featureType": {
                 "class": "Class Feature",
                 "community": "Community Feature",
                 "ancestry": "Ancestry Feature"
@@ -140,14 +144,6 @@
                 "damageBonus": "Damage Bonus",
                 "heal": "Heal",
                 "attributeCheck": "Attribute Check"
-            }
-        },
-        "Community": {
-            "communityCard": "Community Card",
-            "tabs": {
-                "description": "Description",
-                "features": "Features",
-                "details": "Details"
             }
         },
         "Attack": {
