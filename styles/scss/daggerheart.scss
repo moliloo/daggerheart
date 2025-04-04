@@ -1,4 +1,23 @@
 @import './actors/character/header.scss';
+@import './actors/character/sections.scss';
+@import './actors/character/tab-navigation.scss';
+
+@import './items/community/header.scss';
+
+@import './items/ancestry/header.scss';
+
+@import './items/domainCard/header.scss';
+@import './items/domainCard/settings.scss';
+
 @import './global/sheet.scss';
 @import './global/elements.scss';
+@import './global/editor-container.scss';
+
+@import './global/tabs/details.scss';
+@import './global/tabs/feature-section.scss';
+@import './global/tabs/tab-navigation.scss';
+@import './global/tabs/effects.scss';
+@import './global/tabs/description.scss';
+
 @import './utils/fonts.scss';
+@import './utils/color.scss';

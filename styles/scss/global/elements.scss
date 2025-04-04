@@ -1,6 +1,9 @@
 @import '../utils/color.scss';
+@import '../utils/fonts.scss';
 
 .application.sheet {
+    border: 1px solid $golden;
+
     input[type='text'],
     input[type='number'] {
         background: $semi-transparent-dark-blue;
@@ -10,12 +13,21 @@
         -webkit-backdrop-filter: blur(9.5px);
         outline: none;
         color: $golden;
+
+        &:focus[type='text'],
+        &:focus[type='number'] {
+            box-shadow: none;
+            outline: 2px solid $beige;
+        }
     }
 
-    input:focus[type='text'],
-    input:focus[type='number'] {
-        box-shadow: none;
-        outline: 2px solid $golden;
+    input[type='checkbox'] {
+        &:checked::after {
+            color: $golden;
+        }
+        &::before {
+            color: $dark-blue;
+        }
     }
 
     button {
@@ -32,8 +44,23 @@
         color: $golden;
     }
 
+    select {
+        background: $semi-transparent-dark-blue;
+        color: $beige;
+        font-family: $font-body;
+
+        &:focus {
+            outline-color: $beige;
+            box-shadow: none;
+        }
+
+        & option {
+            background-color: $dark-blue;
+            border-radius: 6px;
+        }
+    }
+
     p {
-        font-size: 1.5rem;
         margin: 0;
     }
 
@@ -41,5 +68,76 @@
         margin: 0;
         padding: 0;
         list-style: none;
+    }
+
+    li {
+        margin: 0;
+    }
+
+    fieldset {
+        align-items: center;
+        margin-top: 5px;
+        border-radius: 6px;
+        border-color: $golden;
+
+        &.one-column {
+            display: flex;
+            gap: 10px;
+            min-height: 64px;
+        }
+
+        &.two-columns {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 10px;
+        }
+
+        legend {
+            font-family: $font-body;
+            color: $golden;
+        }
+
+        input[type='text'],
+        input[type='number'] {
+            color: $beige;
+            font-family: $font-body;
+            transition: all 0.3s ease;
+            outline: 2px solid transparent;
+
+            &:focus,
+            &:hover {
+                outline: 2px solid $beige;
+            }
+        }
+
+        .nest-inputs {
+            display: flex;
+            gap: 5px;
+        }
+    }
+
+    line-div {
+        display: block;
+        height: 1px;
+        width: 100%;
+        border-bottom: 1px solid $golden;
+        mask-image: linear-gradient(270deg, transparent 0%, black 50%, transparent 100%);
+    }
+
+    .item-description {
+        opacity: 1;
+        transform: translateY(0);
+
+        transition:
+            opacity 0.3s ease-out,
+            transform 0.3s ease-out;
+    }
+
+    .item-description.invisible {
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-20px);
+        transform-origin: top;
     }
 }

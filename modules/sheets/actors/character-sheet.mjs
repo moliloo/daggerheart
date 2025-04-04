@@ -17,22 +17,30 @@ export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorS
         tag: 'form',
         form: { submitOnChange: true },
         classes: ['daggerheart', 'actor', 'character', 'sheet'],
-        position: { width: 850, height: 850 },
+        position: { width: 850, height: 700 },
         window: { icon: 'fa-solid fa-dagger', resizable: true },
         dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }],
         actions: {
-            rollHopeFear: DaggerheartCharacterSheet._openRollDialog,
             editImage: DaggerheartCharacterSheet.#onEditImage // TODO: remove in v13
         }
     };
 
     static PARTS = {
-        header: { template: `systems/daggerheart/templates/actors/character/header.hbs` }
+        header: { template: 'systems/daggerheart/templates/actors/character/header.hbs' },
+        sections: { template: 'systems/daggerheart/templates/actors/character/sections.hbs' }
+        // sidebar: { template: 'systems/daggerheart/templates/actors/character/sidebar.hbs' },
+        // tabs: { template: 'systems/daggerheart/templates/actors/character/tab-navigation.hbs' },
+        // summary: { template: 'systems/daggerheart/templates/actors/character/summary.hbs' },
+        // domainCards: { template: 'systems/daggerheart/templates/actors/character/domain-cards.hbs' }
     };
 
     // Getter for dragDrop private property
     get dragDrop() {
         return this.#dragDrop;
+    }
+
+    get title() {
+        return this.actor.isToken ? `[Token] ${this.actor.name}` : this.actor.name;
     }
 
     // Methods related to item editing and image editing
@@ -56,12 +64,66 @@ export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorS
         await fp.browse();
     }
 
+    _configureRenderOptions(options) {
+        super._configureRenderOptions(options);
+        // TODO: Refactor to use _configureRenderParts in v13
+        if (this.document.limited) {
+            options.parts = ['header', 'tabs', 'biography'];
+        }
+    }
+
+    tabGroups = {
+        primary: 'summary'
+    };
+
+    // TODO: Add other tabs later
+    tabs = {
+        summary: {
+            group: 'primary',
+            id: 'summary',
+            icon: 'fa-solid fa-user',
+            title: 'Summary'
+        },
+        domainCards: {
+            group: 'primary',
+            id: 'domainCards',
+            icon: 'fa-solid fa-tablet',
+            title: 'Domain Cards'
+        }
+    };
+
+    _getTabs() {
+        const tabs = this.tabs;
+
+        for (const tab of Object.values(tabs)) {
+            tab.active = this.tabGroups[tab.group] === tab.id;
+            tab.cssClass = tab.active ? 'active' : '';
+        }
+        console.log('Tabs processadas:', tabs);
+        return tabs;
+    }
+
     // Prepare the context for rendering
     async _prepareContext(options) {
         return {
             actor: this.document,
-            source: this.document.toObject()
+            source: this.document.toObject(),
+            tabs: this._getTabs()
         };
+    }
+
+    activateListeners(html) {
+        super.activateListeners(html);
+
+        // Seleciona a aba inicial
+        const activeTab = this.tabGroups.primary;
+        const tabElement = html.find(`.tab-part[data-tab="${activeTab}"]`);
+
+        if (tabElement.length > 0) {
+            tabElement.addClass('active'); // Força a aba inicial a ser visível
+        } else {
+            console.warn('Tab inicial não encontrada:', activeTab);
+        }
     }
 
     // Methods related to drag and drop functionality
@@ -132,12 +194,11 @@ export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorS
         }
     }
 
-    // Methods related to action handling
     async _onClickAction(event, target) {
         event.preventDefault();
         event.stopPropagation();
         const itemId = target.dataset.itemId;
-        const item = await this.actor.items.get(itemId); // Aqui você garante que está pegando o item corretamente
+        const item = await this.actor.items.get(itemId);
 
         switch (target.dataset.action) {
             case 'HpIncrease':
@@ -180,87 +241,79 @@ export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorS
                 event.preventDefault();
                 await item.sheet.render({ force: true });
                 return;
+            case 'dualityRoll':
+                console.log(target);
+                this._dualityDialog(target);
         }
     }
 
-    static async _openRollDialog() {
+    async _dualityDialog(target) {
+        const rollData = {
+            attribute: target.dataset.attribute,
+            advantage: false,
+            disadvantage: false,
+            HopeD20: false,
+            extraFormula: ''
+        };
         await new DialogV2({
-            title: 'Escolha o tipo de rolagem',
-            content: `
-            <p>Selecione como deseja rolar os dados:</p>
-            <button data-mode="normal">Normal</button>
-            <button data-mode="advantage">Vantagem</button>
-            <button data-mode="disadvantage">Desvantagem</button>
-          `,
+            content: await renderTemplate('systems/daggerheart/templates/chat/duality-roll.hbs', rollData),
             buttons: [
                 {
-                    action: 'Normal',
-                    label: `Normal`,
-                    callback: async () => this._rollDice('normal')
-                },
-                {
-                    action: 'Vantagem',
-                    label: `Vantagem`,
-                    callback: async () => this._rollDice('advantage')
-                },
-                {
-                    action: 'Desvantagem',
-                    label: `Desvantagem`,
-                    callback: async () => this._rollDice('disadvantage')
+                    action: 'Roll',
+                    label: `Roll`,
+                    callback: async () => {
+                        const hasAdvantage = document.querySelector('#advantage').checked;
+                        const hasDisadvantage = document.querySelector('#disadvantage').checked;
+                        const isHopeD20 = document.querySelector('#hope-d20').checked;
+
+                        this._dualityRoll(rollData, hasAdvantage, hasDisadvantage, isHopeD20);
+                    }
                 }
-            ],
-            default: 'normal'
+            ]
         }).render(true);
     }
 
-    async _rollDice(mode) {
-        // Rola os dados separadamente para controle total
-        const hopeRoll = new Roll('1d12');
-        const fearRoll = new Roll('1d12');
+    async _dualityRoll(rollData, hasdAdvantage, hasDisadvantage, isHopeD20) {
+        let rollFormula;
+        let rollAdvantage = ' + 1d6[Advantage]';
+        let rollDisadvantage = ' - 1d6[Disadvantage]';
+        let rollLabel;
+        let attribute = rollData.attribute;
 
-        await hopeRoll.evaluate({ async: true });
-        await fearRoll.evaluate({ async: true });
-
-        const hope = hopeRoll.total;
-        const fear = fearRoll.total;
-
-        // O maior valor entre os dois é o escolhido
-        let finalResult = Math.max(hope, fear);
-
-        let d6Roll = null;
-        if (mode !== 'normal') {
-            // Adiciona um d6 caso tenha vantagem/desvantagem
-            d6Roll = new Roll('1d6');
-            await d6Roll.evaluate({ async: true });
-
-            if (mode === 'advantage') {
-                finalResult += d6Roll.total;
-            } else if (mode === 'disadvantage') {
-                finalResult -= d6Roll.total;
-            }
+        if (isHopeD20) {
+            rollFormula = '{1d20[Hope], 1d12[Fear]}';
+        } else {
+            rollFormula = '{1d12[Hope], 1d12[Fear]}';
         }
 
-        // Criar uma fórmula para exibir os dados corretamente no chat
-        let rollFormula = `1d12[Hope] + 1d12[Fear]`;
-        if (mode !== 'normal') {
-            rollFormula += ` + ${mode === 'advantage' ? '1d6[Vantagem]' : '-1d6[Desvantagem]'}`;
+        if (hasdAdvantage && hasDisadvantage) {
+            rollFormula = rollFormula;
+        } else if (hasdAdvantage) {
+            rollFormula = rollFormula.concat(rollAdvantage);
+        } else if (hasDisadvantage) {
+            rollFormula = rollFormula.concat(rollDisadvantage);
         }
 
-        // Criar um novo Roll que reflete a jogada completa (mas mantendo o maior d12 no total final)
-        const fullRoll = new Roll(rollFormula, {});
-        await fullRoll.evaluate({ async: true });
+        const roll = new Roll(rollFormula);
+        await roll.roll();
 
-        // Substituir o total pelo valor correto (apenas o maior d12 + d6, se aplicável)
-        fullRoll._total = finalResult;
+        let resultHope = roll.terms[0].results[0].result;
+        let faceHope = roll.terms[0].rolls[0].terms[0]._faces;
+        let resultFear = roll.terms[0].results[1].result;
+        let fearHope = roll.terms[0].rolls[1].terms[0]._faces;
 
-        // Enviar a mensagem para o chat
-        await fullRoll.toMessage({
-            user: game.user.id,
-            speaker: ChatMessage.getSpeaker(),
-            flavor: `<strong>Rolagem (${mode === 'normal' ? 'Normal' : mode === 'advantage' ? 'Vantagem' : 'Desvantagem'})</strong><br>
-          🎲 Hope: ${hope} | 🎲 Fear: ${fear} ${d6Roll ? `<br> 🎲 d6 (${mode}): ${d6Roll.total}` : ''}<br>
-          <strong>Resultado Final: ${finalResult}</strong>`
-        });
+        if (resultHope > resultFear) {
+            rollLabel = `1d${faceHope} ${!hasdAdvantage && !hasDisadvantage ? '' : hasdAdvantage && !hasDisadvantage ? '+ 1d6' : '- 1d6'}`;
+        } else if (resultFear > resultHope) {
+            rollLabel = `1d${fearHope} ${!hasdAdvantage && !hasDisadvantage ? '' : hasdAdvantage && !hasDisadvantage ? '+ 1d6' : '- 1d6'}`;
+        } else {
+            rollLabel = `Critical!`;
+        }
+
+        roll._formula = rollLabel;
+        const rollHTML = await roll.render();
+
+        roll.toMessage();
     }
 
     // Rendering methods

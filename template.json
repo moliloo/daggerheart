@@ -1,10 +1,10 @@
 {
     "Actor": {
-        "types": ["character"],
+        "types": ["character", "rangerCompanion"],
         "templates": {}
     },
     "Item": {
-        "types": ["ancestry", "ancestry feature", "community", "class", "weapon"],
+        "types": ["ancestry", "community", "class", "domainCard", "subclass", "weapon"],
         "templates": {}
     }
 }

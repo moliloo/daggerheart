@@ -7,8 +7,6 @@ export default class DaggerheartClass extends DaggerheartItemBase {
         const requiredInteger = { required: true, nullable: false, integer: true };
         const schema = super.defineSchema();
 
-        schema.description = new fields.HTMLField({ required: true, blank: true, initial: 'Biography' });
-
         return schema;
     }
 }

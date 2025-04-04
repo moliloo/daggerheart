@@ -1,0 +1,39 @@
+.sheet.daggerheart.item.community {
+    .window-content {
+        position: relative;
+        top: -36px;
+    }
+    .community-sheet-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+
+        .profile {
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+            mask-image: linear-gradient(0deg, transparent 0%, black 10%);
+        }
+
+        .community-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            top: -25px;
+            gap: 5px;
+            margin: 0 12px;
+            .community-name {
+                input[type='text'] {
+                    font-size: 32px;
+                    height: 42px;
+                    text-align: center;
+                }
+            }
+
+            h3 {
+                font-size: 1rem;
+            }
+        }
+    }
+}

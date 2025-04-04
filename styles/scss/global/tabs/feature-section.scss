@@ -1,0 +1,68 @@
+@import '../../utils/color.scss';
+@import '../../utils/fonts.scss';
+
+.sheet.daggerheart.item {
+    .tab.features {
+        padding: 0 10px;
+        max-height: 265px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: $golden transparent;
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            .feature-item {
+                margin-bottom: 10px;
+                &:last-child {
+                    margin-bottom: 0px;
+                }
+                .feature-line {
+                    display: grid;
+                    align-items: center;
+                    grid-template-columns: 1fr 4fr 1fr;
+                    cursor: pointer;
+                    h4 {
+                        font-family: $font-body;
+                        font-weight: lighter;
+                        color: $beige;
+                    }
+                    .image {
+                        height: 40px;
+                        width: 40px;
+                        object-fit: cover;
+                        border-radius: 6px;
+                        border: none;
+                    }
+                    .controls {
+                        display: flex;
+                        justify-content: center;
+                        gap: 10px;
+                        a {
+                            text-shadow: none;
+                        }
+                    }
+                }
+                .item-description:not(.invisible) {
+                    margin-top: 5px;
+
+                    .tags-list {
+                        display: flex;
+                        gap: 5px;
+                        padding: 5px 0;
+
+                        .tag-item {
+                            background-color: $semi-transparent-dark-blue;
+                            border: 1px solid $beige;
+                            border-radius: 5px;
+                            padding: 2px 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

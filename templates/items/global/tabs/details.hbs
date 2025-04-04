@@ -1,0 +1,23 @@
+<section
+    class='tab {{tabs.details.cssClass}} {{tabs.details.id}}'
+    data-tab='{{tabs.details.id}}'
+    data-group='{{tabs.details.group}}'
+>
+    <fieldset class='two-columns'>
+        <legend>{{localize 'DAGGERHEART.Item.details.publication'}}</legend>
+        <span>{{localize 'DAGGERHEART.Item.details.title'}}</span>
+        <input
+            type='text'
+            name='system.publication.title'
+            value='{{item.system.publication.title}}'
+            placeholder='Book, Homebrew Collection...'
+        />
+        <span>{{localize 'DAGGERHEART.Item.details.authors'}}</span>
+        <input
+            type='text'
+            name='system.publication.author'
+            value='{{item.system.publication.author}}'
+            placeholder='Author'
+        />
+    </fieldset>
+</section>

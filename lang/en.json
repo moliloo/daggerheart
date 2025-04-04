@@ -1,0 +1,194 @@
+{
+    "TYPES": {
+        "ancestry": "Ancestry",
+        "community": "Community",
+        "class": "Class"
+    },
+    "DAGGERHEART": {
+        "Actor": {
+            "hope": "Hope",
+            "threshold": {
+                "major": "Major",
+                "severe": "Severe"
+            },
+            "level": "Level",
+            "evasion": "Evasion",
+            "armor": "Armor",
+            "slots": "Slots",
+            "attributes": {
+                "agility": {
+                    "name": "Agility",
+                    "short": "AGI",
+                    "descriptions": {
+                        "sprint": "Sprint",
+                        "leap": "Leap",
+                        "maneuver": "Maneuver"
+                    }
+                },
+                "strength": {
+                    "name": "Strength",
+                    "short": "STR",
+                    "descriptions": {
+                        "lift": "Lift",
+                        "smash": "Smash",
+                        "grapple": "Grapple"
+                    }
+                },
+                "finesse": {
+                    "name": "Finesse",
+                    "short": "FIN",
+                    "descriptions": {
+                        "control": "Control",
+                        "hide": "Hide",
+                        "tinker": "Tinker"
+                    }
+                },
+                "instinct": {
+                    "name": "Instinct",
+                    "short": "INS",
+                    "descriptions": {
+                        "perceive": "Perceive",
+                        "sense": "Sense",
+                        "navigate": "Navigate"
+                    }
+                },
+                "presence": {
+                    "name": "Presence",
+                    "short": "PRE",
+                    "descriptions": {
+                        "charm": "Charm",
+                        "perform": "Perform",
+                        "deceive": "Deceive"
+                    }
+                },
+                "knowledge": {
+                    "name": "Knowledge",
+                    "short": "KNO",
+                    "descriptions": {
+                        "recall": "Recall",
+                        "analyze": "Analyze",
+                        "comprehend": "Comprehend"
+                    }
+                }
+            }
+        },
+        "Item": {
+            "tabs": {
+                "description": "Description",
+                "settings": "Settings",
+                "details": "Details",
+                "effects": "Effects",
+                "features": "Features"
+            },
+            "details": {
+                "publication": "Publication",
+                "title": "Title",
+                "authors": "Author's"
+            },
+            "domainCard": {
+                "cardType": {
+                    "ability": "Ability",
+                    "spell": "Spell",
+                    "grimoire": "Grimoire"
+                },
+                "domainType": {
+                    "arcana": "Arcana",
+                    "blade": "Blade",
+                    "bone": "Bone",
+                    "codex": "Codex",
+                    "grace": "Grace",
+                    "midnight": "Midnight",
+                    "sage": "Sage",
+                    "splendor": "Splendor",
+                    "valor": "Valor"
+                }
+            },
+            "settings": {
+                "name": "Name",
+                "description": "Description",
+                "settings": "Settings",
+                "featureType": "Feature Type",
+                "actionType": "Action Type",
+                "frequency": "Frequency",
+                "usage": "Usage",
+                "cost": "Cost",
+                "uses": "Uses",
+                "actions": "Actions",
+                "category": "Category",
+                "actionCategory": "Action Category",
+                "rollFormula": "Roll Formula",
+                "justRollDamage": "Just Roll Damage?",
+                "proficiencyInDamage": "Uses Proficiency in Damage?",
+                "attribute": "Attribute",
+                "type": "Type",
+                "damageFormula": "Damage Formula",
+                "healFormula": "Heal Formula",
+                "dc": "Difficulty Check",
+                "rollDiceOnSucess": "Roll dice on sucess?",
+                "cardType": "Card Type",
+                "domainType": "Domain Type",
+                "recallCost": "Recall Cost",
+                "cardLevel": "Card Level"
+            },
+            "type": {
+                "communityCard": "Community Card",
+                "ancestryCard": "Ancestry Card"
+            },
+            "featureType": {
+                "class": "Class Feature",
+                "community": "Community Feature",
+                "ancestry": "Ancestry Feature",
+                "domainCard": "Domain Card Feature"
+            },
+            "frequency": {
+                "atWill": "At-Will",
+                "round": "Round",
+                "battle": "Battle",
+                "day": "Day",
+                "shortRest": "Short Rest",
+                "longRest": "Long Rest",
+                "perSession": "Per Session"
+            },
+            "cost": {
+                "noCost": "No Cost",
+                "hope": "Hope",
+                "action": "Action",
+                "stress": "Stress"
+            },
+            "uses": {
+                "unlimited": "Unlimited",
+                "limited": "Limited"
+            },
+            "actionType": {
+                "passive": "Passive",
+                "action": "Action",
+                "reaction": "Reaction"
+            },
+            "actionCategory": {
+                "roll": "Roll",
+                "advantage": "Advantage",
+                "attack": "Attack",
+                "damageBonus": "Damage Bonus",
+                "heal": "Heal",
+                "attributeCheck": "Attribute Check"
+            }
+        },
+        "Attack": {
+            "type": {
+                "physical": "Physical",
+                "magical": "Magical"
+            }
+        },
+        "ActiveEffect": {
+            "temporary": "Temporary",
+            "passive": "Passive",
+            "inactive": "Inactive"
+        },
+        "Tooltip": {
+            "edit": "Edit",
+            "delete": "Delete",
+            "toggleEffect": "Toggle Effect",
+            "openItemWorld": "Open Item World"
+        }
+    }
+}

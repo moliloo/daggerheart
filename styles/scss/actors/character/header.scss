@@ -1,308 +1,294 @@
 @import '../../utils/color.scss';
 
-.char-sheet-header {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    width: 100%;
-    top: -36px;
-    // background-image: url(../../assets/images/background/dark-header.svg);
-    align-items: center;
-    background: $primary-blue;
-    background: -webkit-linear-gradient(128deg, $primary-blue 0%, $secondary-blue 100%);
-    background: linear-gradient(128deg, $primary-blue 0%, $secondary-blue 100%);
-
-    .main-section {
-        align-self: start;
-        flex-grow: 1;
-        .background-header {
-            height: 36px;
-            background: linear-gradient(128deg, $golden 0%, $secondary-blue 100%);
-        }
-    }
-
-    .actor-name {
-        margin-top: -8px;
-    }
-
-    input[type='text'] {
-        font-size: 32px;
-        height: 42px;
-        width: 380px;
-        text-align: center;
-    }
-
-    .image-section {
-        width: 300px;
-        height: 300px;
-        .profile {
-            object-fit: cover;
-            border: none;
-        }
-    }
-
-    .stats-section {
-        position: absolute;
-        top: 8px;
+.sheet.daggerheart.actor.character {
+    .char-sheet-header {
         display: flex;
         flex-direction: row;
-        gap: 60px;
-        justify-content: center;
-        width: 300px;
+        position: relative;
+        width: 100%;
+        top: -36px;
+        align-items: center;
+        height: 300px;
 
-        .stat-evasion,
-        .stat-armor {
-            width: 40px;
-            height: 40px;
-            border: 1px solid $golden;
-            background-color: $dark-blue;
-            border-radius: 6px;
-            box-shadow: 0px 3px 3px $light-black;
+        .main-section {
+            align-self: start;
+            flex-grow: 1;
             justify-items: center;
 
-            .label {
-                position: relative;
-                background: $golden;
-                top: -2px;
-                color: $dark-blue;
-                padding: 3px 5px;
-                text-align: center;
-                border-radius: 2px;
+            .background-header {
+                height: 36px;
             }
         }
-    }
-    .stats-bars {
-        display: flex;
-        flex-direction: row;
-        position: absolute;
-        gap: 40px;
-        height: 40px;
-        width: 300px;
-        bottom: 0;
-        justify-content: center;
-        .stat-bar {
-            position: relative;
-            width: 100px;
-            height: 40px;
 
-            .labels {
-                position: absolute;
-                display: flex;
-                padding: 0 6px;
-                font-size: 1.5rem;
-                align-items: center;
-                width: 100px;
-                height: 40px;
-                justify-content: center;
-                z-index: 2;
+        .actor-name {
+            margin-top: -8px;
+        }
 
-                input[type='number'] {
-                    background: transparent;
-                    font-size: 1.5rem;
-                    width: 100px;
-                    height: 40px;
-                    text-align: center;
-                    border: none;
-                }
+        input[type='text'] {
+            font-size: 32px;
+            height: 42px;
+            width: 380px;
+            text-align: center;
+        }
+
+        .image-section {
+            width: 300px;
+            height: 300px;
+            .profile {
+                object-fit: cover;
+                border-right: 1px solid $golden;
+                border-bottom: 1px solid $golden;
+                box-sizing: border-box;
             }
-            .progress-bar {
-                position: absolute;
-                appearance: none;
-                width: 100px;
-                height: 40px;
+        }
+
+        .stats-section {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: center;
+            align-content: center;
+            margin-bottom: 12px;
+
+            .stat-evasion,
+            .stat-armor,
+            .stat-armor-slots,
+            .level-div {
                 border: 1px solid $golden;
+                background-color: $dark-blue;
+                padding: 5px;
                 border-radius: 6px;
                 box-shadow: 0px 3px 3px $light-black;
-                z-index: 1;
+                justify-items: center;
+                text-transform: uppercase;
 
-                &::-webkit-progress-bar {
-                    border: none;
-                    background: $dark-blue;
-                    border-radius: 6px;
-                }
-                &::-webkit-progress-value {
-                    background: $gradient-hp;
-                    border-radius: 5px;
-                }
-                &.stress-color::-webkit-progress-value {
-                    background: $gradient-stress;
-                    border-radius: 5px;
-                }
-                &::-moz-progress-value,
-                &::-moz-progress-bar {
-                    border-radius: 5px;
-                }
-
-                &::-moz-progress-bar {
-                    background: $gradient-hp;
-                }
-                &.stress-color::-moz-progress-bar {
-                    background: $gradient-stress;
-                    border-radius: 5px;
+                .label {
+                    color: $golden;
+                    padding: 3px 5px;
+                    text-align: center;
+                    border-radius: 2px;
                 }
             }
-            .controls {
-                position: absolute;
-                display: flex;
-                flex-direction: row;
-                top: 0px;
-                justify-self: anchor-center;
-                height: 20px;
+        }
+        .stats-bars {
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            gap: 40px;
+            height: 40px;
+            width: 300px;
+            bottom: -20px;
+            justify-content: center;
+            .stat-bar {
+                position: relative;
                 width: 100px;
-                transition: transform 0.3s ease-out;
-                z-index: 0;
-                transform: translateY(0px);
-                button {
-                    transition: transform 0.3s ease-out;
-                    i {
-                        margin: 0;
+                height: 40px;
+
+                .labels {
+                    position: absolute;
+                    display: flex;
+                    padding: 0 6px;
+                    font-size: 1.5rem;
+                    align-items: center;
+                    width: 100px;
+                    height: 40px;
+                    justify-content: center;
+                    z-index: 2;
+
+                    input[type='number'] {
+                        background: transparent;
+                        font-size: 1.5rem;
+                        width: 100px;
+                        height: 40px;
+                        text-align: center;
+                        border: none;
                     }
                 }
-            }
+                .progress-bar {
+                    position: absolute;
+                    appearance: none;
+                    width: 100px;
+                    height: 40px;
+                    border: 1px solid $golden;
+                    border-radius: 6px;
+                    box-shadow: 0px 3px 3px $light-black;
+                    z-index: 1;
 
-            &:hover {
+                    &::-webkit-progress-bar {
+                        border: none;
+                        background: $dark-blue;
+                        border-radius: 6px;
+                    }
+                    &::-webkit-progress-value {
+                        background: $gradient-hp;
+                        border-radius: 6px;
+                    }
+                    &.stress-color::-webkit-progress-value {
+                        background: $gradient-stress;
+                        border-radius: 6px;
+                    }
+                    &::-moz-progress-value,
+                    &::-moz-progress-bar {
+                        border-radius: 6px;
+                    }
+
+                    &::-moz-progress-bar {
+                        background: $gradient-hp;
+                    }
+                    &.stress-color::-moz-progress-bar {
+                        background: $gradient-stress;
+                        border-radius: 6px;
+                    }
+                }
                 .controls {
+                    position: absolute;
+                    display: flex;
+                    flex-direction: row;
+                    top: 0px;
+                    justify-self: anchor-center;
+                    height: 20px;
+                    width: 100px;
+                    transition: transform 0.3s ease-out;
+                    z-index: 0;
+                    transform: translateY(0px);
                     button {
-                        transform: translateY(-24px);
-                        &::focus-within {
+                        transition: transform 0.3s ease-out;
+                        i {
+                            margin: 0;
+                        }
+                    }
+                }
+
+                &:hover {
+                    .controls {
+                        button {
                             transform: translateY(-24px);
-                            transition: all 3s ease-in-out;
+                            &::focus-within {
+                                transform: translateY(-24px);
+                                transition: all 3s ease-in-out;
+                            }
                         }
                     }
                 }
             }
         }
-    }
 
-    .level-section {
-        .level-div {
-            width: 40px;
-            height: 40px;
-            border: 1px solid $golden;
-            background-color: $dark-blue;
-            border-radius: 6px;
-            box-shadow: 0px 3px 3px $light-black;
-            justify-items: center;
-            p {
-                font-size: 1.5rem;
-                margin: 0;
-            }
-            .label {
-                position: relative;
-                background: $golden;
-                top: -2px;
-                color: $dark-blue;
-                padding: 3px 5px;
-                text-align: center;
-                border-radius: 2px;
-            }
-        }
-    }
-
-    .name-row {
-        display: flex;
-        gap: 20px;
-        align-items: baseline;
-    }
-
-    .resources-row {
-        display: flex;
-        gap: 20px;
-        margin: 8px 0;
-        .hope-section {
+        .name-row {
             display: flex;
-            gap: 10px;
-            background-color: $dark-blue;
-            color: $golden;
-            padding: 5px 10px;
-            border: 1px solid $golden;
-            border-radius: 6px;
-            box-shadow: 0px 3px 3px $light-black;
-            align-items: center;
-            .hope {
-                cursor: pointer;
-            }
+            gap: 20px;
+            align-items: baseline;
         }
 
-        .threshold-section {
+        .resources-row {
             display: flex;
-            background-color: $dark-blue;
-            color: $golden;
-            gap: 10px;
-            padding: 5px 10px;
-            border: 1px solid $golden;
-            border-radius: 6px;
-            box-shadow: 0px 3px 3px $light-black;
-            align-items: center;
-
-            input[type='number'] {
-                height: 18px;
-                width: 36px;
-                text-align: center;
-            }
-        }
-    }
-    .heritage-section {
-        display: flex;
-        gap: 20px;
-        margin-bottom: 8px;
-        .heritage-item {
-            display: flex;
-            color: $golden;
-            background-color: $dark-blue;
-            gap: 5px;
-            padding: 5px 10px;
-            border: 1px solid $golden;
-            border-radius: 6px;
-            box-shadow: 0px 3px 3px $light-black;
-            align-items: center;
+            gap: 20px;
+            margin: 12px 0;
             text-transform: uppercase;
-            height: 30px;
 
-            .controls {
-                display: none;
+            .hope-section {
+                display: flex;
+                gap: 10px;
+                background-color: $dark-blue;
+                color: $golden;
+                padding: 5px 10px;
+                border: 1px solid $golden;
+                border-radius: 6px;
+                box-shadow: 0px 3px 3px $light-black;
+                align-items: center;
+                .hope {
+                    cursor: pointer;
+                }
             }
 
-            &:hover {
-                .controls {
-                    display: flex;
-                    gap: 5px;
-                    a {
-                        text-shadow: none;
-                    }
+            .threshold-section {
+                display: flex;
+                background-color: $dark-blue;
+                color: $golden;
+                gap: 10px;
+                padding: 5px 10px;
+                border: 1px solid $golden;
+                border-radius: 6px;
+                box-shadow: 0px 3px 3px $light-black;
+                align-items: center;
+
+                input[type='number'] {
+                    height: 18px;
+                    width: 36px;
+                    text-align: center;
                 }
             }
         }
-    }
-    .attributes-section {
-        align-items: center;
-        .attribute-div {
-            height: 60px;
-            width: 100px;
-            background-color: $dark-blue;
-            padding: 5px 0px;
-            border: 1px solid $golden;
-            border-radius: 6px;
-            box-shadow: 0px 3px 3px $light-black;
-            align-items: center;
-            justify-items: center;
-            .label {
+        .heritage-section {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 12px;
+            .heritage-item {
                 display: flex;
-                height: 20px;
-                gap: 5px;
-                align-items: center;
                 color: $golden;
-                border-bottom: 1px solid $golden;
+                background-color: $dark-blue;
+                gap: 5px;
+                padding: 5px 10px;
+                border: 1px solid $golden;
+                border-radius: 6px;
+                box-shadow: 0px 3px 3px $light-black;
+                align-items: center;
                 text-transform: uppercase;
-                .dice-icon {
+                height: 30px;
+
+                &.empty {
+                    border: 1px dashed $golden;
+                }
+
+                .controls {
                     display: none;
                 }
+
                 &:hover {
-                    .attribute-checked {
+                    .controls {
+                        display: flex;
+                        gap: 5px;
+                        a {
+                            text-shadow: none;
+                        }
+                    }
+                }
+            }
+        }
+        .attributes-section {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 12px;
+            .attribute-div {
+                height: 60px;
+                width: 70px;
+                background-color: $dark-blue;
+                padding: 5px 0px;
+                border: 1px solid $golden;
+                border-radius: 6px;
+                box-shadow: 0px 3px 3px $light-black;
+                align-items: center;
+                justify-items: center;
+                margin-bottom: 12px;
+                .label {
+                    display: flex;
+                    height: 20px;
+                    gap: 5px;
+                    align-items: center;
+                    color: $golden;
+                    border-bottom: 1px solid $golden;
+                    text-transform: uppercase;
+                    text-shadow: none;
+                    .dice-icon {
                         display: none;
                     }
-                    .dice-icon {
-                        display: flex;
+                    &:hover {
+                        .attribute-checked {
+                            display: none;
+                        }
+                        .dice-icon {
+                            display: flex;
+                        }
                     }
                 }
             }
