@@ -34,6 +34,10 @@ daggerheart.featureType = {
         value: 'class',
         label: 'DAGGERHEART.Item.featureType.class'
     },
+    classHope: {
+        value: 'classHope',
+        label: 'DAGGERHEART.Item.featureType.classHope'
+    },
     community: {
         value: 'community',
         label: 'DAGGERHEART.Item.featureType.community'

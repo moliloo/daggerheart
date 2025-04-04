@@ -136,6 +136,7 @@
             },
             "featureType": {
                 "class": "Class Feature",
+                "classHope": "Class Hope",
                 "community": "Community Feature",
                 "ancestry": "Ancestry Feature",
                 "domainCard": "Domain Card Feature"

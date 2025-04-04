@@ -38,7 +38,7 @@ export class DaggerheartFeatureSettingSheet extends HandlebarsApplicationMixin(I
 
     static PARTS = {
         featureSetting: {
-            template: 'systems/daggerheart/templates/dialog/feature-settings.hbs'
+            template: 'systems/daggerheart/templates/items/global/partials/feature-settings.hbs'
         }
     };
 

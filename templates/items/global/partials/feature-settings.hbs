@@ -1,0 +1,192 @@
+<form class='feature-form'>
+    <fieldset class='two-columns'>
+        <legend>{{localize 'DAGGERHEART.Item.settings.settings'}}</legend>
+        <span>{{localize 'DAGGERHEART.Item.settings.name'}}</span>
+        <input type='text' name='name' data-action='editFeature' value='{{feature.name}}' />
+        <span>{{localize 'DAGGERHEART.Item.settings.featureType'}}:</span>
+        <select name='type' data-action='editFeature'>
+            {{selectOptions config.featureType selected=feature.type localize=true}}
+        </select>
+        <span>{{localize 'DAGGERHEART.Item.settings.actionType'}}:</span>
+        <select name='settings.actionType' data-action='editFeature'>
+            {{selectOptions config.actionType selected=feature.settings.actionType localize=true}}
+        </select>
+        <span>{{localize 'DAGGERHEART.Item.settings.frequency'}}:</span>
+        <div class='nest-inputs'>
+            {{#unless (eq feature.settings.frequency.type 'atWill')}}
+                <input
+                    type='number'
+                    name='settings.frequency.times'
+                    data-action='editFeature'
+                    value='{{feature.settings.frequency.times}}'
+                    placeholder='0'
+                />
+            {{/unless}}
+            <select name='settings.frequency.type' data-action='editFeature'>
+                {{selectOptions config.frequency selected=feature.settings.frequency.type localize=true}}
+            </select>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>{{localize 'DAGGERHEART.Item.settings.description'}}</legend>
+        {{formInput
+            fields.features.element.fields.description
+            value=feature.description
+            enriched=description
+            toggled=true
+            compact=true
+            classes='slim'
+            dataset='teste'
+        }}
+    </fieldset>
+    <fieldset class='two-columns'>
+        <legend>{{localize 'DAGGERHEART.Item.settings.usage'}}</legend>
+        <span>{{localize 'DAGGERHEART.Item.settings.cost'}}:</span>
+        <div class='nest-inputs'>
+            {{#unless (eq feature.settings.cost.type 'noCost')}}
+                <input
+                    type='number'
+                    name='settings.cost.value'
+                    data-action='editFeature'
+                    value='{{feature.settings.cost.value}}'
+                    placeholder='0'
+                />
+            {{/unless}}
+            <select name='settings.cost.type' data-action='editFeature'>
+                {{selectOptions config.cost selected=feature.settings.cost.type localize=true}}
+            </select>
+        </div>
+
+        <span>{{localize 'DAGGERHEART.Item.settings.uses'}}:</span>
+        <div class='nest-inputs'>
+            {{#unless (eq feature.settings.uses.type 'unlimited')}}
+                <input
+                    type='number'
+                    name='settings.uses.value'
+                    data-action='editFeature'
+                    value='{{feature.settings.uses.value}}'
+                    placeholder='0'
+                />
+            {{/unless}}
+            <select name='settings.uses.type' data-action='editFeature'>
+                {{selectOptions config.uses selected=feature.settings.uses.type localize=true}}
+            </select>
+        </div>
+    </fieldset>
+    {{#unless (eq feature.settings.actionType 'passive')}}
+        <fieldset class='two-columns'>
+            <legend>{{localize 'DAGGERHEART.Item.settings.actions'}}</legend>
+            <span>{{localize 'DAGGERHEART.Item.settings.category'}}:</span>
+            <select name='settings.actionCategory.type' data-action='editFeature'>
+                {{selectOptions config.actionCategory selected=feature.settings.actionCategory.type localize=true}}
+            </select>
+            {{#if (eq feature.settings.actionCategory.type 'roll')}}
+                <span>{{localize 'DAGGERHEART.Item.settings.rollFormula'}}:</span>
+                <input
+                    type='text'
+                    name='settings.actionCategory.roll.rollFormula'
+                    data-action='editFeature'
+                    value='{{feature.settings.actionCategory.roll.rollFormula}}'
+                    placeholder='1d6'
+                />
+            {{/if}}
+            {{#if (eq feature.settings.actionCategory.type 'attack')}}
+                <span>{{localize 'DAGGERHEART.Item.settings.justRollDamage'}}</span>
+                <input
+                    type='checkbox'
+                    name='settings.actionCategory.attack.rollsDamage'
+                    data-action='editFeature'
+                    {{checked feature.settings.actionCategory.attack.rollsDamage}}
+                />
+                <span>{{localize 'DAGGERHEART.Item.settings.proficiencyInDamage'}}</span>
+                <input
+                    type='checkbox'
+                    name='settings.actionCategory.attack.usesProficiency'
+                    data-action='editFeature'
+                    {{checked feature.settings.actionCategory.attack.usesProficiency}}
+                />
+                {{#unless feature.settings.actionCategory.attack.rollsDamage}}
+                    <span>{{localize 'DAGGERHEART.Item.settings.attribute'}}:</span>
+                    <select name='settings.actionCategory.attack.attribute' data-action='editFeature'>
+                        {{selectOptions
+                            config.attributes
+                            selected=feature.settings.actionCategory.attack.attribute
+                            localize=true
+                        }}
+                    </select>
+                {{/unless}}
+                <span>{{localize 'DAGGERHEART.Item.settings.type'}}:</span>
+                <select name='settings.actionCategory.attack.type' data-action='editFeature'>
+                    {{selectOptions
+                        config.attackType
+                        selected=feature.settings.actionCategory.attack.type
+                        localize=true
+                    }}
+                </select>
+                <span>{{localize 'DAGGERHEART.Item.settings.rollFormula'}}:</span>
+                <input
+                    type='text'
+                    name='settings.actionCategory.attack.rollFormula'
+                    data-action='editFeature'
+                    value='{{feature.settings.actionCategory.attack.rollFormula}}'
+                    placeholder='1d6'
+                />
+            {{/if}}
+            {{#if (eq feature.settings.actionCategory.type 'damageBonus')}}
+                <span>{{localize 'DAGGERHEART.Item.settings.damageFormula'}}:</span>
+                <input
+                    type='text'
+                    name='settings.actionCategory.damageBonus.rollFormula'
+                    data-action='editFeature'
+                    value='{{feature.settings.actionCategory.damageBonus.rollFormula}}'
+                    placeholder='1d6'
+                />
+            {{/if}}
+            {{#if (eq feature.settings.actionCategory.type 'heal')}}
+                <span>{{localize 'DAGGERHEART.Item.settings.healFormula'}}:</span>
+                <input
+                    type='text'
+                    name='settings.actionCategory.heal.rollFormula'
+                    data-action='editFeature'
+                    value='{{feature.settings.actionCategory.heal.rollFormula}}'
+                    placeholder='1d6'
+                />
+            {{/if}}
+            {{#if (eq feature.settings.actionCategory.type 'attributeCheck')}}
+                <span>{{localize 'DAGGERHEART.Item.settings.attribute'}}:</span>
+                <select name='settings.actionCategory.attributeCheck.attribute' data-action='editFeature'>
+                    {{selectOptions
+                        config.attributes
+                        selected=feature.settings.actionCategory.attributeCheck.attribute
+                        localize=true
+                    }}
+                </select>
+                <span>{{localize 'DAGGERHEART.Item.settings.dc'}}:</span>
+                <input
+                    type='text'
+                    name='settings.actionCategory.attributeCheck.dc'
+                    data-action='editFeature'
+                    value='{{feature.settings.actionCategory.attributeCheck.dc}}'
+                    placeholder='12'
+                />
+                <span>{{localize 'DAGGERHEART.Item.settings.rollDiceOnSucess'}}</span>
+                <input
+                    type='checkbox'
+                    name='settings.actionCategory.attributeCheck.rollsDice'
+                    data-action='editFeature'
+                    {{checked feature.settings.actionCategory.attributeCheck.rollsDice}}
+                />
+                {{#if feature.settings.actionCategory.attributeCheck.rollsDice}}
+                    <span>{{localize 'DAGGERHEART.Item.settings.rollFormula'}}:</span>
+                    <input
+                        type='text'
+                        name='settings.actionCategory.attributeCheck.rollFormula'
+                        data-action='editFeature'
+                        value='{{feature.settings.actionCategory.attributeCheck.rollFormula}}'
+                        placeholder='d6'
+                    />
+                {{/if}}
+            {{/if}}
+        </fieldset>
+    {{/unless}}
+</form>
