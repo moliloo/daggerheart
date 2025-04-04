@@ -1,21 +1,33 @@
 @import '../utils/color.scss';
 
-.application prose-mirror {
-    height: 265px;
-    .editor-menu {
-        background-color: transparent;
+.application {
+    prose-mirror {
+        height: 265px;
+        .editor-menu {
+            background-color: transparent;
+        }
+        .editor-content {
+            scrollbar-width: thin;
+            scrollbar-color: $golden transparent;
+            h1 {
+                font-size: 36px;
+            }
+            h2 {
+                font-size: 32px;
+            }
+            h3 {
+                font-size: 24px;
+            }
+        }
     }
-    .editor-content {
-        scrollbar-width: thin;
-        scrollbar-color: $golden transparent;
-        h1 {
-            font-size: 36px;
-        }
-        h2 {
-            font-size: 32px;
-        }
-        h3 {
-            font-size: 24px;
+
+    .feature-form {
+        prose-mirror {
+            max-height: fit-content;
+            .editor-menu {
+                padding: 0px;
+                gap: 1px;
+            }
         }
     }
 }

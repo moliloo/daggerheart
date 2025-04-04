@@ -1,0 +1,24 @@
+<section
+    class='tab {{tabs.settings.cssClass}} {{tabs.settings.id}}'
+    data-tab='{{tabs.settings.id}}'
+    data-group='{{tabs.settings.group}}'
+>
+    <fieldset class='two-columns'>
+        <legend>{{localize 'DAGGERHEART.Item.settings.settings'}}</legend>
+        <span>{{localize 'DAGGERHEART.Item.settings.cardType'}}:</span>
+        <select name='system.cardType'>
+            {{selectOptions config.domainCard.cardType selected=item.system.cardType localize=true}}
+        </select>
+
+        <span>{{localize 'DAGGERHEART.Item.settings.domainType'}}:</span>
+        <select name='system.domainType'>
+            {{selectOptions config.domainCard.domainType selected=item.system.domainType localize=true}}
+        </select>
+
+        <span>{{localize 'DAGGERHEART.Item.settings.recallCost'}}:</span>
+        <input type='text' name='system.recallCost' value='{{source.system.recallCost}}' />
+
+        <span>{{localize 'DAGGERHEART.Item.settings.cardLevel'}}:</span>
+        <input type='text' name='system.level' value='{{source.system.level}}' />
+    </fieldset>
+</section>

@@ -48,6 +48,19 @@
                 }
                 .item-description:not(.invisible) {
                     margin-top: 5px;
+
+                    .tags-list {
+                        display: flex;
+                        gap: 5px;
+                        padding: 5px 0;
+
+                        .tag-item {
+                            background-color: $semi-transparent-dark-blue;
+                            border: 1px solid $beige;
+                            border-radius: 5px;
+                            padding: 2px 5px;
+                        }
+                    }
                 }
             }
         }

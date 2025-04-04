@@ -41,6 +41,10 @@ daggerheart.featureType = {
     ancestry: {
         value: 'ancestry',
         label: 'DAGGERHEART.Item.featureType.ancestry'
+    },
+    domainCard: {
+        value: 'domainCard',
+        label: 'DAGGERHEART.Item.featureType.domainCard'
     }
 };
 
@@ -159,5 +163,60 @@ daggerheart.actionCategory = {
     attributeCheck: {
         value: 'attributeCheck',
         label: 'DAGGERHEART.Item.actionCategory.attributeCheck'
+    }
+};
+
+daggerheart.domainCard = {
+    cardType: {
+        ability: {
+            value: 'ability',
+            label: 'DAGGERHEART.Item.domainCard.cardType.ability'
+        },
+        spell: {
+            value: 'spell',
+            label: 'DAGGERHEART.Item.domainCard.cardType.spell'
+        },
+        grimoire: {
+            value: 'grimoire',
+            label: 'DAGGERHEART.Item.domainCard.cardType.grimoire'
+        }
+    },
+    domainType: {
+        arcana: {
+            value: 'arcana',
+            label: 'DAGGERHEART.Item.domainCard.domainType.arcana'
+        },
+        blade: {
+            value: 'blade',
+            label: 'DAGGERHEART.Item.domainCard.domainType.blade'
+        },
+        bone: {
+            value: 'bone',
+            label: 'DAGGERHEART.Item.domainCard.domainType.bone'
+        },
+        codex: {
+            value: 'codex',
+            label: 'DAGGERHEART.Item.domainCard.domainType.codex'
+        },
+        grace: {
+            value: 'grace',
+            label: 'DAGGERHEART.Item.domainCard.domainType.grace'
+        },
+        midnight: {
+            value: 'midnight',
+            label: 'DAGGERHEART.Item.domainCard.domainType.midnight'
+        },
+        sage: {
+            value: 'sage',
+            label: 'DAGGERHEART.Item.domainCard.domainType.sage'
+        },
+        splendor: {
+            value: 'splendor',
+            label: 'DAGGERHEART.Item.domainCard.domainType.splendor'
+        },
+        valor: {
+            value: 'valor',
+            label: 'DAGGERHEART.Item.domainCard.domainType.valor'
+        }
     }
 };

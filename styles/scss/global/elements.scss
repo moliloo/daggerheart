@@ -13,12 +13,21 @@
         -webkit-backdrop-filter: blur(9.5px);
         outline: none;
         color: $golden;
+
+        &:focus[type='text'],
+        &:focus[type='number'] {
+            box-shadow: none;
+            outline: 2px solid $beige;
+        }
     }
 
-    input:focus[type='text'],
-    input:focus[type='number'] {
-        box-shadow: none;
-        outline: 2px solid $golden;
+    input[type='checkbox'] {
+        &:checked::after {
+            color: $golden;
+        }
+        &::before {
+            color: $dark-blue;
+        }
     }
 
     button {
@@ -61,6 +70,10 @@
         list-style: none;
     }
 
+    li {
+        margin: 0;
+    }
+
     fieldset {
         align-items: center;
         margin-top: 5px;
@@ -82,6 +95,19 @@
         legend {
             font-family: $font-body;
             color: $golden;
+        }
+
+        input[type='text'],
+        input[type='number'] {
+            color: $beige;
+            font-family: $font-body;
+            transition: all 0.3s ease;
+            outline: 2px solid transparent;
+
+            &:focus,
+            &:hover {
+                outline: 2px solid $beige;
+            }
         }
 
         .nest-inputs {

@@ -1,6 +1,6 @@
 @import '../../utils/fonts.scss';
 
-.sheet.daggerheart.item.feature {
+.sheet.daggerheart.item {
     .tab.effects {
         padding: 0 10px;
         max-height: 265px;
@@ -37,6 +37,10 @@
                         display: flex;
                         justify-content: center;
                         gap: 10px;
+
+                        a {
+                            text-shadow: none;
+                        }
                     }
                 }
             }

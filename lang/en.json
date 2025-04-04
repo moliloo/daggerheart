@@ -85,7 +85,27 @@
                 "title": "Title",
                 "authors": "Author's"
             },
+            "domainCard": {
+                "cardType": {
+                    "ability": "Ability",
+                    "spell": "Spell",
+                    "grimoire": "Grimoire"
+                },
+                "domainType": {
+                    "arcana": "Arcana",
+                    "blade": "Blade",
+                    "bone": "Bone",
+                    "codex": "Codex",
+                    "grace": "Grace",
+                    "midnight": "Midnight",
+                    "sage": "Sage",
+                    "splendor": "Splendor",
+                    "valor": "Valor"
+                }
+            },
             "settings": {
+                "name": "Name",
+                "description": "Description",
                 "settings": "Settings",
                 "featureType": "Feature Type",
                 "actionType": "Action Type",
@@ -95,6 +115,7 @@
                 "uses": "Uses",
                 "actions": "Actions",
                 "category": "Category",
+                "actionCategory": "Action Category",
                 "rollFormula": "Roll Formula",
                 "justRollDamage": "Just Roll Damage?",
                 "proficiencyInDamage": "Uses Proficiency in Damage?",
@@ -103,7 +124,11 @@
                 "damageFormula": "Damage Formula",
                 "healFormula": "Heal Formula",
                 "dc": "Difficulty Check",
-                "rollDiceOnSucess": "Roll dice on sucess?"
+                "rollDiceOnSucess": "Roll dice on sucess?",
+                "cardType": "Card Type",
+                "domainType": "Domain Type",
+                "recallCost": "Recall Cost",
+                "cardLevel": "Card Level"
             },
             "type": {
                 "communityCard": "Community Card",
@@ -112,7 +137,8 @@
             "featureType": {
                 "class": "Class Feature",
                 "community": "Community Feature",
-                "ancestry": "Ancestry Feature"
+                "ancestry": "Ancestry Feature",
+                "domainCard": "Domain Card Feature"
             },
             "frequency": {
                 "atWill": "At-Will",

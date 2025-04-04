@@ -281,9 +281,9 @@ export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorS
         let attribute = rollData.attribute;
 
         if (isHopeD20) {
-            rollFormula = '{1d20[Hope], 1d12[Fear]}kh';
+            rollFormula = '{1d20[Hope], 1d12[Fear]}';
         } else {
-            rollFormula = '{1d12[Hope], 1d12[Fear]}kh';
+            rollFormula = '{1d12[Hope], 1d12[Fear]}';
         }
 
         if (hasdAdvantage && hasDisadvantage) {
@@ -313,13 +313,7 @@ export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorS
         roll._formula = rollLabel;
         const rollHTML = await roll.render();
 
-        await ChatMessage.create({
-            user: game.user.id,
-            speaker: ChatMessage.getSpeaker(),
-            flavor: `${attribute} check`,
-            content: `${rollHTML}`,
-            roll
-        });
+        roll.toMessage();
     }
 
     // Rendering methods

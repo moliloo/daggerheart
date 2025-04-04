@@ -1,0 +1,62 @@
+@import '../../utils/color.scss';
+
+.sheet.daggerheart.item.domain-card {
+    .window-content {
+        position: relative;
+        top: -36px;
+    }
+    .domain-card-sheet-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+
+        .recall-cost {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 50px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            background: $deep-black;
+            border: 4px double $golden;
+            color: $beige;
+            border-radius: 999px;
+            font-size: 1.2rem;
+            text-align: center;
+
+            i {
+                font-size: 0.8rem;
+            }
+        }
+
+        .profile {
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+            mask-image: linear-gradient(0deg, transparent 0%, black 10%);
+        }
+
+        .domain-card-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            top: -25px;
+            gap: 5px;
+            margin: 0 12px;
+            .domain-card-name {
+                input[type='text'] {
+                    font-size: 32px;
+                    height: 42px;
+                    text-align: center;
+                }
+            }
+
+            h3 {
+                font-size: 1rem;
+            }
+        }
+    }
+}

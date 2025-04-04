@@ -3,17 +3,21 @@ import { DaggerheartItemSheet } from './item-sheet.mjs';
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 
-export class DaggerheartAncestrySheet extends HandlebarsApplicationMixin(DaggerheartItemSheet) {
+export class DaggerheartDomainCardSheet extends HandlebarsApplicationMixin(DaggerheartItemSheet) {
     static DEFAULT_OPTIONS = {
-        classes: ['daggerheart', 'item', 'ancestry']
+        classes: ['daggerheart', 'item', 'domain-card']
     };
 
     static PARTS = {
-        header: { template: 'systems/daggerheart/templates/items/ancestry/header.hbs' },
+        header: { template: 'systems/daggerheart/templates/items/domainCard/header.hbs' },
         tabs: { template: 'systems/daggerheart/templates/items/global/partials/tab-navigation.hbs' },
         description: {
             template: 'systems/daggerheart/templates/items/global/tabs/description.hbs',
             scrollable: ['.description']
+        },
+        settings: {
+            template: 'systems/daggerheart/templates/items/domainCard/partials/settings.hbs',
+            scrollable: ['.settings']
         },
         featureSection: {
             template: 'systems/daggerheart/templates/items/global/tabs/feature-section.hbs',
@@ -28,10 +32,11 @@ export class DaggerheartAncestrySheet extends HandlebarsApplicationMixin(Daggerh
 
     static TABS = {
         sheet: [
-            { id: 'description', group: 'ancestry', label: 'DAGGERHEART.Item.tabs.description' },
-            { id: 'features', group: 'ancestry', label: 'DAGGERHEART.Item.tabs.features' },
-            { id: 'details', group: 'ancestry', label: 'DAGGERHEART.Item.tabs.details' },
-            { id: 'effects', group: 'ancestry', label: 'DAGGERHEART.Item.tabs.effects' }
+            { id: 'description', group: 'domainCard', label: 'DAGGERHEART.Item.tabs.description' },
+            { id: 'settings', group: 'domainCard', label: 'DAGGERHEART.Item.tabs.settings' },
+            { id: 'features', group: 'domainCard', label: 'DAGGERHEART.Item.tabs.features' },
+            { id: 'details', group: 'domainCard', label: 'DAGGERHEART.Item.tabs.details' },
+            { id: 'effects', group: 'domainCard', label: 'DAGGERHEART.Item.tabs.effects' }
         ]
     };
 

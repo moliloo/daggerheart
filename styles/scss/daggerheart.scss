@@ -2,12 +2,12 @@
 @import './actors/character/sections.scss';
 @import './actors/character/tab-navigation.scss';
 
-@import './items/feature/header.scss';
-@import './items/feature/settings.scss';
-
 @import './items/community/header.scss';
 
 @import './items/ancestry/header.scss';
+
+@import './items/domainCard/header.scss';
+@import './items/domainCard/settings.scss';
 
 @import './global/sheet.scss';
 @import './global/elements.scss';

@@ -1,10 +1,13 @@
 import { daggerheart } from '../../helpers/config.mjs';
+import { DaggerheartFeatureSettingSheet } from './feature-setting-sheet.mjs';
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
 
 export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     #dragDrop;
+
+    featureSetting = undefined;
 
     constructor(options = {}) {
         super(options);
@@ -129,25 +132,102 @@ export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2
             case 'toggleEffect':
                 this.toggleActiveEffect(event, this.item);
                 break;
-            case 'editItem':
-                this.editItem(event, this.item);
+            case 'openFeatureDescription':
+                this.openFeatureDescription(event);
                 break;
-            case 'deleteItem':
-                this.deleteItem(event, this.item);
+            case 'addFeature':
+                this.addFeature(this.item);
                 break;
-            case 'openItemDescription':
-                this.openItemDescription(event);
+            case 'editFeature':
+                this.editFeature(event, this.item);
+                break;
+            case 'deleteFeature':
+                this.deleteFeature(event, this.item);
                 break;
         }
     }
 
-    openItemDescription(event) {
+    openFeatureDescription(event) {
         event.preventDefault();
         event.stopPropagation();
 
         let listItem = event.target.closest('li');
         let editor = $(listItem).find('.item-description');
         editor.toggleClass('invisible');
+    }
+
+    async addFeature(item) {
+        if (!item || !item._id) return;
+
+        let features = foundry.utils.deepClone(item.system.features);
+        let featureData = {
+            id: `Item.${item._id}.Feature.${foundry.utils.randomID()}`,
+            name: 'Feature',
+            img: item.img,
+            settings: {
+                actionType: 'passive',
+                frequency: {
+                    times: 1,
+                    type: 'atWill'
+                },
+                cost: {
+                    value: 0,
+                    type: 'noCost'
+                },
+                uses: {
+                    value: 1,
+                    type: 'unlimited'
+                },
+                actionCategory: {
+                    type: 'none',
+                    roll: {
+                        rollFormula: ''
+                    },
+                    attack: {
+                        attribute: '',
+                        rollsDamage: false,
+                        usesProficiency: false,
+                        type: 'physical',
+                        rollFormula: ''
+                    },
+                    damageBonus: {
+                        rollFormula: ''
+                    },
+                    heal: {
+                        rollFormula: ''
+                    },
+                    attributeCheck: {
+                        attribute: '',
+                        dc: 0,
+                        rollsDice: false,
+                        rollFormula: ''
+                    }
+                }
+            }
+        };
+
+        features.push(featureData);
+
+        await item.update({ 'system.features': features });
+        console.log(item.system.features);
+    }
+
+    async deleteFeature(event, item) {
+        const featureId = event.target.closest('li').dataset.featureId;
+        if (!item) return;
+
+        item.update({
+            'system.features': item.system.features.filter(i => i.id !== featureId)
+        });
+    }
+
+    async editFeature(event, item) {
+        let featureId = event.target.closest('li')?.dataset.featureId;
+        const features = foundry.utils.deepClone(item.system.features);
+        const feature = features.find(feature => feature.id === featureId);
+
+        this.featureSetting = new DaggerheartFeatureSettingSheet({ document: this.item, featureData: feature });
+        this.featureSetting.render(true);
     }
 
     prepareActiveEffectCategories(effects) {
@@ -184,21 +264,7 @@ export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2
 
     getItemObj(event, owner) {
         const itemId = event.target.closest('li').dataset.itemId;
-        return itemId ? owner.system.items.find(item => item._id === itemId) : null;
-    }
-
-    editItem(event, owner) {
-        const item = new Item(this.getItemObj(event, owner));
-        return item.sheet.render(true);
-    }
-
-    deleteItem(event, owner) {
-        const item = this.getItemObj(event, owner);
-        if (!item) return;
-
-        owner.update({
-            'system.items': owner.system.items.filter(i => i._id !== item._id)
-        });
+        return itemId ? owner.system.features.find(item => item._id === itemId) : null;
     }
 
     createActiveEffect(event, owner) {

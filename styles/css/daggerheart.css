@@ -291,88 +291,6 @@
   justify-content: center;
 }
 
-.sheet.daggerheart.item.feature .window-content {
-  position: relative;
-  top: -36px;
-}
-.sheet.daggerheart.item.feature .feature-sheet-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-}
-.sheet.daggerheart.item.feature .feature-sheet-header .profile {
-  height: 300px;
-  width: 100%;
-  object-fit: cover;
-  mask-image: linear-gradient(0deg, transparent 0%, black 10%);
-}
-.sheet.daggerheart.item.feature .feature-sheet-header .feature-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  top: -25px;
-  gap: 5px;
-  margin: 0 12px;
-}
-.sheet.daggerheart.item.feature .feature-sheet-header .feature-info .feature-name input[type=text] {
-  font-size: 32px;
-  height: 42px;
-  text-align: center;
-}
-.sheet.daggerheart.item.feature .feature-sheet-header .feature-info h3 {
-  font-size: 1rem;
-}
-
-.application.sheet h1 {
-  font-family: "Cinzel Decorative", serif;
-  margin: 0;
-  border: none;
-}
-.application.sheet h2,
-.application.sheet h3 {
-  font-family: "Cinzel", serif;
-  margin: 0;
-  border: none;
-}
-.application.sheet h4 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-  border: none;
-  font-weight: 700;
-  margin: 0;
-  text-shadow: none;
-  color: #f3c267;
-}
-.application.sheet h5 {
-  font-size: 14px;
-  color: #f3c267;
-  margin: 0;
-}
-.application.sheet p,
-.application.sheet span {
-  font-family: "Montserrat", sans-serif;
-}
-.application.sheet small {
-  font-family: "Montserrat", sans-serif;
-  opacity: 0.8;
-}
-
-.sheet.daggerheart.item.feature .tab.settings {
-  padding: 0 10px;
-  max-height: 265px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #f3c267 transparent;
-}
-.sheet.daggerheart.item.feature .tab.settings input[type=number] {
-  color: #efe6d8;
-  font-family: "Montserrat", sans-serif;
-}
-.sheet.daggerheart.item.feature .tab.settings input[type=number]:focus {
-  outline: 2px solid #efe6d8;
-}
-
 .sheet.daggerheart.item.community .window-content {
   position: relative;
   top: -36px;
@@ -437,6 +355,107 @@
 }
 .sheet.daggerheart.item.ancestry .ancestry-sheet-header .ancestry-info h3 {
   font-size: 1rem;
+}
+
+.sheet.daggerheart.item.domain-card .window-content {
+  position: relative;
+  top: -36px;
+}
+.sheet.daggerheart.item.domain-card .domain-card-sheet-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.sheet.daggerheart.item.domain-card .domain-card-sheet-header .recall-cost {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background: #0e0d15;
+  border: 4px double #f3c267;
+  color: #efe6d8;
+  border-radius: 999px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.sheet.daggerheart.item.domain-card .domain-card-sheet-header .recall-cost i {
+  font-size: 0.8rem;
+}
+.sheet.daggerheart.item.domain-card .domain-card-sheet-header .profile {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  mask-image: linear-gradient(0deg, transparent 0%, black 10%);
+}
+.sheet.daggerheart.item.domain-card .domain-card-sheet-header .domain-card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -25px;
+  gap: 5px;
+  margin: 0 12px;
+}
+.sheet.daggerheart.item.domain-card .domain-card-sheet-header .domain-card-info .domain-card-name input[type=text] {
+  font-size: 32px;
+  height: 42px;
+  text-align: center;
+}
+.sheet.daggerheart.item.domain-card .domain-card-sheet-header .domain-card-info h3 {
+  font-size: 1rem;
+}
+
+.application.sheet h1 {
+  font-family: "Cinzel Decorative", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h2,
+.application.sheet h3 {
+  font-family: "Cinzel", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  border: none;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: none;
+  color: #f3c267;
+}
+.application.sheet h5 {
+  font-size: 14px;
+  color: #f3c267;
+  margin: 0;
+}
+.application.sheet p,
+.application.sheet span {
+  font-family: "Montserrat", sans-serif;
+}
+.application.sheet small {
+  font-family: "Montserrat", sans-serif;
+  opacity: 0.8;
+}
+
+.sheet.daggerheart.item.domain-card .tab.settings {
+  padding: 0 10px;
+  max-height: 265px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #f3c267 transparent;
+}
+.sheet.daggerheart.item.domain-card .tab.settings input[type=number] {
+  color: #efe6d8;
+  font-family: "Montserrat", sans-serif;
+}
+.sheet.daggerheart.item.domain-card .tab.settings input[type=number]:focus {
+  outline: 2px solid #efe6d8;
 }
 
 .application.sheet .window-header {
@@ -510,10 +529,17 @@
   outline: none;
   color: #f3c267;
 }
-.application.sheet input:focus[type=text],
-.application.sheet input:focus[type=number] {
+.application.sheet input[type=text]:focus[type=text], .application.sheet input[type=text]:focus[type=number],
+.application.sheet input[type=number]:focus[type=text],
+.application.sheet input[type=number]:focus[type=number] {
   box-shadow: none;
-  outline: 2px solid #f3c267;
+  outline: 2px solid #efe6d8;
+}
+.application.sheet input[type=checkbox]:checked::after {
+  color: #f3c267;
+}
+.application.sheet input[type=checkbox]::before {
+  color: rgb(24, 22, 46);
 }
 .application.sheet button {
   background: #f3c267;
@@ -548,6 +574,9 @@
   padding: 0;
   list-style: none;
 }
+.application.sheet li {
+  margin: 0;
+}
 .application.sheet fieldset {
   align-items: center;
   margin-top: 5px;
@@ -567,6 +596,18 @@
 .application.sheet fieldset legend {
   font-family: "Montserrat", sans-serif;
   color: #f3c267;
+}
+.application.sheet fieldset input[type=text],
+.application.sheet fieldset input[type=number] {
+  color: #efe6d8;
+  font-family: "Montserrat", sans-serif;
+  transition: all 0.3s ease;
+  outline: 2px solid transparent;
+}
+.application.sheet fieldset input[type=text]:focus, .application.sheet fieldset input[type=text]:hover,
+.application.sheet fieldset input[type=number]:focus,
+.application.sheet fieldset input[type=number]:hover {
+  outline: 2px solid #efe6d8;
 }
 .application.sheet fieldset .nest-inputs {
   display: flex;
@@ -610,6 +651,13 @@
 }
 .application prose-mirror .editor-content h3 {
   font-size: 24px;
+}
+.application .feature-form prose-mirror {
+  max-height: fit-content;
+}
+.application .feature-form prose-mirror .editor-menu {
+  padding: 0px;
+  gap: 1px;
 }
 
 .application.sheet h1 {
@@ -743,6 +791,17 @@
 .sheet.daggerheart.item .tab.features .feature-list .feature-item .item-description:not(.invisible) {
   margin-top: 5px;
 }
+.sheet.daggerheart.item .tab.features .feature-list .feature-item .item-description:not(.invisible) .tags-list {
+  display: flex;
+  gap: 5px;
+  padding: 5px 0;
+}
+.sheet.daggerheart.item .tab.features .feature-list .feature-item .item-description:not(.invisible) .tags-list .tag-item {
+  background-color: rgba(24, 22, 46, 0.33);
+  border: 1px solid #efe6d8;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
 
 .application.sheet h1 {
   font-family: "Cinzel Decorative", serif;
@@ -784,6 +843,7 @@
 .sheet.daggerheart.item .tab-navigation .feature-tab {
   border: none;
   color: #f3c267;
+  gap: 5px;
 }
 .sheet.daggerheart.item .tab-navigation .feature-tab a {
   text-shadow: none;
@@ -824,12 +884,12 @@
   opacity: 0.8;
 }
 
-.sheet.daggerheart.item.feature .tab.effects {
+.sheet.daggerheart.item .tab.effects {
   padding: 0 10px;
   max-height: 265px;
   overflow-y: auto;
 }
-.sheet.daggerheart.item.feature .tab.effects .effect-list {
+.sheet.daggerheart.item .tab.effects .effect-list {
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -837,32 +897,35 @@
   margin: 0;
   width: 100%;
 }
-.sheet.daggerheart.item.feature .tab.effects .effect-list .effect {
+.sheet.daggerheart.item .tab.effects .effect-list .effect {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-.sheet.daggerheart.item.feature .tab.effects .effect-list .effect .effect-line {
+.sheet.daggerheart.item .tab.effects .effect-list .effect .effect-line {
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 4fr 1fr;
 }
-.sheet.daggerheart.item.feature .tab.effects .effect-list .effect .effect-line h4 {
+.sheet.daggerheart.item .tab.effects .effect-list .effect .effect-line h4 {
   font-family: "Montserrat", sans-serif;
   font-weight: lighter;
   color: #efe6d8;
 }
-.sheet.daggerheart.item.feature .tab.effects .effect-list .effect .effect-line .image {
+.sheet.daggerheart.item .tab.effects .effect-list .effect .effect-line .image {
   height: 40px;
   width: 40px;
   object-fit: cover;
   border-radius: 6px;
   border: none;
 }
-.sheet.daggerheart.item.feature .tab.effects .effect-list .effect .effect-line .controls {
+.sheet.daggerheart.item .tab.effects .effect-list .effect .effect-line .controls {
   display: flex;
   justify-content: center;
   gap: 10px;
+}
+.sheet.daggerheart.item .tab.effects .effect-list .effect .effect-line .controls a {
+  text-shadow: none;
 }
 
 .sheet.daggerheart.item .tab.description {
