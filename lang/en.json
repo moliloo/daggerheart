@@ -128,6 +128,17 @@
                 "cardType": "Card Type",
                 "domainType": "Domain Type",
                 "recallCost": "Recall Cost",
+                "domains": "Domains",
+                "selectDomain": "Select a Domain",
+                "add": "Add",
+                "remove": "Remove",
+                "evasion": "Evasion",
+                "damageThreshold": "Damage Threshold",
+                "backgroundQuestions": "Background Questions",
+                "question1": "Question 1",
+                "question2": "Question 2",
+                "question3": "Question 3",
+                "connections": "Connections",
                 "cardLevel": "Card Level"
             },
             "type": {
@@ -172,6 +183,18 @@
                 "damageBonus": "Damage Bonus",
                 "heal": "Heal",
                 "attributeCheck": "Attribute Check"
+            },
+            "levelUpTiers": {
+                "trait": "Trait",
+                "hpSlot": "HP Slot",
+                "stressSlot": "Stress Slot",
+                "armorSlot": "Armor Slot",
+                "evasion": "Evasion",
+                "damageThreshold": "Damage Threshold",
+                "domainCard": "Domain Card",
+                "subclass": "Subclass",
+                "multiclass": "Multiclass",
+                "proficiency": "Proficiency"
             }
         },
         "Attack": {
@@ -190,6 +213,11 @@
             "delete": "Delete",
             "toggleEffect": "Toggle Effect",
             "openItemWorld": "Open Item World"
+        }
+    },
+    "UI": {
+        "Notifications": {
+            "alreadyAddedDomain": "This domain was already added"
         }
     }
 }

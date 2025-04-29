@@ -1,0 +1,70 @@
+<section
+    class='tab {{tabs.settings.cssClass}} {{tabs.settings.id}}'
+    data-tab='{{tabs.settings.id}}'
+    data-group='{{tabs.settings.group}}'
+>
+    <fieldset class='two-columns'>
+        <legend>{{localize 'DAGGERHEART.Item.settings.domains'}}</legend>
+        <span>{{localize 'DAGGERHEART.Item.settings.selectDomain'}}:</span>
+        <div class='nest-inputs'>
+            <select name='system.domainSelected'>
+                {{selectOptions config.domainCard.domainType selected=source.system.domainSelected localize=true}}
+            </select>
+            <button data-action='addDomain'>{{localize 'DAGGERHEART.Item.settings.add'}}</button>
+        </div>
+        <span></span>
+        <ul class='domains-list'>
+            {{#each source.system.domains as |domain|}}
+                <li class='domain-item nest-inputs' data-domain-value='{{domain.value}}'>
+                    <span>{{domain.name}}</span>
+                    <button data-action='deleteDomain'>{{localize 'DAGGERHEART.Item.settings.remove'}}</button>
+                </li>
+            {{/each}}
+        </ul>
+    </fieldset>
+
+    <fieldset class='two-columns'>
+        <legend>{{localize 'DAGGERHEART.Item.settings.settings'}}</legend>
+        <span>{{localize 'DAGGERHEART.Item.settings.evasion'}}:</span>
+        <input type='number' name='system.evasion' value='{{source.system.evasion}}' />
+
+        <span>{{localize 'DAGGERHEART.Item.settings.damageThreshold'}}:</span>
+        <input type='number' name='system.damageThreshold' value='{{source.system.damageThreshold}}' />
+    </fieldset>
+
+    <fieldset class='one-column'>
+        <legend>{{localize 'DAGGERHEART.Item.settings.backgroundQuestions'}}</legend>
+        <span>{{localize 'DAGGERHEART.Item.settings.question1'}}</span>
+        <input
+            type='text'
+            name='system.backgroundQuestions.question1'
+            value='{{source.system.backgroundQuestions.question1}}'
+        />
+
+        <span>{{localize 'DAGGERHEART.Item.settings.question2'}}</span>
+        <input
+            type='text'
+            name='system.backgroundQuestions.question2'
+            value='{{source.system.backgroundQuestions.question2}}'
+        />
+
+        <span>{{localize 'DAGGERHEART.Item.settings.question3'}}</span>
+        <input
+            type='text'
+            name='system.backgroundQuestions.question3'
+            value='{{source.system.backgroundQuestions.question3}}'
+        />
+    </fieldset>
+
+    <fieldset class='one-column'>
+        <legend>{{localize 'DAGGERHEART.Item.settings.connections'}}</legend>
+        <span>{{localize 'DAGGERHEART.Item.settings.question1'}}</span>
+        <input type='text' name='system.connections.question1' value='{{source.system.connections.question1}}' />
+
+        <span>{{localize 'DAGGERHEART.Item.settings.question2'}}</span>
+        <input type='text' name='system.connections.question2' value='{{source.system.connections.question2}}' />
+
+        <span>{{localize 'DAGGERHEART.Item.settings.question3'}}</span>
+        <input type='text' name='system.connections.question3' value='{{source.system.connections.question3}}' />
+    </fieldset>
+</section>

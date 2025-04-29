@@ -1,0 +1,34 @@
+@import '../../utils/color.scss';
+@import '../../utils/fonts.scss';
+
+.sheet.daggerheart.item.class {
+    .tab.settings {
+        padding: 0 10px;
+        max-height: 265px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: $golden transparent;
+        input[type='number'] {
+            color: $beige;
+            font-family: $font-body;
+            &:focus {
+                outline: 2px solid $beige;
+            }
+        }
+
+        .domains-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .domain-item {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+
+                span {
+                    padding-left: 14px;
+                }
+            }
+        }
+    }
+}

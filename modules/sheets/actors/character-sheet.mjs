@@ -99,7 +99,6 @@ export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorS
             tab.active = this.tabGroups[tab.group] === tab.id;
             tab.cssClass = tab.active ? 'active' : '';
         }
-        console.log('Tabs processadas:', tabs);
         return tabs;
     }
 
@@ -242,7 +241,6 @@ export class DaggerheartCharacterSheet extends HandlebarsApplicationMixin(ActorS
                 await item.sheet.render({ force: true });
                 return;
             case 'dualityRoll':
-                console.log(target);
                 this._dualityDialog(target);
         }
     }

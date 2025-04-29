@@ -1,0 +1,27 @@
+.application.sheet.daggerheart.actor.level-up-setting {
+    .tier-form {
+        padding: 10px;
+        max-height: 800px;
+        overflow-y: auto;
+
+        .tier-options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 100%;
+
+            .tier-option-entry {
+                display: flex;
+                justify-content: space-between;
+
+                .controls {
+                    display: flex;
+                    gap: 5px;
+                    a {
+                        text-shadow: none;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -7,6 +7,7 @@ import { DaggerheartItemSheet } from './sheets/items/item-sheet.mjs';
 import { DaggerheartCommunitySheet } from './sheets/items/community-sheet.mjs';
 import { DaggerheartAncestrySheet } from './sheets/items/ancestry-sheet.mjs';
 import { DaggerheartDomainCardSheet } from './sheets/items/domainCard-sheet.mjs';
+import { DaggerheartClassSheet } from './sheets/items/class-sheet.mjs';
 
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { daggerheart } from './helpers/config.mjs';
@@ -35,7 +36,8 @@ Hooks.once('init', function () {
     CONFIG.Item.dataModels = {
         ancestry: models.DaggerheartAncestry,
         community: models.DaggerheartCommunity,
-        domainCard: models.DaggerheartDomainCard
+        domainCard: models.DaggerheartDomainCard,
+        class: models.DaggerheartClass
     };
 
     Items.unregisterSheet('core', ItemSheet);
@@ -43,6 +45,7 @@ Hooks.once('init', function () {
     Items.registerSheet('daggerheart', DaggerheartCommunitySheet, { types: ['community'], makeDefault: true });
     Items.registerSheet('daggerheart', DaggerheartAncestrySheet, { types: ['ancestry'], makeDefault: true });
     Items.registerSheet('daggerheart', DaggerheartDomainCardSheet, { types: ['domainCard'], makeDefault: true });
+    Items.registerSheet('daggerheart', DaggerheartClassSheet, { types: ['class'], makeDefault: true });
 
     Actors.unregisterSheet('core', ActorSheet);
     Actors.registerSheet('daggerheart', DaggerheartCharacterSheet, { types: ['character'], makeDefault: true });
@@ -64,3 +67,11 @@ Handlebars.registerHelper('filterByType', function (items, type) {
 });
 
 Handlebars.registerHelper('eqg', (a, b) => a >= b);
+
+Handlebars.registerHelper('checkboxesByQuantity', function (n, block) {
+    let accum = '';
+    for (let i = 0; i < n; ++i) {
+        accum += block.fn(i);
+    }
+    return accum;
+});

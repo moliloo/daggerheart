@@ -82,6 +82,8 @@
 
         &.one-column {
             display: flex;
+            flex-direction: column;
+            align-items: start;
             gap: 10px;
             min-height: 64px;
         }

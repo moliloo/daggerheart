@@ -5,6 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;600&display=swap");
 .sheet.daggerheart.actor.character .char-sheet-header {
   display: flex;
   flex-direction: row;
@@ -289,6 +290,172 @@
   height: 30px;
   align-items: center;
   justify-content: center;
+}
+
+.sheet.daggerheart.item.class .window-content {
+  position: relative;
+  top: -36px;
+}
+.sheet.daggerheart.item.class .class-sheet-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.sheet.daggerheart.item.class .class-sheet-header .profile {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  mask-image: linear-gradient(0deg, transparent 0%, black 10%);
+}
+.sheet.daggerheart.item.class .class-sheet-header .class-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -25px;
+  gap: 5px;
+  margin: 0 12px;
+}
+.sheet.daggerheart.item.class .class-sheet-header .class-info .class-name input[type=text] {
+  font-size: 32px;
+  height: 42px;
+  text-align: center;
+}
+.sheet.daggerheart.item.class .class-sheet-header .class-info .domains-list {
+  display: flex;
+  gap: 10px;
+}
+.sheet.daggerheart.item.class .class-sheet-header .class-info h3 {
+  font-size: 1rem;
+}
+.sheet.daggerheart.item.class .class-sheet-header .system-info {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  gap: 10px;
+}
+.sheet.daggerheart.item.class .class-sheet-header .system-info .evasion,
+.sheet.daggerheart.item.class .class-sheet-header .system-info .damage-threshold {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: #0e0d15;
+  border: 4px double #f3c267;
+  color: #efe6d8;
+  border-radius: 999px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.sheet.daggerheart.item.class .class-sheet-header .system-info .evasion i,
+.sheet.daggerheart.item.class .class-sheet-header .system-info .damage-threshold i {
+  font-size: 0.8rem;
+}
+
+.application.sheet h1 {
+  font-family: "Cinzel Decorative", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h2,
+.application.sheet h3 {
+  font-family: "Cinzel", serif;
+  margin: 0;
+  border: none;
+}
+.application.sheet h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  border: none;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: none;
+  color: #f3c267;
+}
+.application.sheet h5 {
+  font-size: 14px;
+  color: #f3c267;
+  margin: 0;
+}
+.application.sheet p,
+.application.sheet span {
+  font-family: "Montserrat", sans-serif;
+}
+.application.sheet small {
+  font-family: "Montserrat", sans-serif;
+  opacity: 0.8;
+}
+
+.sheet.daggerheart.item.class .tab.settings {
+  padding: 0 10px;
+  max-height: 265px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #f3c267 transparent;
+}
+.sheet.daggerheart.item.class .tab.settings input[type=number] {
+  color: #efe6d8;
+  font-family: "Montserrat", sans-serif;
+}
+.sheet.daggerheart.item.class .tab.settings input[type=number]:focus {
+  outline: 2px solid #efe6d8;
+}
+.sheet.daggerheart.item.class .tab.settings .domains-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sheet.daggerheart.item.class .tab.settings .domains-list .domain-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.sheet.daggerheart.item.class .tab.settings .domains-list .domain-item span {
+  padding-left: 14px;
+}
+
+.sheet.daggerheart.item.class .tab.tiers {
+  padding: 0 10px;
+  max-height: 265px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #f3c267 transparent;
+}
+.sheet.daggerheart.item.class .tab.tiers .tier-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.sheet.daggerheart.item.class .tab.tiers .tier-list .tier-entry {
+  display: flex;
+  flex-direction: column;
+}
+.sheet.daggerheart.item.class .tab.tiers .tier-list .tier-entry .tier-line {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.sheet.daggerheart.item.class .tab.tiers .tier-list .tier-entry .tier-line .controls {
+  display: flex;
+  gap: 5px;
+}
+.sheet.daggerheart.item.class .tab.tiers .tier-list .tier-entry .tier-line .controls a {
+  text-shadow: none;
+}
+.sheet.daggerheart.item.class .tab.tiers .tier-list .tier-entry .tier-options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.sheet.daggerheart.item.class .tab.tiers .tier-list .tier-entry .tier-options .tier-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
 }
 
 .sheet.daggerheart.item.community .window-content {
@@ -585,6 +752,8 @@
 }
 .application.sheet fieldset.one-column {
   display: flex;
+  flex-direction: column;
+  align-items: start;
   gap: 10px;
   min-height: 64px;
 }
@@ -803,6 +972,33 @@
   padding: 2px 5px;
 }
 
+.application.sheet.daggerheart.actor.feature-setting .feature-form {
+  padding: 10px;
+}
+
+.application.sheet.daggerheart.actor.level-up-setting .tier-form {
+  padding: 10px;
+  max-height: 800px;
+  overflow-y: auto;
+}
+.application.sheet.daggerheart.actor.level-up-setting .tier-form .tier-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+.application.sheet.daggerheart.actor.level-up-setting .tier-form .tier-options-list .tier-option-entry {
+  display: flex;
+  justify-content: space-between;
+}
+.application.sheet.daggerheart.actor.level-up-setting .tier-form .tier-options-list .tier-option-entry .controls {
+  display: flex;
+  gap: 5px;
+}
+.application.sheet.daggerheart.actor.level-up-setting .tier-form .tier-options-list .tier-option-entry .controls a {
+  text-shadow: none;
+}
+
 .application.sheet h1 {
   font-family: "Cinzel Decorative", serif;
   margin: 0;
@@ -892,6 +1088,7 @@
 .sheet.daggerheart.item .tab.effects .effect-list {
   display: flex;
   flex-direction: column;
+  gap: 10px;
   list-style: none;
   padding: 0;
   margin: 0;

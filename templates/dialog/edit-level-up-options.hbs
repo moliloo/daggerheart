@@ -1,0 +1,13 @@
+<span>Label:</span>
+<input type='text' name='option.label' value='{{option.label}}' placeholder='Label' />
+
+<span>Type of Option:</span>
+<select name='option.type'>
+    {{selectOptions config.levelUpTiers.optionsType selected=option.type localize=true}}
+</select>
+
+<span>Value:</span>
+<input type='number' name='option.value' value='{{option.value}}' placeholder='Valor (ex: 1)' />
+
+<span>Checkbox Quantity:</span>
+<input type='number' name='option.checkboxQuantity' value='{{option.checkboxQuantity}}' placeholder='Qtd Checkbox' />

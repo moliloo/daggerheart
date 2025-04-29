@@ -1,5 +1,6 @@
 import { daggerheart } from '../../helpers/config.mjs';
 import { DaggerheartFeatureSettingSheet } from './feature-setting-sheet.mjs';
+import { DaggerheartTierSettingSheet } from './level-up-setting-sheet.mjs';
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
@@ -144,6 +145,21 @@ export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2
             case 'deleteFeature':
                 this.deleteFeature(event, this.item);
                 break;
+            case 'addDomain':
+                this.addDomain(this.item);
+                break;
+            case 'deleteDomain':
+                this.deleteDomain(event, this.item);
+                break;
+            case 'addLevelUpTier':
+                this.addLevelUpTier(this.item);
+                break;
+            case 'editTier':
+                this.editTier(event, this.item);
+                break;
+            case 'deleteTier':
+                this.deleteTier(event, this.item);
+                break;
         }
     }
 
@@ -154,6 +170,74 @@ export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2
         let listItem = event.target.closest('li');
         let editor = $(listItem).find('.item-description');
         editor.toggleClass('invisible');
+    }
+
+    async addDomain(item) {
+        const selectedValue = this.item.system.domainSelected;
+
+        if (!selectedValue) return;
+
+        const config = CONFIG.DAGGERHEART.domainCard.domainType;
+        const selectedConfig = config[selectedValue];
+
+        if (!selectedConfig) return;
+
+        const currentDomains = foundry.utils.duplicate(item.system.domains ?? []);
+
+        const alreadyExists = currentDomains.some(domain => domain.value === selectedValue);
+        if (alreadyExists) return ui.notifications.warn(game.i18n.localize('UI.Notifications.alreadyAddedDomain'));
+
+        const newDomain = {
+            name: game.i18n.localize(selectedConfig.label),
+            value: selectedConfig.value
+        };
+
+        await item.update({
+            'system.domains': [...currentDomains, newDomain]
+        });
+    }
+
+    async deleteDomain(event, item) {
+        const domainValue = event.target.closest('li').dataset.domainValue;
+        if (!item) return;
+
+        await item.update({
+            'system.domains': item.system.domains.filter(i => i.value !== domainValue)
+        });
+    }
+
+    async addLevelUpTier(item) {
+        if (!item || !item._id) return;
+
+        let levelUpTiers = foundry.utils.deepClone(item.system.levelUpTiers);
+        let tierData = {
+            id: `Item.${item._id}.LevelUpTier.${foundry.utils.randomID()}`,
+            name: 'Level Up Tier',
+            damageThresholdByLevel: 2,
+            domainCardByLevel: 1
+        };
+
+        levelUpTiers.push(tierData);
+
+        await item.update({ 'system.levelUpTiers': levelUpTiers });
+    }
+
+    async editTier(event, item) {
+        let tierId = event.target.closest('li')?.dataset.tierId;
+        const tiers = foundry.utils.deepClone(item.system.levelUpTiers);
+        const tier = tiers.find(feature => feature.id === tierId);
+
+        this.featureSetting = new DaggerheartTierSettingSheet({ document: this.item, tierData: tier });
+        this.featureSetting.render(true);
+    }
+
+    async deleteTier(event, item) {
+        const tierId = event.target.closest('li').dataset.tierId;
+        if (!item) return;
+
+        item.update({
+            'system.levelUpTiers': item.system.levelUpTiers.filter(i => i.id !== tierId)
+        });
     }
 
     async addFeature(item) {
@@ -209,7 +293,6 @@ export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2
         features.push(featureData);
 
         await item.update({ 'system.features': features });
-        console.log(item.system.features);
     }
 
     async deleteFeature(event, item) {

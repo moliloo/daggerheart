@@ -224,3 +224,48 @@ daggerheart.domainCard = {
         }
     }
 };
+
+daggerheart.levelUpTiers = {
+    optionsType: {
+        trait: {
+            value: 'trait',
+            label: 'DAGGERHEART.Item.levelUpTiers.trait'
+        },
+        hpSlot: {
+            value: 'hpSlot',
+            label: 'DAGGERHEART.Item.levelUpTiers.hpSlot'
+        },
+        stressSlot: {
+            value: 'stressSlot',
+            label: 'DAGGERHEART.Item.levelUpTiers.stressSlot'
+        },
+        armorSlot: {
+            value: 'armorSlot',
+            label: 'DAGGERHEART.Item.levelUpTiers.armorSlot'
+        },
+        evasion: {
+            value: 'evasion',
+            label: 'DAGGERHEART.Item.levelUpTiers.evasion'
+        },
+        damageThreshold: {
+            value: 'damageThreshold',
+            label: 'DAGGERHEART.Item.levelUpTiers.damageThreshold'
+        },
+        domainCard: {
+            value: 'domainCard',
+            label: 'DAGGERHEART.Item.levelUpTiers.domainCard'
+        },
+        subclass: {
+            value: 'subclass',
+            label: 'DAGGERHEART.Item.levelUpTiers.subclass'
+        },
+        multiclass: {
+            value: 'multiclass',
+            label: 'DAGGERHEART.Item.levelUpTiers.multiclass'
+        },
+        proficiency: {
+            value: 'proficiency',
+            label: 'DAGGERHEART.Item.levelUpTiers.proficiency'
+        }
+    }
+};

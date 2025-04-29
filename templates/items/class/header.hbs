@@ -1,0 +1,27 @@
+<header class='class-sheet-header'>
+    <img class='profile' src='{{source.img}}' data-action='editImage' data-edit='img' />
+    <div class='class-info'>
+        <h1 class='class-name'><input type='text' name='name' value='{{source.name}}' /></h1>
+        <ul class='domains-list'>
+            {{#each source.system.domains as |domain|}}
+                <div class='domain-item'>
+                    <h3>{{domain.name}}</h3>
+                </div>
+            {{/each}}
+        </ul>
+    </div>
+    <div class='system-info'>
+            <div class='evasion'>
+                <span>
+                    {{source.system.evasion}}
+                </span>
+                <i class='fa-solid fa-person-running'></i>
+            </div>
+            <div class='damage-threshold'>
+                <span>
+                    {{source.system.damageThreshold}}
+                </span>
+                <i class='fa-solid fa-certificate'></i>
+            </div>
+        </div>
+</header>

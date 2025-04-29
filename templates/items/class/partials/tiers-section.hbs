@@ -1,0 +1,60 @@
+<section
+    class='tab {{tabs.tiers.cssClass}} {{tabs.tiers.id}}'
+    data-tab='{{tabs.tiers.id}}'
+    data-group='{{tabs.tiers.group}}'
+>
+    <fieldset class='one-column'>
+        <legend>
+            Level
+            <a class='item-control' data-action='addLevelUpTier'>
+                <i class='fas fa-plus'></i>
+            </a>
+        </legend>
+        <ul class='tier-list'>
+            {{#each source.system.levelUpTiers as |tier|}}
+                <li class='tier-entry' data-tier-id='{{tier.id}}'>
+                    <div class='tier-line' data-action='openFeatureDescription'>
+                        <span>{{tier.name}}</span>
+                        <span class='controls'>
+                            <a
+                                class='item-control'
+                                data-action='editTier'
+                                data-tooltip='{{localize "DAGGERHEART.Tooltip.openItemWorld"}}'
+                            >
+                                <i class='fa-solid fa-pen-to-square'></i>
+                            </a>
+                            <a
+                                class='item-control'
+                                data-action='deleteTier'
+                                data-tooltip='{{localize "DAGGERHEART.Tooltip.delete"}}'
+                            >
+                                <i class='fas fa-trash'></i>
+                            </a>
+                        </span>
+                    </div>
+
+                    <div class='item-description invisible' data-item-description='description'>
+                        <ul class="tier-options">
+                            {{#each tier.options as |option|}}
+                                <li class="tier-option" data-option-id="{{option.id}}">
+                                    <div class="checkbox-group">
+                                        {{#checkboxesByQuantity option.checkboxQuantity}}
+                                            <input 
+                                                type="checkbox" 
+                                                name="system.levelUpTiers.[{{@../index}}].options.[{{@index}}].checkboxArray.[{{this}}]" 
+                                                disabled
+                                                {{#if (lookup option.checkboxArray this)}}checked{{/if}} 
+                                            />
+                                        {{/checkboxesByQuantity}}
+                                    </div>
+                                    <span>{{option.label}}</span>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+
+    </fieldset>
+</section>

@@ -1,0 +1,59 @@
+<form class='tier-form'>
+    <fieldset class='two-columns'>
+        <legend>Settings</legend>
+        <span>
+            Name
+        </span>
+        <input type='text' name='name' data-action='editTier' value='{{tier.name}}' />
+        <span>
+            Initial Level
+        </span>
+        <input type='number' name='levels.min' data-action='editTier' value='{{tier.levels.min}}' />
+        <span>
+            Final Level
+        </span>
+        <input type='number' name='levels.max' data-action='editTier' value='{{tier.levels.max}}' />
+        <span>
+            Available Options
+        </span>
+        <input type='number' name='domainCardByLevel' data-action='editTier' value='{{tier.domainCardByLevel}}' />
+        <span>
+            Damage Threshold
+        </span>
+        <input
+            type='number'
+            name='damageThresholdByLevel'
+            data-action='editTier'
+            value='{{tier.damageThresholdByLevel}}'
+        />
+        <span>
+            Domain Cards by Level
+        </span>
+        <input type='number' name='domainCardByLevel' data-action='editTier' value='{{tier.domainCardByLevel}}' />
+    </fieldset>
+
+    <fieldset class='one-column'>
+        <legend>
+            Level up Options
+            <a class='item-control' data-action='addTierOption'>
+                <i class='fas fa-plus'></i>
+            </a>
+        </legend>
+
+        <ul class='tier-options-list'>
+            {{#each tier.options as |option optionIndex|}}
+                <li class='tier-option-entry' data-tier-id='{{../tier.id}}' data-option-id='{{option.id}}'>
+                    <span>{{option.label}}</span>
+                    <div class="controls">
+                        <a class='item-control' data-action='editOption'>
+                            <i class='fa-solid fa-pen-to-square'></i>
+                        </a>
+                        <a class='item-control' data-action='removeOption' data-option-index='{{optionIndex}}'>
+                            <i class='fas fa-trash'></i>
+                        </a>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </fieldset>
+</form>

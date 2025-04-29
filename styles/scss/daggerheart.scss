@@ -2,6 +2,10 @@
 @import './actors/character/sections.scss';
 @import './actors/character/tab-navigation.scss';
 
+@import './items/class/header.scss';
+@import './items/class/settings.scss';
+@import './items/class/tiers-section.scss';
+
 @import './items/community/header.scss';
 
 @import './items/ancestry/header.scss';
@@ -15,6 +19,8 @@
 
 @import './global/tabs/details.scss';
 @import './global/tabs/feature-section.scss';
+@import './global/tabs/feature-settings.scss';
+@import './global/tabs/level-up-settings.scss';
 @import './global/tabs/tab-navigation.scss';
 @import './global/tabs/effects.scss';
 @import './global/tabs/description.scss';

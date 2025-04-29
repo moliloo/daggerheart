@@ -1,0 +1,48 @@
+.sheet.daggerheart.item.class {
+    .tab.tiers {
+        padding: 0 10px;
+        max-height: 265px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: $golden transparent;
+
+        .tier-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+
+            .tier-entry {
+                display: flex;
+                flex-direction: column;
+
+                .tier-line {
+                    display: flex;
+                    justify-content: space-between;
+                    cursor: pointer;
+
+                    .controls {
+                        display: flex;
+                        gap: 5px;
+
+                        a {
+                            text-shadow: none;
+                        }
+                    }
+                }
+
+                .tier-options {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    .tier-option {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
