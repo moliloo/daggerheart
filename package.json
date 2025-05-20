@@ -7,6 +7,7 @@
 	"devDependencies": {
 		"@foundryvtt/foundryvtt-cli": "^1.0.4",
 		"prettier": "^3.5.1",
+		"sass": "^1.89.0",
 		"scss": "^0.2.4"
 	}
 }

@@ -1,4 +1,4 @@
-@import '../utils/color.scss';
+@use '../utils/color.scss';
 
 .application.sheet .window-header {
     background: transparent;
@@ -6,7 +6,7 @@
     justify-content: end;
 
     button.header-control {
-        background: $deep-black;
+        background: color.$deep-black;
     }
 }
 
@@ -14,6 +14,23 @@
     .window-title,
     .window-icon {
         display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+}
+
+.application.sheet.minimized {
+    .window-content {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.1s ease;
+    }
+}
+
+.application.sheet:not(.minimized) {
+    .window-content {
+        opacity: 1;
+        transition: opacity 0.3s ease;
     }
 }
 
@@ -25,4 +42,11 @@
 
 .application.sheet {
     backdrop-filter: blur(4px);
+}
+
+.sheet.daggerheart.item.equipment {
+    .window-content {
+        position: relative;
+        top: -36px; 
+    }
 }

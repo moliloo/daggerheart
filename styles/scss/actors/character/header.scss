@@ -1,4 +1,4 @@
-@import '../../utils/color.scss';
+@use '../../utils/color.scss';
 
 .sheet.daggerheart.actor.character {
     .char-sheet-header {
@@ -36,8 +36,8 @@
             height: 300px;
             .profile {
                 object-fit: cover;
-                border-right: 1px solid $golden;
-                border-bottom: 1px solid $golden;
+                border-right: 1px solid color.$golden;
+                border-bottom: 1px solid color.$golden;
                 box-sizing: border-box;
             }
         }
@@ -54,16 +54,16 @@
             .stat-armor,
             .stat-armor-slots,
             .level-div {
-                border: 1px solid $golden;
-                background-color: $dark-blue;
+                border: 1px solid color.$golden;
+                background-color: color.$dark-blue;
                 padding: 5px;
                 border-radius: 6px;
-                box-shadow: 0px 3px 3px $light-black;
+                box-shadow: 0px 3px 3px color.$light-black;
                 justify-items: center;
                 text-transform: uppercase;
 
                 .label {
-                    color: $golden;
+                    color: color.$golden;
                     padding: 3px 5px;
                     text-align: center;
                     border-radius: 2px;
@@ -109,22 +109,22 @@
                     appearance: none;
                     width: 100px;
                     height: 40px;
-                    border: 1px solid $golden;
+                    border: 1px solid color.$golden;
                     border-radius: 6px;
-                    box-shadow: 0px 3px 3px $light-black;
+                    box-shadow: 0px 3px 3px color.$light-black;
                     z-index: 1;
 
                     &::-webkit-progress-bar {
                         border: none;
-                        background: $dark-blue;
+                        background: color.$dark-blue;
                         border-radius: 6px;
                     }
                     &::-webkit-progress-value {
-                        background: $gradient-hp;
+                        background: color.$gradient-hp;
                         border-radius: 6px;
                     }
                     &.stress-color::-webkit-progress-value {
-                        background: $gradient-stress;
+                        background: color.$gradient-stress;
                         border-radius: 6px;
                     }
                     &::-moz-progress-value,
@@ -133,10 +133,10 @@
                     }
 
                     &::-moz-progress-bar {
-                        background: $gradient-hp;
+                        background: color.$gradient-hp;
                     }
                     &.stress-color::-moz-progress-bar {
-                        background: $gradient-stress;
+                        background: color.$gradient-stress;
                         border-radius: 6px;
                     }
                 }
@@ -188,12 +188,12 @@
             .hope-section {
                 display: flex;
                 gap: 10px;
-                background-color: $dark-blue;
-                color: $golden;
+                background-color: color.$dark-blue;
+                color: color.$golden;
                 padding: 5px 10px;
-                border: 1px solid $golden;
+                border: 1px solid color.$golden;
                 border-radius: 6px;
-                box-shadow: 0px 3px 3px $light-black;
+                box-shadow: 0px 3px 3px color.$light-black;
                 align-items: center;
                 .hope {
                     cursor: pointer;
@@ -202,13 +202,13 @@
 
             .threshold-section {
                 display: flex;
-                background-color: $dark-blue;
-                color: $golden;
+                background-color: color.$dark-blue;
+                color: color.$golden;
                 gap: 10px;
                 padding: 5px 10px;
-                border: 1px solid $golden;
+                border: 1px solid color.$golden;
                 border-radius: 6px;
-                box-shadow: 0px 3px 3px $light-black;
+                box-shadow: 0px 3px 3px color.$light-black;
                 align-items: center;
 
                 input[type='number'] {
@@ -224,19 +224,19 @@
             margin-bottom: 12px;
             .heritage-item {
                 display: flex;
-                color: $golden;
-                background-color: $dark-blue;
+                color: color.$golden;
+                background-color: color.$dark-blue;
                 gap: 5px;
                 padding: 5px 10px;
-                border: 1px solid $golden;
+                border: 1px solid color.$golden;
                 border-radius: 6px;
-                box-shadow: 0px 3px 3px $light-black;
+                box-shadow: 0px 3px 3px color.$light-black;
                 align-items: center;
                 text-transform: uppercase;
                 height: 30px;
 
                 &.empty {
-                    border: 1px dashed $golden;
+                    border: 1px dashed color.$golden;
                 }
 
                 .controls {
@@ -262,11 +262,11 @@
             .attribute-div {
                 height: 60px;
                 width: 70px;
-                background-color: $dark-blue;
+                background-color: color.$dark-blue;
                 padding: 5px 0px;
-                border: 1px solid $golden;
+                border: 1px solid color.$golden;
                 border-radius: 6px;
-                box-shadow: 0px 3px 3px $light-black;
+                box-shadow: 0px 3px 3px color.$light-black;
                 align-items: center;
                 justify-items: center;
                 margin-bottom: 12px;
@@ -275,8 +275,8 @@
                     height: 20px;
                     gap: 5px;
                     align-items: center;
-                    color: $golden;
-                    border-bottom: 1px solid $golden;
+                    color: color.$golden;
+                    border-bottom: 1px solid color.$golden;
                     text-transform: uppercase;
                     text-shadow: none;
                     .dice-icon {

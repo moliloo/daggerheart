@@ -1,5 +1,5 @@
-@import '../../utils/color.scss';
-@import '../../utils/fonts.scss';
+@use '../../utils/color.scss';
+@use '../../utils/fonts.scss';
 
 .sheet.daggerheart.item {
     .tab.features {
@@ -7,7 +7,7 @@
         max-height: 265px;
         overflow-y: auto;
         scrollbar-width: thin;
-        scrollbar-color: $golden transparent;
+        scrollbar-color: color.$golden transparent;
         .feature-list {
             display: flex;
             flex-direction: column;
@@ -26,9 +26,9 @@
                     grid-template-columns: 1fr 4fr 1fr;
                     cursor: pointer;
                     h4 {
-                        font-family: $font-body;
+                        font-family: fonts.$font-body;
                         font-weight: lighter;
-                        color: $beige;
+                        color: color.$beige;
                     }
                     .image {
                         height: 40px;
@@ -55,8 +55,8 @@
                         padding: 5px 0;
 
                         .tag-item {
-                            background-color: $semi-transparent-dark-blue;
-                            border: 1px solid $beige;
+                            background-color: color.$semi-transparent-dark-blue;
+                            border: 1px solid color.$beige;
                             border-radius: 5px;
                             padding: 2px 5px;
                         }

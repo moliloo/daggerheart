@@ -1,17 +1,18 @@
-@import '../../utils/color.scss';
-@import '../../utils/fonts.scss';
+@use '../../utils/color.scss';
+@use '../../utils/fonts.scss';
 
 .sheet.daggerheart.item {
     .tab-navigation {
         margin: 5px 0;
+        height: 40px;
         .feature-tab {
             border: none;
-            color: $golden;
+            color: color.$golden;
             gap: 5px;
 
             a {
                 text-shadow: none;
-                font-family: $font-body;
+                font-family: fonts.$font-body;
             }
         }
     }

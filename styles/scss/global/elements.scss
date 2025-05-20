@@ -1,37 +1,37 @@
-@import '../utils/color.scss';
-@import '../utils/fonts.scss';
+@use '../utils/color.scss';
+@use '../utils/fonts.scss';
 
 .application.sheet {
-    border: 1px solid $golden;
+    border: 1px solid color.$golden;
 
     input[type='text'],
     input[type='number'] {
-        background: $semi-transparent-dark-blue;
+        background: color.$semi-transparent-dark-blue;
         border-radius: 6px;
-        box-shadow: 0 4px 30px $soft-shadow;
+        box-shadow: 0 4px 30px color.$soft-shadow;
         backdrop-filter: blur(9.5px);
         -webkit-backdrop-filter: blur(9.5px);
         outline: none;
-        color: $golden;
+        color: color.$golden;
 
         &:focus[type='text'],
         &:focus[type='number'] {
             box-shadow: none;
-            outline: 2px solid $beige;
+            outline: 2px solid color.$beige;
         }
     }
 
     input[type='checkbox'] {
         &:checked::after {
-            color: $golden;
+            color: color.$golden;
         }
         &::before {
-            color: $dark-blue;
+            color: color.$dark-blue;
         }
     }
 
     button {
-        background: $golden;
+        background: color.$golden;
         border: 1px solid #18162e;
         color: #18162e;
     }
@@ -40,22 +40,22 @@
         outline: none;
         box-shadow: none;
         background: #18162e;
-        border: 1px solid $golden;
-        color: $golden;
+        border: 1px solid color.$golden;
+        color: color.$golden;
     }
 
     select {
-        background: $semi-transparent-dark-blue;
-        color: $beige;
-        font-family: $font-body;
+        background: color.$semi-transparent-dark-blue;
+        color: color.$beige;
+        font-family: fonts.$font-body;
 
         &:focus {
-            outline-color: $beige;
+            outline-color: color.$beige;
             box-shadow: none;
         }
 
         & option {
-            background-color: $dark-blue;
+            background-color: color.$dark-blue;
             border-radius: 6px;
         }
     }
@@ -78,7 +78,7 @@
         align-items: center;
         margin-top: 5px;
         border-radius: 6px;
-        border-color: $golden;
+        border-color: color.$golden;
 
         &.one-column {
             display: flex;
@@ -95,25 +95,26 @@
         }
 
         legend {
-            font-family: $font-body;
-            color: $golden;
+            font-family: fonts.$font-body;
+            color: color.$golden;
         }
 
         input[type='text'],
         input[type='number'] {
-            color: $beige;
-            font-family: $font-body;
+            color: color.$beige;
+            font-family: fonts.$font-body;
             transition: all 0.3s ease;
             outline: 2px solid transparent;
 
             &:focus,
             &:hover {
-                outline: 2px solid $beige;
+                outline: 2px solid color.$beige;
             }
         }
 
         .nest-inputs {
             display: flex;
+            align-items: center;
             gap: 5px;
         }
     }
@@ -122,7 +123,7 @@
         display: block;
         height: 1px;
         width: 100%;
-        border-bottom: 1px solid $golden;
+        border-bottom: 1px solid color.$golden;
         mask-image: linear-gradient(270deg, transparent 0%, black 50%, transparent 100%);
     }
 

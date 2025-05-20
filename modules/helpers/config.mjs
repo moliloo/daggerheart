@@ -116,11 +116,11 @@ daggerheart.uses = {
 daggerheart.attackType = {
     physical: {
         value: 'physical',
-        label: 'DAGGERHEART.Attack.type.physical'
+        label: 'DAGGERHEART.Attack.type.physical.name'
     },
     magical: {
         value: 'magical',
-        label: 'DAGGERHEART.Attack.type.magical'
+        label: 'DAGGERHEART.Attack.type.magical.name'
     }
 };
 
@@ -266,6 +266,75 @@ daggerheart.levelUpTiers = {
         proficiency: {
             value: 'proficiency',
             label: 'DAGGERHEART.Item.levelUpTiers.proficiency'
+        }
+    }
+};
+
+daggerheart.equipment = {
+    type: {
+        weapon: {
+            value: 'weapon',
+            label: 'DAGGERHEART.Item.equipment.type.weapon'
+        },
+        armor: {
+            value: 'armor',
+            label: 'DAGGERHEART.Item.equipment.type.armor'
+        },
+        item: {
+            value: 'item',
+            label: 'DAGGERHEART.Item.equipment.type.item'
+        },
+        consumable: {
+            value: 'consumable',
+            label: 'DAGGERHEART.Item.equipment.type.consumable'
+        }
+    },
+    subtype: {
+        weapon: {
+            primaryWeapon: {
+                value: 'primaryWeapon',
+                label: 'DAGGERHEART.Item.equipment.subtype.weapon.primaryWeapon'
+            },
+            secondaryWeapon: {
+                value: 'secondaryWeapon',
+                label: 'DAGGERHEART.Item.equipment.subtype.weapon.secondaryWeapon'
+            }
+        }
+    },
+    burden: {
+        oneHand: {
+            value: 'oneHand',
+            label: 'DAGGERHEART.Item.equipment.burden.oneHand'
+        },
+        twoHands: {
+            value: 'twoHands',
+            label: 'DAGGERHEART.Item.equipment.burden.twoHands'
+        }
+    },
+    range: {
+        melee: {
+            value: 'melee',
+            label: 'DAGGERHEART.Item.equipment.range.melee'
+        },
+        veryClose: {
+            value: 'veryClose',
+            label: 'DAGGERHEART.Item.equipment.range.veryClose'
+        },
+        close: {
+            value: 'close',
+            label: 'DAGGERHEART.Item.equipment.range.close'
+        },
+        far: {
+            value: 'far',
+            label: 'DAGGERHEART.Item.equipment.range.far'
+        },
+        veryFar: {
+            value: 'veryFar',
+            label: 'DAGGERHEART.Item.equipment.range.veryFar'
+        },
+        outOfRange: {
+            value: 'outOfRange',
+            label: 'DAGGERHEART.Item.equipment.range.outOfRange'
         }
     }
 };

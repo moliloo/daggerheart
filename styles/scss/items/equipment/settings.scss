@@ -1,7 +1,7 @@
 @use '../../utils/color.scss';
 @use '../../utils/fonts.scss';
 
-.sheet.daggerheart.item.feature {
+.sheet.daggerheart.item.equipment {
     .tab.settings {
         padding: 0 10px;
         max-height: 265px;
@@ -14,6 +14,20 @@
             &:focus {
                 outline: 2px solid color.$beige;
             }
+        }
+
+        .price-inputs {
+          display: flex;
+          gap: 30px;
+
+          span {
+            i {
+                position: relative;
+                top: 10px;
+                left: -5px;
+                z-index: 1;
+            }
+          }
         }
     }
 }

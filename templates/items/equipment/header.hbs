@@ -1,0 +1,30 @@
+<header class='equipment-sheet-header'>
+    <img class='profile' src='{{source.img}}' data-action='editImage' data-edit='img' />
+    <div class='equipment-info'>
+        <line-div></line-div>
+        <h1 class='equipment-name'><input type='text' name='name' value='{{source.name}}' /></h1>
+        <div class='equipment-description'>
+            {{#if (eq source.system.type 'weapon')}}
+                <h3>{{localize (concat 'DAGGERHEART.Item.equipment.type.' source.system.type)}}</h3>
+                <span>-</span>
+                <h3>
+                    {{localize (concat 'DAGGERHEART.Actor.attributes.' source.system.trait '.name')}}
+                    {{localize (concat 'DAGGERHEART.Item.equipment.range.' source.system.range)}}
+                </h3>
+                <span>-</span>
+                <h3>
+                    {{source.system.damage.value}}
+                    ({{localize (concat 'DAGGERHEART.Attack.type.' source.system.damage.type '.short')}})
+                </h3>
+                <span>-</span>
+                <h3>{{localize (concat 'DAGGERHEART.Item.equipment.burden.' source.system.burden)}}</h3>
+            {{else if (eq source.system.type 'armor')}}
+                <h3>{{localize (concat 'DAGGERHEART.Item.equipment.type.' source.system.type)}}</h3>
+                <span>-</span>
+                <h3>Base Score: {{source.system.baseScore}}</h3>
+            {{else}}
+                <h3>{{localize (concat 'DAGGERHEART.Item.equipment.type.' source.system.type)}}</h3>
+            {{/if}}
+        </div>
+    </div>
+</header>

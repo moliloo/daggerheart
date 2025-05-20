@@ -1,13 +1,23 @@
 {
     "TYPES": {
-        "ancestry": "Ancestry",
-        "community": "Community",
-        "class": "Class"
+        "Actor": {
+          "character": "Character",
+          "companion": "Companion"
+        }, 
+        "Item": {
+            "ancestry": "Ancestry",
+            "community": "Community",
+            "class": "Class",
+            "equipment": "Equipment",
+            "domainCard": "Domain Card",
+            "subclass": "Subclass"
+        }
     },
     "DAGGERHEART": {
         "Actor": {
             "hope": "Hope",
             "threshold": {
+                "minor": "Minor",
                 "major": "Major",
                 "severe": "Severe"
             },
@@ -121,6 +131,7 @@
                 "proficiencyInDamage": "Uses Proficiency in Damage?",
                 "attribute": "Attribute",
                 "type": "Type",
+                "subtype": "Subype",
                 "damageFormula": "Damage Formula",
                 "healFormula": "Heal Formula",
                 "dc": "Difficulty Check",
@@ -139,7 +150,14 @@
                 "question2": "Question 2",
                 "question3": "Question 3",
                 "connections": "Connections",
-                "cardLevel": "Card Level"
+                "cardLevel": "Card Level",
+                "price": "Price",
+                "burden": "Burden",
+                "range": "Range",
+                "damageType": "Damage Type",
+                "baseScore": "Base Score",
+                "usedArmorSlots": "Used Armor Slots",
+                "thresholds": "Thresholds"
             },
             "type": {
                 "communityCard": "Community Card",
@@ -195,12 +213,50 @@
                 "subclass": "Subclass",
                 "multiclass": "Multiclass",
                 "proficiency": "Proficiency"
+            },
+            "equipment": {
+                "type": {
+                    "weapon": "Weapon",
+                    "armor": "Armor",
+                    "item": "Item",
+                    "consumable": "Consumable"
+                },
+                "subtype": {
+                    "weapon": {
+                        "primaryWeapon": "Primary Weapon",
+                        "secondaryWeapon": "Secondary Weapon"
+                    }
+                },
+                "range": {
+                    "melee": "Melee",
+                    "veryClose": "Very Close",
+                    "close": "Close",
+                    "far": "Far",
+                    "veryFar": "Very Far",
+                    "outOfRange": "Out of Range"
+                },
+                "burden": {
+                    "oneHand": "One Hand",
+                    "twoHands": "Two Hands"
+                }
+            },
+            "currency": {
+              "coins": "Coins",
+              "handfuls": "Handfuls",
+              "bags": "Bags",
+              "chests": "Chests"
             }
         },
         "Attack": {
             "type": {
-                "physical": "Physical",
-                "magical": "Magical"
+                "physical": {
+                    "name": "Physical",
+                    "short": "Phy"
+                },
+                "magical": {
+                    "name": "Magical",
+                    "short": "Mag"
+                }
             }
         },
         "ActiveEffect": {

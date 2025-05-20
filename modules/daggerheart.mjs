@@ -13,6 +13,7 @@ import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { daggerheart } from './helpers/config.mjs';
 
 import * as models from './data/_module.mjs';
+import { DaggerheartEquipmentSheet } from './sheets/items/equipment-sheet.mjs';
 
 Hooks.once('init', function () {
     console.log(daggerheart.ascii);
@@ -37,7 +38,8 @@ Hooks.once('init', function () {
         ancestry: models.DaggerheartAncestry,
         community: models.DaggerheartCommunity,
         domainCard: models.DaggerheartDomainCard,
-        class: models.DaggerheartClass
+        class: models.DaggerheartClass,
+        equipment: models.DaggerheartEquipment
     };
 
     Items.unregisterSheet('core', ItemSheet);
@@ -46,6 +48,7 @@ Hooks.once('init', function () {
     Items.registerSheet('daggerheart', DaggerheartAncestrySheet, { types: ['ancestry'], makeDefault: true });
     Items.registerSheet('daggerheart', DaggerheartDomainCardSheet, { types: ['domainCard'], makeDefault: true });
     Items.registerSheet('daggerheart', DaggerheartClassSheet, { types: ['class'], makeDefault: true });
+    Items.registerSheet('daggerheart', DaggerheartEquipmentSheet, { types: ['equipment'], makeDefault: true });
 
     Actors.unregisterSheet('core', ActorSheet);
     Actors.registerSheet('daggerheart', DaggerheartCharacterSheet, { types: ['character'], makeDefault: true });

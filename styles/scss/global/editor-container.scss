@@ -1,4 +1,4 @@
-@import '../utils/color.scss';
+@use '../utils/color.scss';
 
 .application {
     prose-mirror {
@@ -8,7 +8,7 @@
         }
         .editor-content {
             scrollbar-width: thin;
-            scrollbar-color: $golden transparent;
+            scrollbar-color: color.$golden transparent;
             h1 {
                 font-size: 36px;
             }

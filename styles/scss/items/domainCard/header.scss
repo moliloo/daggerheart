@@ -1,4 +1,4 @@
-@import '../../utils/color.scss';
+@use '../../utils/color.scss';
 
 .sheet.daggerheart.item.domain-card {
     .window-content {
@@ -19,9 +19,9 @@
             right: 10px;
             width: 50px;
             height: 50px;
-            background: $deep-black;
-            border: 4px double $golden;
-            color: $beige;
+            background: color.$deep-black;
+            border: 4px double color.$golden;
+            color: color.$beige;
             border-radius: 999px;
             font-size: 1.2rem;
             text-align: center;

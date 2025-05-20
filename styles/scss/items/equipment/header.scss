@@ -1,0 +1,40 @@
+@use '../../utils/color.scss';
+
+.sheet.daggerheart.item.equipment {
+    .equipment-sheet-header {
+        display: flex;
+
+        .profile {
+            height: 150px;
+            width: 150px;
+            object-fit: cover;
+            border-right: 1px solid color.$golden;
+            border-bottom: 1px solid color.$golden;
+            box-sizing: border-box;
+        }
+
+        .equipment-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            margin-top: 36px;
+            width: 100%;
+
+            .equipment-name input[type='text'] {
+                font-size: 32px;
+                height: 42px;
+                text-align: center;
+            }
+
+            .equipment-description {
+                display: flex;
+                gap: 10px;
+            }
+
+            h3 {
+                font-size: 1rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+@use '../../utils/color.scss';
+
+.sheet.daggerheart.item.equipment {
+    .equipment-sheet-sidebar {
+        display: flex;
+        flex-direction: column;
+        .profile {
+            height: 167px;
+            width: 167px;
+            object-fit: cover;
+            border-right: 1px solid color.$golden;
+            border-bottom: 1px solid color.$golden;
+            box-sizing: border-box;
+        }
+    }
+}

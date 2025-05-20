@@ -1,5 +1,5 @@
-@import '../../utils/color.scss';
-@import '../../utils/fonts.scss';
+@use '../../utils/color.scss';
+@use '../../utils/fonts.scss';
 
 .sheet.daggerheart.item.domain-card {
     .tab.settings {
@@ -7,12 +7,12 @@
         max-height: 265px;
         overflow-y: auto;
         scrollbar-width: thin;
-        scrollbar-color: $golden transparent;
+        scrollbar-color: color.$golden transparent;
         input[type='number'] {
-            color: $beige;
-            font-family: $font-body;
+            color: color.$beige;
+            font-family: fonts.$font-body;
             &:focus {
-                outline: 2px solid $beige;
+                outline: 2px solid color.$beige;
             }
         }
     }

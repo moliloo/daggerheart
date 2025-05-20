@@ -1,29 +1,34 @@
-@import './actors/character/header.scss';
-@import './actors/character/sections.scss';
-@import './actors/character/tab-navigation.scss';
+@use './actors/character/header.scss' as actorCharHeader;
+@use './actors/character/sections.scss';
+@use './actors/character/tab-navigation.scss' as actorCharTabs;
 
-@import './items/class/header.scss';
-@import './items/class/settings.scss';
-@import './items/class/tiers-section.scss';
+@use './items/class/header.scss' as itemClassHeader;
+@use './items/class/settings.scss' as itemClassSetings;
+@use './items/class/tiers-section.scss';
 
-@import './items/community/header.scss';
+@use './items/community/header.scss' as itemCommunityHeader;
 
-@import './items/ancestry/header.scss';
+@use './items/ancestry/header.scss' as itemAcestryHeader;
 
-@import './items/domainCard/header.scss';
-@import './items/domainCard/settings.scss';
+@use './items/domainCard/header.scss' as itemDomainHeader;
+@use './items/domainCard/settings.scss'as itemDomainSettings;
 
-@import './global/sheet.scss';
-@import './global/elements.scss';
-@import './global/editor-container.scss';
+@use './items/equipment/header.scss' as itemEquipHeader;
+@use './items/equipment/sidebar.scss';
+// @use './items/equipment/sheet.scss';
+@use './items/equipment/settings.scss' as itemEquipSettings;
 
-@import './global/tabs/details.scss';
-@import './global/tabs/feature-section.scss';
-@import './global/tabs/feature-settings.scss';
-@import './global/tabs/level-up-settings.scss';
-@import './global/tabs/tab-navigation.scss';
-@import './global/tabs/effects.scss';
-@import './global/tabs/description.scss';
+@use './global/sheet.scss';
+@use './global/elements.scss';
+@use './global/editor-container.scss';
 
-@import './utils/fonts.scss';
-@import './utils/color.scss';
+@use './global/tabs/details.scss';
+@use './global/tabs/feature-section.scss';
+@use './global/tabs/feature-settings.scss';
+@use './global/tabs/level-up-settings.scss';
+@use './global/tabs/tab-navigation.scss' as globalTabs;
+@use './global/tabs/effects.scss';
+@use './global/tabs/description.scss';
+
+@use './utils/fonts.scss';
+@use './utils/color.scss';
