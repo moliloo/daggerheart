@@ -1,9 +1,9 @@
 {
     "TYPES": {
         "Actor": {
-          "character": "Character",
-          "companion": "Companion"
-        }, 
+            "character": "Character",
+            "companion": "Companion"
+        },
         "Item": {
             "ancestry": "Ancestry",
             "community": "Community",
@@ -157,7 +157,8 @@
                 "damageType": "Damage Type",
                 "baseScore": "Base Score",
                 "usedArmorSlots": "Used Armor Slots",
-                "thresholds": "Thresholds"
+                "thresholds": "Thresholds",
+                "spellcastTrait": "Spellcast Trait"
             },
             "type": {
                 "communityCard": "Community Card",
@@ -165,10 +166,17 @@
             },
             "featureType": {
                 "class": "Class Feature",
+                "subclass": "Subclass Feature",
                 "classHope": "Class Hope",
                 "community": "Community Feature",
                 "ancestry": "Ancestry Feature",
-                "domainCard": "Domain Card Feature"
+                "domainCard": "Domain Card Feature",
+                "equipment": "Equipment Feature"
+            },
+            "featureSubtype": {
+                "foundation": "Foundation",
+                "specialization": "Specialization",
+                "mastery": "Mastery"
             },
             "frequency": {
                 "atWill": "At-Will",
@@ -241,10 +249,10 @@
                 }
             },
             "currency": {
-              "coins": "Coins",
-              "handfuls": "Handfuls",
-              "bags": "Bags",
-              "chests": "Chests"
+                "coins": "Coins",
+                "handfuls": "Handfuls",
+                "bags": "Bags",
+                "chests": "Chests"
             }
         },
         "Attack": {

@@ -11,12 +11,14 @@
 @use './items/ancestry/header.scss' as itemAcestryHeader;
 
 @use './items/domainCard/header.scss' as itemDomainHeader;
-@use './items/domainCard/settings.scss'as itemDomainSettings;
+@use './items/domainCard/settings.scss' as itemDomainSettings;
 
 @use './items/equipment/header.scss' as itemEquipHeader;
 @use './items/equipment/sidebar.scss';
-// @use './items/equipment/sheet.scss';
 @use './items/equipment/settings.scss' as itemEquipSettings;
+
+@use './items/subclass/header.scss' as itemSubclassHeader;
+@use './items/subclass/settings.scss' as itemSubclassSettings;
 
 @use './global/sheet.scss';
 @use './global/elements.scss';

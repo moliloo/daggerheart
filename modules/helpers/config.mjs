@@ -34,6 +34,10 @@ daggerheart.featureType = {
         value: 'class',
         label: 'DAGGERHEART.Item.featureType.class'
     },
+    subclass: {
+        value: 'subclass',
+        label: 'DAGGERHEART.Item.featureType.subclass'
+    },
     classHope: {
         value: 'classHope',
         label: 'DAGGERHEART.Item.featureType.classHope'
@@ -49,6 +53,25 @@ daggerheart.featureType = {
     domainCard: {
         value: 'domainCard',
         label: 'DAGGERHEART.Item.featureType.domainCard'
+    },
+    equipment: {
+        value: 'equipment',
+        label: 'DAGGERHEART.Item.featureType.equipment'
+    }
+};
+
+daggerheart.featureSubtype = {
+    foundation: {
+        value: 'foundation',
+        label: 'DAGGERHEART.Item.featureSubtype.foundation'
+    },
+    specialization: {
+        value: 'specialization',
+        label: 'DAGGERHEART.Item.featureSubtype.specialization'
+    },
+    mastery: {
+        value: 'mastery',
+        label: 'DAGGERHEART.Item.featureSubtype.mastery'
     }
 };
 

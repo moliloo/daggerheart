@@ -17,6 +17,7 @@ export default class DaggerheartItemBase extends foundry.abstract.TypeDataModel 
                 name: new fields.StringField({ initial: '' }),
                 img: new fields.StringField({ initial: '' }),
                 type: new fields.StringField({ initial: '' }),
+                subtype: new fields.StringField({ initial: 'foundation' }),
                 id: new fields.StringField({ initial: '' }),
                 description: new fields.HTMLField({ required: true, blank: true, initial: 'Feature Description' }),
 

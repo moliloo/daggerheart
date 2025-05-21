@@ -654,6 +654,54 @@
   z-index: 1;
 }
 
+.sheet.daggerheart.item.subclass .window-content {
+  position: relative;
+  top: -36px;
+}
+.sheet.daggerheart.item.subclass .subclass-sheet-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.sheet.daggerheart.item.subclass .subclass-sheet-header .profile {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  mask-image: linear-gradient(0deg, transparent 0%, black 10%);
+}
+.sheet.daggerheart.item.subclass .subclass-sheet-header .subclass-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -25px;
+  gap: 5px;
+  margin: 0 12px;
+}
+.sheet.daggerheart.item.subclass .subclass-sheet-header .subclass-info .subclass-name input[type=text] {
+  font-size: 32px;
+  height: 42px;
+  text-align: center;
+}
+.sheet.daggerheart.item.subclass .subclass-sheet-header .subclass-info h3 {
+  font-size: 1rem;
+}
+
+.sheet.daggerheart.item.subclass .tab.settings {
+  padding: 0 10px;
+  max-height: 265px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #f3c267 transparent;
+}
+.sheet.daggerheart.item.subclass .tab.settings input[type=number] {
+  color: #efe6d8;
+  font-family: "Montserrat", sans-serif;
+}
+.sheet.daggerheart.item.subclass .tab.settings input[type=number]:focus {
+  outline: 2px solid #efe6d8;
+}
+
 .application.sheet .window-header {
   background: transparent;
   border-bottom: none;

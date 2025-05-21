@@ -1,0 +1,11 @@
+<header class='subclass-sheet-header'>
+    <img class='profile' src='{{source.img}}' data-action='editImage' data-edit='img' />
+    <div class='subclass-info'>
+        <h1 class='subclass-name'><input type='text' name='name' value='{{source.name}}' /></h1>
+        <h3>
+            {{localize 'DAGGERHEART.Item.settings.spellcastTrait'}}
+            -
+            {{localize (concat 'DAGGERHEART.Actor.attributes.' source.system.spellcastTrait '.name')}}
+        </h3>
+    </div>
+</header>

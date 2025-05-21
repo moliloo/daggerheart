@@ -8,6 +8,7 @@ import { DaggerheartCommunitySheet } from './sheets/items/community-sheet.mjs';
 import { DaggerheartAncestrySheet } from './sheets/items/ancestry-sheet.mjs';
 import { DaggerheartDomainCardSheet } from './sheets/items/domainCard-sheet.mjs';
 import { DaggerheartClassSheet } from './sheets/items/class-sheet.mjs';
+import { DaggerheartSubclassSheet } from './sheets/items/subclass-sheet.mjs';
 
 import { preloadHandlebarsTemplates } from './helpers/templates.mjs';
 import { daggerheart } from './helpers/config.mjs';
@@ -39,7 +40,8 @@ Hooks.once('init', function () {
         community: models.DaggerheartCommunity,
         domainCard: models.DaggerheartDomainCard,
         class: models.DaggerheartClass,
-        equipment: models.DaggerheartEquipment
+        equipment: models.DaggerheartEquipment,
+        subclass: models.DaggerheartSubclass
     };
 
     Items.unregisterSheet('core', ItemSheet);
@@ -49,6 +51,7 @@ Hooks.once('init', function () {
     Items.registerSheet('daggerheart', DaggerheartDomainCardSheet, { types: ['domainCard'], makeDefault: true });
     Items.registerSheet('daggerheart', DaggerheartClassSheet, { types: ['class'], makeDefault: true });
     Items.registerSheet('daggerheart', DaggerheartEquipmentSheet, { types: ['equipment'], makeDefault: true });
+    Items.registerSheet('daggerheart', DaggerheartSubclassSheet, { types: ['subclass'], makeDefault: true });
 
     Actors.unregisterSheet('core', ActorSheet);
     Actors.registerSheet('daggerheart', DaggerheartCharacterSheet, { types: ['character'], makeDefault: true });

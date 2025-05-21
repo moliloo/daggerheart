@@ -7,3 +7,4 @@ export { default as DaggerheartCommunity } from './items/community.mjs';
 export { default as DaggerheartDomainCard } from './items/domainCard.mjs';
 export { default as DaggerheartClass } from './items/class.mjs';
 export { default as DaggerheartEquipment } from './items/equipment.mjs';
+export { default as DaggerheartSubclass } from './items/subclass.mjs';

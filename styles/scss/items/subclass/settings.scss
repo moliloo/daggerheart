@@ -1,0 +1,19 @@
+@use '../../utils/color.scss';
+@use '../../utils/fonts.scss';
+
+.sheet.daggerheart.item.subclass {
+    .tab.settings {
+        padding: 0 10px;
+        max-height: 265px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: color.$golden transparent;
+        input[type='number'] {
+            color: color.$beige;
+            font-family: fonts.$font-body;
+            &:focus {
+                outline: 2px solid color.$beige;
+            }
+        }
+    }
+}

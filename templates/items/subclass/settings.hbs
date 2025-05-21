@@ -1,0 +1,15 @@
+<section
+    class='tab {{tabs.settings.cssClass}} {{tabs.settings.id}}'
+    data-tab='{{tabs.settings.id}}'
+    data-group='{{tabs.settings.group}}'
+>
+
+    <fieldset class='two-columns'>
+        <legend>{{localize 'DAGGERHEART.Item.settings.settings'}}</legend>
+        <span>{{localize 'DAGGERHEART.Item.settings.spellcastTrait'}}:</span>
+        <select name='system.spellcastTrait'>
+            {{selectOptions config.attributes selected=item.system.spellcastTrait localize=true}}
+        </select>
+    </fieldset>
+
+</section>

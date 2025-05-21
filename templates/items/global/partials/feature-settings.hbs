@@ -7,6 +7,12 @@
         <select name='type' data-action='editFeature'>
             {{selectOptions config.featureType selected=feature.type localize=true}}
         </select>
+        {{#if (eq feature.type 'subclass')}}
+            <span>{{localize 'DAGGERHEART.Item.settings.subtype'}}:</span>
+            <select name='subtype' data-action='editFeature'>
+                {{selectOptions config.featureSubtype selected=feature.subtype localize=true}}
+            </select>
+        {{/if}}
         <span>{{localize 'DAGGERHEART.Item.settings.actionType'}}:</span>
         <select name='settings.actionType' data-action='editFeature'>
             {{selectOptions config.actionType selected=feature.settings.actionType localize=true}}

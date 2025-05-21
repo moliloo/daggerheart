@@ -11,7 +11,12 @@
                 <li class='feature-item' data-feature-id='{{feature.id}}'>
                     <div class='feature-line' data-action='openFeatureDescription'>
                         <img class='image' src='{{feature.img}}' />
-                        <h4>{{feature.name}}</h4>
+                        <h4>
+                            {{#if (eq feature.type 'subclass')}}
+                                <span>{{localize (concat 'DAGGERHEART.Item.featureSubtype.' feature.subtype)}} - </span>
+                            {{/if}}
+                            {{feature.name}}
+                        </h4>
                         <div class='controls'>
                             <a
                                 class='effect-control'
