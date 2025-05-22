@@ -1,4 +1,59 @@
-<section class='tab active' data-tab='summary' data-group='primary'>
-    <h2>Features</h2>
-    <h2>Experiences</h2>
+<section
+    class='tab {{tabs.summary.cssClass}} {{tabs.summary.id}}'
+    data-tab='{{tabs.summary.id}}'
+    data-group='{{tabs.summary.group}}'
+>
+    {{#each actor.items as |item|}}
+        {{#if (eq item.type 'class')}}
+            <fieldset>
+                <legend>{{item.name}} - Class</legend>
+                <ul>
+                    {{#each item.system.features as |feature|}}
+                        {{#if (eq feature.type 'classHope')}}
+                            {{> 'systems/daggerheart/templates/items/global/partials/feature-section-item.hbs' feature=feature hideContrals=true}}
+                        {{/if}}
+                        {{#if (eq feature.type 'class')}}
+                            {{> 'systems/daggerheart/templates/items/global/partials/feature-section-item.hbs' feature=feature hideContrals=true}}
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </fieldset>
+        {{/if}}
+        {{#if (eq item.type 'subclass')}}
+            <fieldset>
+                <legend>{{item.name}} - Sublass</legend>
+                <ul>
+                    {{#each item.system.features as |feature|}}
+                        {{#if (eq feature.type 'subclass')}}
+                            {{> 'systems/daggerheart/templates/items/global/partials/feature-section-item.hbs' feature=feature hideContrals=true}}
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </fieldset>
+        {{/if}}
+        {{#if (eq item.type 'ancestry')}}
+            <fieldset>
+                <legend>{{item.name}} - Ancestry</legend>
+                <ul>
+                    {{#each item.system.features as |feature|}}
+                        {{#if (eq feature.type 'ancestry')}}
+                            {{> 'systems/daggerheart/templates/items/global/partials/feature-section-item.hbs' feature=feature hideContrals=true}}
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </fieldset>
+        {{/if}}
+        {{#if (eq item.type 'community')}}
+            <fieldset>
+                <legend>{{item.name}} - Community</legend>
+                <ul>
+                    {{#each item.system.features as |feature|}}
+                        {{#if (eq feature.type 'community')}}
+                            {{> 'systems/daggerheart/templates/items/global/partials/feature-section-item.hbs' feature=feature hideContrals=true}}
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </fieldset>
+        {{/if}}
+    {{/each}}
 </section>

@@ -35,105 +35,26 @@
     <div class='main-section'>
         <line-div></line-div>
         <div class='name-row'>
-            <h1 class='actor-name'><input
+            <h1 class='actor-name'>
+                <input
                     type='text'
                     name='name'
                     value='{{source.name}}'
                     placeholder='Actor Name'
-                /></h1>
+                />
+            </h1>
 
-        </div>
-        <div class='resources-row'>
-            <div class='hope-section'>
-                <h4>{{localize 'DAGGERHEART.Actor.hope'}}</h4>
-                <span class='hope' data-action='hope' data-hope-value='1'>
-                    {{#le actor.system.hope.value 0}}
-                        <i class='fa-regular fa-circle'></i>
-                    {{else}}
-                        <i class='fa-solid fa-diamond'></i>
-                    {{/le}}
-                </span>
-                <span class='hope' data-action='hope' data-hope-value='2'>
-                    {{#le actor.system.hope.value 1}}
-                        <i class='fa-regular fa-circle'></i>
-                    {{else}}
-                        <i class='fa-solid fa-diamond'></i>
-                    {{/le}}
-                </span>
-                <span class='hope' data-action='hope' data-hope-value='3'>
-                    {{#le actor.system.hope.value 2}}
-                        <i class='fa-regular fa-circle'></i>
-                    {{else}}
-                        <i class='fa-solid fa-diamond'></i>
-                    {{/le}}
-                </span><span class='hope' data-action='hope' data-hope-value='4'>
-                    {{#le actor.system.hope.value 3}}
-                        <i class='fa-regular fa-circle'></i>
-                    {{else}}
-                        <i class='fa-solid fa-diamond'></i>
-                    {{/le}}
-                </span><span class='hope' data-action='hope' data-hope-value='5'>
-                    {{#le actor.system.hope.value 4}}
-                        <i class='fa-regular fa-circle'></i>
-                    {{else}}
-                        <i class='fa-solid fa-diamond'></i>
-                    {{/le}}
-                </span><span class='hope' data-action='hope' data-hope-value='6'>
-                    {{#le actor.system.hope.value 5}}
-                        <i class='fa-regular fa-circle'></i>
-                    {{else}}
-                        <i class='fa-solid fa-diamond'></i>
-                    {{/le}}
-                </span>
-            </div>
-            <div class='threshold-section'>
-                <h4>{{localize 'DAGGERHEART.Actor.threshold.major'}}</h4>
-                <h4>
-                    <input
-                        type='number'
-                        name='system.damageThreshold.value'
-                        value='{{actor.system.damageThreshold.value}}'
-                        placeholder='00'
-                    />
-                </h4>
-                <h4>{{localize 'DAGGERHEART.Actor.threshold.severe'}}</h4>
-            </div>
-        </div>
-        <div class='stats-section'>
-            <div class='level-div'>
-                <h4 class='label'>
-                    <i class='fa-solid fa-graduation-cap'></i>
-                    {{localize 'DAGGERHEART.Actor.level'}}
-                    {{actor.system.level}}
-                </h4>
-            </div>
-            <div class='stat-evasion'>
-                <h4 class='label'>
-                    <i class='fa-solid fa-person-running'></i>
-                    {{localize 'DAGGERHEART.Actor.evasion'}}
-                    {{actor.system.stats.evasion.value}}
-                </h4>
-            </div>
-            <div class='stat-armor'>
-                <h4 class='label'>
-                    <i class='fa-solid fa-shirt'></i>
-                    {{localize 'DAGGERHEART.Actor.armor'}}
-                    {{actor.system.stats.armor.value}}
-                </h4>
-            </div>
-            <!-- TODO: Add Data from Armor Slots later -->
-            <div class='stat-armor-slots'>
-                <h4 class='label'>
-                    <i class='fa-solid fa-shield'></i>
-                    <span>{{localize 'DAGGERHEART.Actor.slots'}}</span>
-                    <span>00/06</span>
-                </h4>
-            </div>
+                <div class='level-div'>
+                    <h3 class='label'>
+                        {{localize 'DAGGERHEART.Actor.level'}}
+                        {{actor.system.level}}
+                    </h3>
+                </div>
         </div>
         <div class='heritage-section'>
             {{#unless (filterByType actor.items 'ancestry')}}
                 <div class='heritage-item empty'>
-                    <h4>{{localize 'TYPES.ancestry'}}</h4>
+                    <h4>{{localize 'TYPES.Item.ancestry'}}</h4>
                 </div>
             {{/unless}}
             {{#each (filterByType actor.items 'ancestry') as |ancestry|}}
@@ -151,7 +72,7 @@
             {{/each}}
             {{#unless (filterByType actor.items 'community')}}
                 <div class='heritage-item empty'>
-                    <h4>{{localize 'TYPES.community'}}</h4>
+                    <h4>{{localize 'TYPES.Item.community'}}</h4>
                 </div>
             {{/unless}}
             {{#each (filterByType actor.items 'community') as |community|}}
@@ -169,7 +90,7 @@
             {{/each}}
             {{#unless (filterByType actor.items 'class')}}
                 <div class='heritage-item empty'>
-                    <h4>{{localize 'TYPES.class'}}</h4>
+                    <h4>{{localize 'TYPES.Item.class'}}</h4>
                 </div>
             {{/unless}}
             {{#each (filterByType actor.items 'class') as |class|}}
@@ -185,6 +106,45 @@
                     </div>
                 </div>
             {{/each}}
+            {{#unless (filterByType actor.items 'subclass')}}
+                <div class='heritage-item empty'>
+                    <h4>{{localize 'TYPES.Item.subclass'}}</h4>
+                </div>
+            {{/unless}}
+            {{#each (filterByType actor.items 'subclass') as |subclass|}}
+                <div class='heritage-item' data-item-id='{{subclass._id}}'>
+                    <h4>{{subclass.name}}</h4>
+                    <div class='controls'>
+                        <a data-action='editItem' data-item-id='{{subclass._id}}' data-tooltip='Edit Item'><i
+                                class='fa-solid fa-edit'
+                            ></i></a>
+                        <a data-action='deleteItem' data-item-id='{{subclass._id}}' data-tooltip='Edit Item'><i
+                                class='fa-solid fa-trash'
+                            ></i></a>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <div class='resources-row'>
+            <div class='hope-section'>
+                <h4>{{localize 'DAGGERHEART.Actor.hope'}}</h4>
+                {{#range 1 actor.system.hope.max}}
+                    <span class='hope' data-action='hope' data-hope-value='{{num}}'>
+                        {{#gt num ../actor.system.hope.value}}
+                        <i class='fa-regular fa-circle'></i>
+                        {{else}}
+                        <i class='fa-solid fa-diamond'></i>
+                        {{/gt}}
+                    </span>
+                {{/range}}
+            </div>
+            <div class='threshold-section'>
+                <h4>{{localize 'DAGGERHEART.Actor.threshold.minor'}}</h4>
+                <h4>{{actor.system.damageThreshold.major.value}}</h4>
+                <h4>{{localize 'DAGGERHEART.Actor.threshold.major'}}</h4>
+                <h4>{{actor.system.damageThreshold.severe.value}}</h4>
+                <h4>{{localize 'DAGGERHEART.Actor.threshold.severe'}}</h4>
+            </div>
         </div>
         <div class='attributes-section'>
             {{#each actor.system.attributes as |attribute key|}}
@@ -216,6 +176,6 @@
                 </div>
             {{/each}}
         </div>
-        <line-div></line-div>
+        {{> 'systems/daggerheart/templates/items/global/partials/tab-navigation.hbs'}}
     </div>
 </header>

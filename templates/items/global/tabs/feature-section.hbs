@@ -8,71 +8,7 @@
             <a data-action='addFeature'> <i class='fa-solid fa-plus'></i></a></legend>
         <div class='feature-list'>
             {{#each item.system.features as |feature|}}
-                <li class='feature-item' data-feature-id='{{feature.id}}'>
-                    <div class='feature-line' data-action='openFeatureDescription'>
-                        <img class='image' src='{{feature.img}}' />
-                        <h4>
-                            {{#if (eq feature.type 'subclass')}}
-                                <span>{{localize (concat 'DAGGERHEART.Item.featureSubtype.' feature.subtype)}} - </span>
-                            {{/if}}
-                            {{feature.name}}
-                        </h4>
-                        <div class='controls'>
-                            <a
-                                class='effect-control'
-                                data-action='editFeature'
-                                data-tooltip='{{localize "DAGGERHEART.Tooltip.openItemWorld"}}'
-                            >
-                                <i class='fa-solid fa-pen-to-square'></i>
-                            </a>
-                            <a
-                                class='effect-control'
-                                data-action='deleteFeature'
-                                data-tooltip='{{localize "DAGGERHEART.Tooltip.delete"}}'
-                            >
-                                <i class='fas fa-trash'></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class='item-description invisible' data-item-description='description'>
-                        <ul class='tags-list'>
-                            <li class='tag-item' data-tooltip='{{localize "DAGGERHEART.Item.settings.actionType"}}'>
-                                {{localize (concat 'DAGGERHEART.Item.actionType.' feature.settings.actionType)}}
-                            </li>
-                            <li class='tag-item' data-tooltip='{{localize "DAGGERHEART.Item.settings.frequency"}}'>
-                                {{#unless (eq feature.settings.frequency.type 'atWill')}}
-                                    {{feature.settings.frequency.times}}
-                                {{/unless}}
-                                {{localize (concat 'DAGGERHEART.Item.frequency.' feature.settings.frequency.type)}}
-                            </li>
-                            <li class='tag-item' data-tooltip='{{localize "DAGGERHEART.Item.settings.cost"}}'>
-                                {{#unless (eq feature.settings.cost.type 'noCost')}}
-                                    {{feature.settings.cost.value}}
-                                {{/unless}}
-                                {{localize (concat 'DAGGERHEART.Item.cost.' feature.settings.cost.type)}}
-                            </li>
-                            <li class='tag-item' data-tooltip='{{localize "DAGGERHEART.Item.settings.uses"}}'>
-                                {{#if (eq feature.settings.uses.type 'limited')}}
-                                    {{feature.settings.uses.value}}
-                                    {{localize 'DAGGERHEART.Item.settings.uses'}}
-                                {{else}}
-                                    {{localize (concat 'DAGGERHEART.Item.uses.' feature.settings.uses.type)}}
-                                {{/if}}
-                            </li>
-                            {{#unless (eq feature.settings.actionCategory.type 'none')}}
-                                <li
-                                    class='tag-item'
-                                    data-tooltip='{{localize "DAGGERHEART.Item.settings.actionCategory"}}'
-                                >
-                                    {{localize
-                                        (concat 'DAGGERHEART.Item.actionCategory.' feature.settings.actionCategory.type)
-                                    }}
-                                </li>
-                            {{/unless}}
-                        </ul>
-                        {{{feature.description}}}
-                    </div>
-                </li>
+                {{> 'systems/daggerheart/templates/items/global/partials/feature-section-item.hbs' feature=feature}}
             {{/each}}
         </div>
     </fieldset>

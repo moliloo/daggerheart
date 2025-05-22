@@ -277,6 +277,17 @@
             "delete": "Delete",
             "toggleEffect": "Toggle Effect",
             "openItemWorld": "Open Item World"
+        },
+        "Dialog": {
+            "titles": {
+                "delete": "Delete"
+            },
+            "messages": {
+                "deleteConfirmation": "Are you sure you want delete this?"
+            },
+            "tips": {
+                "deleteShortcut": "Pressing shift + left click to ignore the next confirmations"
+            }
         }
     },
     "UI": {

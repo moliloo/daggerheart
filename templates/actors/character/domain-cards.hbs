@@ -1,3 +1,17 @@
-<section class='tab {{tab.cssClass}}' data-tab='domainCards' data-group='primary'>
-    <h2>Domain Cards</h2>
+<section
+    class='tab {{tabs.domainCards.cssClass}} {{tabs.domainCards.id}}'
+    data-tab='{{tabs.domainCards.id}}'
+    data-group='{{tabs.domainCards.group}}'
+>
+    {{#each actor.items as |domainCard|}}
+        {{#if (eq domainCard.type 'domainCard')}}
+            <fieldset>
+                <legend>Loadout</legend>
+                {{domainCard.name}}
+            </fieldset>
+        {{/if}}
+    {{/each}}
+    <fieldset>
+        <legend>Vault</legend>
+    </fieldset>
 </section>

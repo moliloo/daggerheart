@@ -11,17 +11,14 @@
         height: 300px;
 
         .main-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-top: 36px;
             align-self: start;
             flex-grow: 1;
             justify-items: center;
-
-            .background-header {
-                height: 36px;
-            }
-        }
-
-        .actor-name {
-            margin-top: -8px;
+            align-items: center;
         }
 
         input[type='text'] {
@@ -48,7 +45,6 @@
             gap: 20px;
             justify-content: center;
             align-content: center;
-            margin-bottom: 12px;
 
             .stat-evasion,
             .stat-armor,
@@ -181,8 +177,7 @@
 
         .resources-row {
             display: flex;
-            gap: 20px;
-            margin: 12px 0;
+            gap: 10px;
             text-transform: uppercase;
 
             .hope-section {
@@ -220,9 +215,9 @@
         }
         .heritage-section {
             display: flex;
-            gap: 20px;
-            margin-bottom: 12px;
-            .heritage-item {
+            gap: 10px;
+            .heritage-item,
+            .level-div {
                 display: flex;
                 color: color.$golden;
                 background-color: color.$dark-blue;
@@ -258,7 +253,7 @@
             display: flex;
             gap: 12px;
             align-items: center;
-            margin-bottom: 12px;
+
             .attribute-div {
                 height: 60px;
                 width: 70px;
@@ -269,7 +264,10 @@
                 box-shadow: 0px 3px 3px color.$light-black;
                 align-items: center;
                 justify-items: center;
-                margin-bottom: 12px;
+
+                .attribute-value {
+                    font-size: 24px;
+                }
                 .label {
                     display: flex;
                     height: 20px;
@@ -292,6 +290,9 @@
                     }
                 }
             }
+        }
+        .tab-navigation {
+            width: 100%;
         }
     }
 }

@@ -1,6 +1,7 @@
 import { DaggerheartActor } from './documents/actor.mjs';
 import { DaggerheartItem } from './documents/item.mjs';
 
+import { DaggerheartActorSheet } from './sheets/actors/actor-sheet.mjs';
 import { DaggerheartCharacterSheet } from './sheets/actors/character-sheet.mjs';
 
 import { DaggerheartItemSheet } from './sheets/items/item-sheet.mjs';
@@ -54,6 +55,7 @@ Hooks.once('init', function () {
     Items.registerSheet('daggerheart', DaggerheartSubclassSheet, { types: ['subclass'], makeDefault: true });
 
     Actors.unregisterSheet('core', ActorSheet);
+    Actors.registerSheet('daggerheart', DaggerheartActorSheet, { makeDefault: true });
     Actors.registerSheet('daggerheart', DaggerheartCharacterSheet, { types: ['character'], makeDefault: true });
 
     preloadHandlebarsTemplates();
@@ -65,7 +67,7 @@ Hooks.once('ready', function () {
 
 Handlebars.registerHelper('le', function (a, b) {
     var next = arguments[arguments.length - 1];
-    return a <= b ? next.fn(this) : next.inverse(this);
+    return Number(a) <= Number(b) ? next.fn(this) : next.inverse(this);
 });
 
 Handlebars.registerHelper('filterByType', function (items, type) {
@@ -80,4 +82,22 @@ Handlebars.registerHelper('checkboxesByQuantity', function (n, block) {
         accum += block.fn(i);
     }
     return accum;
+});
+
+Handlebars.registerHelper('range', function (from, to, block) {
+    let accum = '';
+    for (let i = from; i <= to; ++i) {
+        accum += block.fn({ num: i });
+    }
+    return accum;
+});
+
+Handlebars.registerHelper('subtract', function (a, b) {
+    return Number(a) - Number(b);
+});
+
+Handlebars.registerHelper('gt', function (a, b, options) {
+    a = Number(a);
+    b = Number(b);
+    return a > b ? options.fn(this) : options.inverse(this);
 });

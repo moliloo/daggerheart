@@ -9,15 +9,14 @@
   height: 300px;
 }
 .sheet.daggerheart.actor.character .char-sheet-header .main-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 36px;
   align-self: start;
   flex-grow: 1;
   justify-items: center;
-}
-.sheet.daggerheart.actor.character .char-sheet-header .main-section .background-header {
-  height: 36px;
-}
-.sheet.daggerheart.actor.character .char-sheet-header .actor-name {
-  margin-top: -8px;
+  align-items: center;
 }
 .sheet.daggerheart.actor.character .char-sheet-header input[type=text] {
   font-size: 32px;
@@ -41,7 +40,6 @@
   gap: 20px;
   justify-content: center;
   align-content: center;
-  margin-bottom: 12px;
 }
 .sheet.daggerheart.actor.character .char-sheet-header .stats-section .stat-evasion,
 .sheet.daggerheart.actor.character .char-sheet-header .stats-section .stat-armor,
@@ -163,8 +161,7 @@
 }
 .sheet.daggerheart.actor.character .char-sheet-header .resources-row {
   display: flex;
-  gap: 20px;
-  margin: 12px 0;
+  gap: 10px;
   text-transform: uppercase;
 }
 .sheet.daggerheart.actor.character .char-sheet-header .resources-row .hope-section {
@@ -199,10 +196,10 @@
 }
 .sheet.daggerheart.actor.character .char-sheet-header .heritage-section {
   display: flex;
-  gap: 20px;
-  margin-bottom: 12px;
+  gap: 10px;
 }
-.sheet.daggerheart.actor.character .char-sheet-header .heritage-section .heritage-item {
+.sheet.daggerheart.actor.character .char-sheet-header .heritage-section .heritage-item,
+.sheet.daggerheart.actor.character .char-sheet-header .heritage-section .level-div {
   display: flex;
   color: #f3c267;
   background-color: rgb(24, 22, 46);
@@ -215,24 +212,27 @@
   text-transform: uppercase;
   height: 30px;
 }
-.sheet.daggerheart.actor.character .char-sheet-header .heritage-section .heritage-item.empty {
+.sheet.daggerheart.actor.character .char-sheet-header .heritage-section .heritage-item.empty,
+.sheet.daggerheart.actor.character .char-sheet-header .heritage-section .level-div.empty {
   border: 1px dashed #f3c267;
 }
-.sheet.daggerheart.actor.character .char-sheet-header .heritage-section .heritage-item .controls {
+.sheet.daggerheart.actor.character .char-sheet-header .heritage-section .heritage-item .controls,
+.sheet.daggerheart.actor.character .char-sheet-header .heritage-section .level-div .controls {
   display: none;
 }
-.sheet.daggerheart.actor.character .char-sheet-header .heritage-section .heritage-item:hover .controls {
+.sheet.daggerheart.actor.character .char-sheet-header .heritage-section .heritage-item:hover .controls,
+.sheet.daggerheart.actor.character .char-sheet-header .heritage-section .level-div:hover .controls {
   display: flex;
   gap: 5px;
 }
-.sheet.daggerheart.actor.character .char-sheet-header .heritage-section .heritage-item:hover .controls a {
+.sheet.daggerheart.actor.character .char-sheet-header .heritage-section .heritage-item:hover .controls a,
+.sheet.daggerheart.actor.character .char-sheet-header .heritage-section .level-div:hover .controls a {
   text-shadow: none;
 }
 .sheet.daggerheart.actor.character .char-sheet-header .attributes-section {
   display: flex;
   gap: 12px;
   align-items: center;
-  margin-bottom: 12px;
 }
 .sheet.daggerheart.actor.character .char-sheet-header .attributes-section .attribute-div {
   height: 60px;
@@ -244,7 +244,9 @@
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
   align-items: center;
   justify-items: center;
-  margin-bottom: 12px;
+}
+.sheet.daggerheart.actor.character .char-sheet-header .attributes-section .attribute-div .attribute-value {
+  font-size: 24px;
 }
 .sheet.daggerheart.actor.character .char-sheet-header .attributes-section .attribute-div .label {
   display: flex;
@@ -265,6 +267,9 @@
 .sheet.daggerheart.actor.character .char-sheet-header .attributes-section .attribute-div .label:hover .dice-icon {
   display: flex;
 }
+.sheet.daggerheart.actor.character .char-sheet-header .tab-navigation {
+  width: 100%;
+}
 
 .sheet.daggerheart.actor.character .sections {
   display: grid;
@@ -273,6 +278,13 @@
 .sheet.daggerheart.actor.character .char-tabs {
   position: relative;
   top: -30px;
+  height: 380px;
+  overflow-y: auto;
+  padding: 0 20px;
+}
+
+.sheet.daggerheart.actor.character .tab.summary fieldset ul {
+  list-style: none;
 }
 
 .sheet.daggerheart.actor.character nav.sheet-tabs {
@@ -960,6 +972,53 @@
   padding: 5px 0;
 }
 .sheet.daggerheart.item .tab.features .feature-list .feature-item .item-description:not(.invisible) .tags-list .tag-item {
+  background-color: rgba(24, 22, 46, 0.33);
+  border: 1px solid #efe6d8;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+
+.sheet.daggerheart .feature-item {
+  margin-bottom: 10px;
+}
+.sheet.daggerheart .feature-item:last-child {
+  margin-bottom: 0px;
+}
+.sheet.daggerheart .feature-item .feature-line {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 4fr 1fr;
+  cursor: pointer;
+}
+.sheet.daggerheart .feature-item .feature-line h4 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: lighter;
+  color: #efe6d8;
+}
+.sheet.daggerheart .feature-item .feature-line .image {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: none;
+}
+.sheet.daggerheart .feature-item .feature-line .controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.sheet.daggerheart .feature-item .feature-line .controls a {
+  text-shadow: none;
+}
+.sheet.daggerheart .feature-item .item-description:not(.invisible) {
+  margin-top: 5px;
+}
+.sheet.daggerheart .feature-item .item-description:not(.invisible) .tags-list {
+  display: flex;
+  gap: 5px;
+  padding: 5px 0;
+}
+.sheet.daggerheart .feature-item .item-description:not(.invisible) .tags-list .tag-item {
   background-color: rgba(24, 22, 46, 0.33);
   border: 1px solid #efe6d8;
   border-radius: 5px;

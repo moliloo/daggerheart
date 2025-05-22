@@ -1,0 +1,53 @@
+@use '../../utils/color.scss';
+@use '../../utils/fonts.scss';
+
+.sheet.daggerheart {
+    .feature-item {
+        margin-bottom: 10px;
+        &:last-child {
+            margin-bottom: 0px;
+        }
+        .feature-line {
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr 4fr 1fr;
+            cursor: pointer;
+            h4 {
+                font-family: fonts.$font-body;
+                font-weight: lighter;
+                color: color.$beige;
+            }
+            .image {
+                height: 40px;
+                width: 40px;
+                object-fit: cover;
+                border-radius: 6px;
+                border: none;
+            }
+            .controls {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                a {
+                    text-shadow: none;
+                }
+            }
+        }
+        .item-description:not(.invisible) {
+            margin-top: 5px;
+
+            .tags-list {
+                display: flex;
+                gap: 5px;
+                padding: 5px 0;
+
+                .tag-item {
+                    background-color: color.$semi-transparent-dark-blue;
+                    border: 1px solid color.$beige;
+                    border-radius: 5px;
+                    padding: 2px 5px;
+                }
+            }
+        }
+    }
+}

@@ -26,6 +26,7 @@ export default class DaggerheartCharacter extends DaggerheartActorBase {
                 max: new fields.NumberField({ ...requiredInteger, initial: 6 })
             })
         });
+        schema.hasMulticlass = new fields.BooleanField({ initial: false });
 
         return schema;
     }

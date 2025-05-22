@@ -4,6 +4,7 @@ import { DaggerheartTierSettingSheet } from './level-up-setting-sheet.mjs';
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ItemSheetV2 } = foundry.applications.sheets;
+const DialogV2 = foundry.applications.api.DialogV2;
 
 export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     #dragDrop;
@@ -297,11 +298,24 @@ export class DaggerheartItemSheet extends HandlebarsApplicationMixin(ItemSheetV2
 
     async deleteFeature(event, item) {
         const featureId = event.target.closest('li').dataset.featureId;
-        if (!item) return;
+        if (event?.shiftKey) {
+            item.update({
+                'system.features': item.system.features.filter(i => i.id !== featureId)
+            });
+            return;
+        }
 
-        item.update({
-            'system.features': item.system.features.filter(i => i.id !== featureId)
+        const proceed = await DialogV2.confirm({
+            window: { title: `${game.i18n.localize('DAGGERHEART.Dialog.titles.delete')}` },
+            content: `<span>${game.i18n.localize('DAGGERHEART.Dialog.messages.deleteConfirmation')}</span>
+            <span><i>${game.i18n.localize('DAGGERHEART.Dialog.tips.deleteShortcut')}</i></span>`
         });
+
+        if (proceed) {
+            item.update({
+                'system.features': item.system.features.filter(i => i.id !== featureId)
+            });
+        }
     }
 
     async editFeature(event, item) {

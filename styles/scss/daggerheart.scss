@@ -1,5 +1,6 @@
 @use './actors/character/header.scss' as actorCharHeader;
 @use './actors/character/sections.scss';
+@use './actors/character/summary.scss';
 @use './actors/character/tab-navigation.scss' as actorCharTabs;
 
 @use './items/class/header.scss' as itemClassHeader;
@@ -26,6 +27,7 @@
 
 @use './global/tabs/details.scss';
 @use './global/tabs/feature-section.scss';
+@use './global/tabs/feature-section-item.scss';
 @use './global/tabs/feature-settings.scss';
 @use './global/tabs/level-up-settings.scss';
 @use './global/tabs/tab-navigation.scss' as globalTabs;

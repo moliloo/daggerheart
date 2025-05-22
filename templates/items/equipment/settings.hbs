@@ -10,22 +10,30 @@
             {{selectOptions config.equipment.type selected=item.system.type localize=true}}
         </select>
         <span>{{localize 'DAGGERHEART.Item.settings.price'}}:</span>
-        <div class="nest-inputs price-inputs">
-            <span data-tooltip="{{localize 'DAGGERHEART.Item.currency.coins'}}">
-                <i class="fa-solid fa-coins"></i>
+        <div class='nest-inputs price-inputs'>
+            <span data-tooltip='{{localize "DAGGERHEART.Item.currency.coins"}}'>
+                <i class='fa-solid fa-coins'></i>
                 <input type='number' name='system.currency.coins.value' value='{{item.system.currency.coins.value}}' />
             </span>
-            <span data-tooltip="{{localize 'DAGGERHEART.Item.currency.handfuls'}}">
-                <i class="fa-solid fa-hands-holding-circle"></i>
-                <input type='number' name='system.currency.handfuls.value' value='{{item.system.currency.handfuls.value}}' />
+            <span data-tooltip='{{localize "DAGGERHEART.Item.currency.handfuls"}}'>
+                <i class='fa-solid fa-hands-holding-circle'></i>
+                <input
+                    type='number'
+                    name='system.currency.handfuls.value'
+                    value='{{item.system.currency.handfuls.value}}'
+                />
             </span>
-            <span data-tooltip="{{localize 'DAGGERHEART.Item.currency.bags'}}">
-                <i class="fa-solid fa-sack-dollar"></i>
+            <span data-tooltip='{{localize "DAGGERHEART.Item.currency.bags"}}'>
+                <i class='fa-solid fa-sack-dollar'></i>
                 <input type='number' name='system.currency.bags.value' value='{{item.system.currency.bags.value}}' />
             </span>
-            <span data-tooltip="{{localize 'DAGGERHEART.Item.currency.chests'}}">
-                <i class="fa-solid fa-toolbox"></i>
-                <input type='number' name='system.currency.chests.value' value='{{item.system.currency.chests.value}}' />
+            <span data-tooltip='{{localize "DAGGERHEART.Item.currency.chests"}}'>
+                <i class='fa-solid fa-toolbox'></i>
+                <input
+                    type='number'
+                    name='system.currency.chests.value'
+                    value='{{item.system.currency.chests.value}}'
+                />
             </span>
         </div>
     </fieldset>
@@ -68,10 +76,20 @@
             <span>{{localize 'DAGGERHEART.Item.settings.usedArmorSlots'}}:</span>
             <input type='number' name='system.armorSlots' value='{{item.system.armorSlots}}' />
             <span>{{localize 'DAGGERHEART.Item.settings.thresholds'}}:</span>
-            <div class="nest-inputs">
-              <input type='number' name='system.damageThreshold.minor.value' value='{{item.system.amageThreshold.minor.value}}' data-tooltip="{{localize 'DAGGERHEART.Actor.threshold.minor'}}"/>
-              <span>/</span>
-              <input type='number' name='system.amageThreshold.major.value' value='{{item.system.amageThreshold.major.value}}' data-tooltip="{{localize 'DAGGERHEART.Actor.threshold.major'}}"/>
+            <div class='nest-inputs'>
+                <input
+                    type='number'
+                    name='system.damageThreshold.major.value'
+                    value='{{item.system.amageThreshold.major.value}}'
+                    data-tooltip='{{localize "DAGGERHEART.Actor.threshold.major"}}'
+                />
+                <span>/</span>
+                <input
+                    type='number'
+                    name='system.amageThreshold.severe.value'
+                    value='{{item.system.amageThreshold.severe.value}}'
+                    data-tooltip='{{localize "DAGGERHEART.Actor.threshold.severe"}}'
+                />
             </div>
         </fieldset>
     {{/if}}

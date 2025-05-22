@@ -1,4 +1,26 @@
 <section class='sidebar'>
+    <div class='stat-evasion'>
+        <h4 class='label'>
+            <i class='fa-solid fa-person-running'></i>
+            {{localize 'DAGGERHEART.Actor.evasion'}}
+            {{actor.system.stats.evasion.value}}
+        </h4>
+    </div>
     <h3>Current Equipment</h3>
+    <div class='stat-armor'>
+        <h4 class='label'>
+            <i class='fa-solid fa-shirt'></i>
+            {{localize 'DAGGERHEART.Actor.armor'}}
+            {{actor.system.stats.armor.value}}
+        </h4>
+    </div>
+    <!-- TODO: Add Data from Armor Slots later -->
+    <div class='stat-armor-slots'>
+        <h4 class='label'>
+            <i class='fa-solid fa-shield'></i>
+            <span>{{localize 'DAGGERHEART.Actor.slots'}}</span>
+            <span>00/06</span>
+        </h4>
+    </div>
     <h3>Loadout</h3>
 </section>
